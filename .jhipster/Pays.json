@@ -1,0 +1,38 @@
+{
+  "name": "Pays",
+  "fields": [
+    {
+      "fieldName": "codIsoPays",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "libPays",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "codeDevisePays",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "region",
+      "otherEntityRelationshipName": "pays",
+      "relationshipName": "region"
+    }
+  ],
+  "changelogDate": "20200812012355",
+  "entityTableName": "pays",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": [
+    "ecoLifeExpedition"
+  ]
+}

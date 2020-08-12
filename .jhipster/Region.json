@@ -1,0 +1,37 @@
+{
+  "name": "Region",
+  "fields": [
+    {
+      "fieldName": "libRegion",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "tour",
+      "otherEntityRelationshipName": "region",
+      "relationshipName": "tour"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "pays",
+      "otherEntityRelationshipName": "region",
+      "relationshipName": "pays",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200812012455",
+  "entityTableName": "region",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": [
+    "ecoLifeExpedition"
+  ]
+}

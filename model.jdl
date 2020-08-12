@@ -1,0 +1,142 @@
+application {
+	
+  config {
+    packageName ch.itsforward.ecolifeexpedition
+    baseName ecoLifeExpedition
+    applicationType monolith
+    databaseType sql
+  }
+  entities Pays, Region
+}
+
+entity Pays(PAYS) {
+	
+	codIsoPays String
+	libPays String
+	codeDevisePays String
+}
+
+entity Region(REGION){
+	libRegion String
+}
+
+entity TypeCircuit(TYPE_CIRCUIT){
+	
+  libTypeCircuit String	
+}
+
+entity Tour(TOUR) {
+	
+   libTitre String
+   imageUrl  String 
+   videoUrl  String 
+   conseil String 
+   prixTTC Float
+
+}
+
+entity ServiceSupplementaire{
+	libelleService String
+}
+    
+entity Agence(AGENCE){
+	
+	libAgence String
+	adresseAgence String
+	contactAgence String
+}
+
+entity DonneurOrdre(DONNEUR_ORDRE) {
+	
+	nom String
+	prenom String
+	adresse String
+	numTelephone String
+	email String 
+	
+}
+
+entity Client{
+	
+	nom String
+	prenom String
+	adresse String
+	email String
+	dateNaissance LocalDate
+	
+}
+
+entity Reservation(RESERVATION){
+	
+	dateDebut LocalDate
+	dateFin LocalDate
+	nombreAdulte Integer
+	nombreJeune Integer
+	nombreEnfant Integer
+	montantTTC Float
+	libDevise String
+	
+} 
+
+entity Hotel{
+	
+	libelleHotel String
+	classeHotel Integer
+	
+}
+
+entity Chambre{
+	prixTTC Float
+}
+
+entity TypeChambre(TYPE_CHAMBRE){
+	libelleTypeChambre String
+}
+
+
+relationship OneToMany{
+	Pays to Region
+}
+
+relationship OneToMany{
+	 Region to Tour
+}
+
+relationship OneToMany{
+	TypeCircuit to Tour
+}
+
+relationship OneToMany{
+	Tour to ServiceSupplementaire
+}
+
+
+relationship OneToMany{
+	Reservation to Chambre
+}
+
+relationship OneToMany{
+	TypeChambre to Chambre
+}
+
+relationship OneToMany{
+	Hotel to Chambre
+}
+
+relationship OneToMany{
+	Agence to Hotel
+}
+
+
+relationship OneToOne {
+ Tour to Reservation
+ }
+ 
+ relationship OneToMany {
+ DonneurOrdre to Reservation
+ }
+ 
+ relationship OneToMany {
+  Reservation to Client
+ }
+ 
