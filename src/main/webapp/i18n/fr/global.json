@@ -7,6 +7,18 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entités",
+        "typeCircuit": "Type Circuit",
+        "tour": "Tour",
+        "serviceSupplementaire": "Service Supplementaire",
+        "agence": "Agence",
+        "donneurOrdre": "Donneur Ordre",
+        "client": "Client",
+        "reservation": "Reservation",
+        "hotel": "Hotel",
+        "chambre": "Chambre",
+        "typeChambre": "Type Chambre",
+        "pays": "Pays",
+        "region": "Region",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

@@ -1,3 +1,4 @@
+
 package ch.itsforward.ecolifeexpedition.service;
 
 import io.github.jhipster.config.JHipsterProperties;

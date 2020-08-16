@@ -48,6 +48,28 @@ public class CacheConfiguration {
             createCache(cm, ch.itsforward.ecolifeexpedition.domain.User.class.getName());
             createCache(cm, ch.itsforward.ecolifeexpedition.domain.Authority.class.getName());
             createCache(cm, ch.itsforward.ecolifeexpedition.domain.User.class.getName() + ".authorities");
+            createCache(cm, ch.itsforward.ecolifeexpedition.domain.TypeCircuit.class.getName());
+            createCache(cm, ch.itsforward.ecolifeexpedition.domain.TypeCircuit.class.getName() + ".tours");
+            createCache(cm, ch.itsforward.ecolifeexpedition.domain.Tour.class.getName());
+            createCache(cm, ch.itsforward.ecolifeexpedition.domain.Tour.class.getName() + ".serviceSupplementaires");
+            createCache(cm, ch.itsforward.ecolifeexpedition.domain.ServiceSupplementaire.class.getName());
+            createCache(cm, ch.itsforward.ecolifeexpedition.domain.Agence.class.getName());
+            createCache(cm, ch.itsforward.ecolifeexpedition.domain.Agence.class.getName() + ".hotels");
+            createCache(cm, ch.itsforward.ecolifeexpedition.domain.DonneurOrdre.class.getName());
+            createCache(cm, ch.itsforward.ecolifeexpedition.domain.DonneurOrdre.class.getName() + ".reservations");
+            createCache(cm, ch.itsforward.ecolifeexpedition.domain.Client.class.getName());
+            createCache(cm, ch.itsforward.ecolifeexpedition.domain.Reservation.class.getName());
+            createCache(cm, ch.itsforward.ecolifeexpedition.domain.Reservation.class.getName() + ".chambres");
+            createCache(cm, ch.itsforward.ecolifeexpedition.domain.Reservation.class.getName() + ".clients");
+            createCache(cm, ch.itsforward.ecolifeexpedition.domain.Hotel.class.getName());
+            createCache(cm, ch.itsforward.ecolifeexpedition.domain.Hotel.class.getName() + ".chambres");
+            createCache(cm, ch.itsforward.ecolifeexpedition.domain.Chambre.class.getName());
+            createCache(cm, ch.itsforward.ecolifeexpedition.domain.TypeChambre.class.getName());
+            createCache(cm, ch.itsforward.ecolifeexpedition.domain.TypeChambre.class.getName() + ".chambres");
+            createCache(cm, ch.itsforward.ecolifeexpedition.domain.Pays.class.getName());
+            createCache(cm, ch.itsforward.ecolifeexpedition.domain.Pays.class.getName() + ".regions");
+            createCache(cm, ch.itsforward.ecolifeexpedition.domain.Region.class.getName());
+            createCache(cm, ch.itsforward.ecolifeexpedition.domain.Region.class.getName() + ".tours");
             // jhipster-needle-ehcache-add-entry
         };
     }

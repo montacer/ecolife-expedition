@@ -7,7 +7,6 @@ import { EcoLifeExpeditionCoreModule } from 'app/core/core.module';
 import { EcoLifeExpeditionAppRoutingModule } from './app-routing.module';
 import { EcoLifeExpeditionHomeModule } from './home/home.module';
 import { EcoLifeExpeditionEntityModule } from './entities/entity.module';
-// jhipster-needle-angular-add-module-import JHipster will add new module here
 import { MainComponent } from './layouts/main/main.component';
 import { NavbarComponent } from './layouts/navbar/navbar.component';
 import { FooterComponent } from './layouts/footer/footer.component';
@@ -21,7 +20,6 @@ import { ErrorComponent } from './layouts/error/error.component';
     EcoLifeExpeditionSharedModule,
     EcoLifeExpeditionCoreModule,
     EcoLifeExpeditionHomeModule,
-    // jhipster-needle-angular-add-module JHipster will add new module here
     EcoLifeExpeditionEntityModule,
     EcoLifeExpeditionAppRoutingModule,
   ],

@@ -32,7 +32,5 @@
   "readOnly": false,
   "embedded": false,
   "clientRootFolder": "",
-  "applications": [
-    "ecoLifeExpedition"
-  ]
+  "applications": "*"
 }
