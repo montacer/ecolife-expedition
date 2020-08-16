@@ -1,0 +1,23 @@
+{
+  "ecoLifeExpeditionApp": {
+    "typeCircuit": {
+      "home": {
+        "title": "TypeCircuits",
+        "createLabel": "Créer un nouveau Type Circuit",
+        "createOrEditLabel": "Créer ou éditer un Type Circuit",
+        "notFound": "Aucun Type Circuit trouvé"
+      },
+      "created": "Un nouveau Type Circuit a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Type Circuit avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Type Circuit avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Type Circuit {{ id }} ?"
+      },
+      "detail": {
+        "title": "Type Circuit"
+      },
+      "libTypeCircuit": "Lib Type Circuit",
+      "tour": "Tour"
+    }
+  }
+}

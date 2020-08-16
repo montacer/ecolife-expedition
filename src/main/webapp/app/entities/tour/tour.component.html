@@ -1,0 +1,87 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="ecoLifeExpeditionApp.tour.home.title">Tours</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-tour" [routerLink]="['/tour/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="ecoLifeExpeditionApp.tour.home.createLabel">
+            Create a new Tour
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="tours?.length === 0">
+        <span jhiTranslate="ecoLifeExpeditionApp.tour.home.notFound">No tours found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="tours && tours.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="ecoLifeExpeditionApp.tour.libTitre">Lib Titre</span></th>
+                    <th scope="col" ><span jhiTranslate="ecoLifeExpeditionApp.tour.imageUrl">Image Url</span></th>
+                    <th scope="col" ><span jhiTranslate="ecoLifeExpeditionApp.tour.videoUrl">Video Url</span></th>
+                    <th scope="col" ><span jhiTranslate="ecoLifeExpeditionApp.tour.conseil">Conseil</span></th>
+                    <th scope="col" ><span jhiTranslate="ecoLifeExpeditionApp.tour.prixTTC">Prix TTC</span></th>
+                    <th scope="col" ><span jhiTranslate="ecoLifeExpeditionApp.tour.reservation">Reservation</span></th>
+                    <th scope="col" ><span jhiTranslate="ecoLifeExpeditionApp.tour.region">Region</span></th>
+                    <th scope="col" ><span jhiTranslate="ecoLifeExpeditionApp.tour.typeCircuit">Type Circuit</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let tour of tours ;trackBy: trackId">
+                    <td><a [routerLink]="['/tour', tour.id, 'view']">{{ tour.id }}</a></td>
+                    <td>{{ tour.libTitre }}</td>
+                    <td>{{ tour.imageUrl }}</td>
+                    <td>{{ tour.videoUrl }}</td>
+                    <td>{{ tour.conseil }}</td>
+                    <td>{{ tour.prixTTC }}</td>
+                    <td>
+                        <div *ngIf="tour.reservation">
+                            <a [routerLink]="['/reservation', tour.reservation?.id, 'view']" >{{ tour.reservation?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="tour.region">
+                            <a [routerLink]="['/region', tour.region?.id, 'view']" >{{ tour.region?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="tour.typeCircuit">
+                            <a [routerLink]="['/type-circuit', tour.typeCircuit?.id, 'view']" >{{ tour.typeCircuit?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/tour', tour.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/tour', tour.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(tour)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity ServiceSupplementaire.
+    -->
+    <changeSet id="20200812014049-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="tour_id"
+                                 baseTableName="service_supplementaire"
+                                 constraintName="fk_service_supplementaire_tour_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tour"/>
+
+    </changeSet>
+</databaseChangeLog>

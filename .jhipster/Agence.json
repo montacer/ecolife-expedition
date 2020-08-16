@@ -1,0 +1,36 @@
+{
+  "name": "Agence",
+  "fields": [
+    {
+      "fieldName": "libAgence",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "adresseAgence",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "contactAgence",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "hotel",
+      "otherEntityRelationshipName": "agence",
+      "relationshipName": "hotel"
+    }
+  ],
+  "changelogDate": "20200812014149",
+  "entityTableName": "agence",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

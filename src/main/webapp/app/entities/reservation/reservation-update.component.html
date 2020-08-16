@@ -1,0 +1,84 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-reservation-heading" jhiTranslate="ecoLifeExpeditionApp.reservation.home.createOrEditLabel">Create or edit a Reservation</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ecoLifeExpeditionApp.reservation.dateDebut" for="field_dateDebut">Date Debut</label>
+                    <div class="input-group">
+                        <input id="field_dateDebut" type="text" class="form-control" name="dateDebut" ngbDatepicker #dateDebutDp="ngbDatepicker" formControlName="dateDebut"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateDebutDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ecoLifeExpeditionApp.reservation.dateFin" for="field_dateFin">Date Fin</label>
+                    <div class="input-group">
+                        <input id="field_dateFin" type="text" class="form-control" name="dateFin" ngbDatepicker #dateFinDp="ngbDatepicker" formControlName="dateFin"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateFinDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ecoLifeExpeditionApp.reservation.nombreAdulte" for="field_nombreAdulte">Nombre Adulte</label>
+                    <input type="number" class="form-control" name="nombreAdulte" id="field_nombreAdulte"
+                           formControlName="nombreAdulte"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ecoLifeExpeditionApp.reservation.nombreJeune" for="field_nombreJeune">Nombre Jeune</label>
+                    <input type="number" class="form-control" name="nombreJeune" id="field_nombreJeune"
+                           formControlName="nombreJeune"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ecoLifeExpeditionApp.reservation.nombreEnfant" for="field_nombreEnfant">Nombre Enfant</label>
+                    <input type="number" class="form-control" name="nombreEnfant" id="field_nombreEnfant"
+                           formControlName="nombreEnfant"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ecoLifeExpeditionApp.reservation.montantTTC" for="field_montantTTC">Montant TTC</label>
+                    <input type="number" class="form-control" name="montantTTC" id="field_montantTTC"
+                           formControlName="montantTTC"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ecoLifeExpeditionApp.reservation.libDevise" for="field_libDevise">Lib Devise</label>
+                    <input type="text" class="form-control" name="libDevise" id="field_libDevise"
+                           formControlName="libDevise"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ecoLifeExpeditionApp.reservation.donneurOrdre" for="field_donneurOrdre">Donneur Ordre</label>
+                    <select class="form-control" id="field_donneurOrdre" name="donneurOrdre" formControlName="donneurOrdre">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="donneurOrdreOption.id === editForm.get('donneurOrdre')!.value?.id ? editForm.get('donneurOrdre')!.value : donneurOrdreOption" *ngFor="let donneurOrdreOption of donneurordres; trackBy: trackById">{{ donneurOrdreOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

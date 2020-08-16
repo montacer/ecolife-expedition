@@ -1,0 +1,23 @@
+{
+  "ecoLifeExpeditionApp": {
+    "serviceSupplementaire": {
+      "home": {
+        "title": "Service Supplementaires",
+        "createLabel": "Create a new Service Supplementaire",
+        "createOrEditLabel": "Create or edit a Service Supplementaire",
+        "notFound": "No Service Supplementaires found"
+      },
+      "created": "A new Service Supplementaire is created with identifier {{ param }}",
+      "updated": "A Service Supplementaire is updated with identifier {{ param }}",
+      "deleted": "A Service Supplementaire is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Service Supplementaire {{ id }}?"
+      },
+      "detail": {
+        "title": "Service Supplementaire"
+      },
+      "libelleService": "Libelle Service",
+      "tour": "Tour"
+    }
+  }
+}

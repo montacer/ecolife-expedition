@@ -1,0 +1,27 @@
+{
+  "ecoLifeExpeditionApp": {
+    "donneurOrdre": {
+      "home": {
+        "title": "Donneur Ordres",
+        "createLabel": "Create a new Donneur Ordre",
+        "createOrEditLabel": "Create or edit a Donneur Ordre",
+        "notFound": "No Donneur Ordres found"
+      },
+      "created": "A new Donneur Ordre is created with identifier {{ param }}",
+      "updated": "A Donneur Ordre is updated with identifier {{ param }}",
+      "deleted": "A Donneur Ordre is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Donneur Ordre {{ id }}?"
+      },
+      "detail": {
+        "title": "Donneur Ordre"
+      },
+      "nom": "Nom",
+      "prenom": "Prenom",
+      "adresse": "Adresse",
+      "numTelephone": "Num Telephone",
+      "email": "Email",
+      "reservation": "Reservation"
+    }
+  }
+}

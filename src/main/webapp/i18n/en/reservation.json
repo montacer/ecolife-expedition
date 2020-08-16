@@ -1,0 +1,32 @@
+{
+  "ecoLifeExpeditionApp": {
+    "reservation": {
+      "home": {
+        "title": "Reservations",
+        "createLabel": "Create a new Reservation",
+        "createOrEditLabel": "Create or edit a Reservation",
+        "notFound": "No Reservations found"
+      },
+      "created": "A new Reservation is created with identifier {{ param }}",
+      "updated": "A Reservation is updated with identifier {{ param }}",
+      "deleted": "A Reservation is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Reservation {{ id }}?"
+      },
+      "detail": {
+        "title": "Reservation"
+      },
+      "dateDebut": "Date Debut",
+      "dateFin": "Date Fin",
+      "nombreAdulte": "Nombre Adulte",
+      "nombreJeune": "Nombre Jeune",
+      "nombreEnfant": "Nombre Enfant",
+      "montantTTC": "Montant TTC",
+      "libDevise": "Lib Devise",
+      "chambre": "Chambre",
+      "client": "Client",
+      "tour": "Tour",
+      "donneurOrdre": "Donneur Ordre"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "ecoLifeExpeditionApp": {
+    "tour": {
+      "home": {
+        "title": "Tours",
+        "createLabel": "Create a new Tour",
+        "createOrEditLabel": "Create or edit a Tour",
+        "notFound": "No Tours found"
+      },
+      "created": "A new Tour is created with identifier {{ param }}",
+      "updated": "A Tour is updated with identifier {{ param }}",
+      "deleted": "A Tour is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Tour {{ id }}?"
+      },
+      "detail": {
+        "title": "Tour"
+      },
+      "libTitre": "Lib Titre",
+      "imageUrl": "Image Url",
+      "videoUrl": "Video Url",
+      "conseil": "Conseil",
+      "prixTTC": "Prix TTC",
+      "reservation": "Reservation",
+      "serviceSupplementaire": "Service Supplementaire",
+      "region": "Region",
+      "typeCircuit": "Type Circuit"
+    }
+  }
+}

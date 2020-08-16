@@ -1,0 +1,69 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="ecoLifeExpeditionApp.hotel.home.title">Hotels</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-hotel" [routerLink]="['/hotel/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="ecoLifeExpeditionApp.hotel.home.createLabel">
+            Create a new Hotel
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="hotels?.length === 0">
+        <span jhiTranslate="ecoLifeExpeditionApp.hotel.home.notFound">No hotels found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="hotels && hotels.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="ecoLifeExpeditionApp.hotel.libelleHotel">Libelle Hotel</span></th>
+                    <th scope="col" ><span jhiTranslate="ecoLifeExpeditionApp.hotel.classeHotel">Classe Hotel</span></th>
+                    <th scope="col" ><span jhiTranslate="ecoLifeExpeditionApp.hotel.agence">Agence</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let hotel of hotels ;trackBy: trackId">
+                    <td><a [routerLink]="['/hotel', hotel.id, 'view']">{{ hotel.id }}</a></td>
+                    <td>{{ hotel.libelleHotel }}</td>
+                    <td>{{ hotel.classeHotel }}</td>
+                    <td>
+                        <div *ngIf="hotel.agence">
+                            <a [routerLink]="['/agence', hotel.agence?.id, 'view']" >{{ hotel.agence?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/hotel', hotel.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/hotel', hotel.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(hotel)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

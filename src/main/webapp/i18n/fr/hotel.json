@@ -1,0 +1,25 @@
+{
+  "ecoLifeExpeditionApp": {
+    "hotel": {
+      "home": {
+        "title": "Hotels",
+        "createLabel": "Créer un nouveau Hotel",
+        "createOrEditLabel": "Créer ou éditer un Hotel",
+        "notFound": "Aucun Hotel trouvé"
+      },
+      "created": "Un nouveau Hotel a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Hotel avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Hotel avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Hotel {{ id }} ?"
+      },
+      "detail": {
+        "title": "Hotel"
+      },
+      "libelleHotel": "Libelle Hotel",
+      "classeHotel": "Classe Hotel",
+      "chambre": "Chambre",
+      "agence": "Agence"
+    }
+  }
+}

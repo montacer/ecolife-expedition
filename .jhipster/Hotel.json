@@ -1,0 +1,39 @@
+{
+  "name": "Hotel",
+  "fields": [
+    {
+      "fieldName": "libelleHotel",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "classeHotel",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "chambre",
+      "otherEntityRelationshipName": "hotel",
+      "relationshipName": "chambre"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "agence",
+      "otherEntityRelationshipName": "hotel",
+      "relationshipName": "agence",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200812014549",
+  "entityTableName": "hotel",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

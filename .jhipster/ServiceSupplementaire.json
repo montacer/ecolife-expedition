@@ -1,0 +1,29 @@
+{
+  "name": "ServiceSupplementaire",
+  "fields": [
+    {
+      "fieldName": "libelleService",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "tour",
+      "otherEntityRelationshipName": "serviceSupplementaire",
+      "relationshipName": "tour",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200812014049",
+  "entityTableName": "service_supplementaire",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

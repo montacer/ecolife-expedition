@@ -1,0 +1,60 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="reservation">
+            <h2><span jhiTranslate="ecoLifeExpeditionApp.reservation.detail.title">Reservation</span> {{ reservation.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ecoLifeExpeditionApp.reservation.dateDebut">Date Debut</span></dt>
+                <dd>
+                    <span>{{ reservation.dateDebut }}</span>
+                </dd>
+                <dt><span jhiTranslate="ecoLifeExpeditionApp.reservation.dateFin">Date Fin</span></dt>
+                <dd>
+                    <span>{{ reservation.dateFin }}</span>
+                </dd>
+                <dt><span jhiTranslate="ecoLifeExpeditionApp.reservation.nombreAdulte">Nombre Adulte</span></dt>
+                <dd>
+                    <span>{{ reservation.nombreAdulte }}</span>
+                </dd>
+                <dt><span jhiTranslate="ecoLifeExpeditionApp.reservation.nombreJeune">Nombre Jeune</span></dt>
+                <dd>
+                    <span>{{ reservation.nombreJeune }}</span>
+                </dd>
+                <dt><span jhiTranslate="ecoLifeExpeditionApp.reservation.nombreEnfant">Nombre Enfant</span></dt>
+                <dd>
+                    <span>{{ reservation.nombreEnfant }}</span>
+                </dd>
+                <dt><span jhiTranslate="ecoLifeExpeditionApp.reservation.montantTTC">Montant TTC</span></dt>
+                <dd>
+                    <span>{{ reservation.montantTTC }}</span>
+                </dd>
+                <dt><span jhiTranslate="ecoLifeExpeditionApp.reservation.libDevise">Lib Devise</span></dt>
+                <dd>
+                    <span>{{ reservation.libDevise }}</span>
+                </dd>
+                <dt><span jhiTranslate="ecoLifeExpeditionApp.reservation.donneurOrdre">Donneur Ordre</span></dt>
+                <dd>
+                    <div *ngIf="reservation.donneurOrdre">
+                        <a [routerLink]="['/donneur-ordre', reservation.donneurOrdre?.id, 'view']">{{ reservation.donneurOrdre?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/reservation', reservation.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

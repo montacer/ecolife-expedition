@@ -1,0 +1,28 @@
+{
+  "name": "TypeCircuit",
+  "fields": [
+    {
+      "fieldName": "libTypeCircuit",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "tour",
+      "otherEntityRelationshipName": "typeCircuit",
+      "relationshipName": "tour"
+    }
+  ],
+  "changelogDate": "20200812013849",
+  "entityTableName": "type_circuit",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

@@ -1,0 +1,66 @@
+{
+  "name": "Tour",
+  "fields": [
+    {
+      "fieldName": "libTitre",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "imageUrl",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "videoUrl",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "conseil",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "prixTTC",
+      "fieldType": "Float"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "reservation",
+      "otherEntityRelationshipName": "tour",
+      "relationshipName": "reservation",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "serviceSupplementaire",
+      "otherEntityRelationshipName": "tour",
+      "relationshipName": "serviceSupplementaire"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "region",
+      "otherEntityRelationshipName": "tour",
+      "relationshipName": "region",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "typeCircuit",
+      "otherEntityRelationshipName": "tour",
+      "relationshipName": "typeCircuit",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200812013949",
+  "entityTableName": "tour",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

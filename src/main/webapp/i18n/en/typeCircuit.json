@@ -1,0 +1,23 @@
+{
+  "ecoLifeExpeditionApp": {
+    "typeCircuit": {
+      "home": {
+        "title": "Type Circuits",
+        "createLabel": "Create a new Type Circuit",
+        "createOrEditLabel": "Create or edit a Type Circuit",
+        "notFound": "No Type Circuits found"
+      },
+      "created": "A new Type Circuit is created with identifier {{ param }}",
+      "updated": "A Type Circuit is updated with identifier {{ param }}",
+      "deleted": "A Type Circuit is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Type Circuit {{ id }}?"
+      },
+      "detail": {
+        "title": "Type Circuit"
+      },
+      "libTypeCircuit": "Lib Type Circuit",
+      "tour": "Tour"
+    }
+  }
+}

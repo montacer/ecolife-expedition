@@ -1,0 +1,72 @@
+{
+  "name": "Reservation",
+  "fields": [
+    {
+      "fieldName": "dateDebut",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "dateFin",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "nombreAdulte",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "nombreJeune",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "nombreEnfant",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "montantTTC",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "libDevise",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "chambre",
+      "otherEntityRelationshipName": "reservation",
+      "relationshipName": "chambre"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "client",
+      "otherEntityRelationshipName": "reservation",
+      "relationshipName": "client"
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "tour",
+      "otherEntityRelationshipName": "reservation",
+      "relationshipName": "tour",
+      "ownerSide": false
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "donneurOrdre",
+      "otherEntityRelationshipName": "reservation",
+      "relationshipName": "donneurOrdre",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200812014449",
+  "entityTableName": "reservation",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

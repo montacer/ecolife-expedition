@@ -1,0 +1,43 @@
+{
+  "name": "Chambre",
+  "fields": [
+    {
+      "fieldName": "prixTTC",
+      "fieldType": "Float"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "reservation",
+      "otherEntityRelationshipName": "chambre",
+      "relationshipName": "reservation",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "typeChambre",
+      "otherEntityRelationshipName": "chambre",
+      "relationshipName": "typeChambre",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "hotel",
+      "otherEntityRelationshipName": "chambre",
+      "relationshipName": "hotel",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200812014649",
+  "entityTableName": "chambre",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

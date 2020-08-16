@@ -1,0 +1,28 @@
+{
+  "name": "TypeChambre",
+  "fields": [
+    {
+      "fieldName": "libelleTypeChambre",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "chambre",
+      "otherEntityRelationshipName": "typeChambre",
+      "relationshipName": "chambre"
+    }
+  ],
+  "changelogDate": "20200812014749",
+  "entityTableName": "type_chambre",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

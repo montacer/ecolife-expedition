@@ -1,0 +1,80 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-tour-heading" jhiTranslate="ecoLifeExpeditionApp.tour.home.createOrEditLabel">Create or edit a Tour</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ecoLifeExpeditionApp.tour.libTitre" for="field_libTitre">Lib Titre</label>
+                    <input type="text" class="form-control" name="libTitre" id="field_libTitre"
+                           formControlName="libTitre"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ecoLifeExpeditionApp.tour.imageUrl" for="field_imageUrl">Image Url</label>
+                    <input type="text" class="form-control" name="imageUrl" id="field_imageUrl"
+                           formControlName="imageUrl"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ecoLifeExpeditionApp.tour.videoUrl" for="field_videoUrl">Video Url</label>
+                    <input type="text" class="form-control" name="videoUrl" id="field_videoUrl"
+                           formControlName="videoUrl"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ecoLifeExpeditionApp.tour.conseil" for="field_conseil">Conseil</label>
+                    <input type="text" class="form-control" name="conseil" id="field_conseil"
+                           formControlName="conseil"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ecoLifeExpeditionApp.tour.prixTTC" for="field_prixTTC">Prix TTC</label>
+                    <input type="number" class="form-control" name="prixTTC" id="field_prixTTC"
+                           formControlName="prixTTC"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ecoLifeExpeditionApp.tour.reservation" for="field_reservation">Reservation</label>
+                    <select class="form-control" id="field_reservation" name="reservation" formControlName="reservation">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="reservationOption.id === editForm.get('reservation')!.value?.id ? editForm.get('reservation')!.value : reservationOption" *ngFor="let reservationOption of reservations; trackBy: trackById">{{ reservationOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ecoLifeExpeditionApp.tour.region" for="field_region">Region</label>
+                    <select class="form-control" id="field_region" name="region" formControlName="region">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="regionOption.id === editForm.get('region')!.value?.id ? editForm.get('region')!.value : regionOption" *ngFor="let regionOption of regions; trackBy: trackById">{{ regionOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ecoLifeExpeditionApp.tour.typeCircuit" for="field_typeCircuit">Type Circuit</label>
+                    <select class="form-control" id="field_typeCircuit" name="typeCircuit" formControlName="typeCircuit">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="typeCircuitOption.id === editForm.get('typeCircuit')!.value?.id ? editForm.get('typeCircuit')!.value : typeCircuitOption" *ngFor="let typeCircuitOption of typecircuits; trackBy: trackById">{{ typeCircuitOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,64 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="tour">
+            <h2><span jhiTranslate="ecoLifeExpeditionApp.tour.detail.title">Tour</span> {{ tour.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ecoLifeExpeditionApp.tour.libTitre">Lib Titre</span></dt>
+                <dd>
+                    <span>{{ tour.libTitre }}</span>
+                </dd>
+                <dt><span jhiTranslate="ecoLifeExpeditionApp.tour.imageUrl">Image Url</span></dt>
+                <dd>
+                    <span>{{ tour.imageUrl }}</span>
+                </dd>
+                <dt><span jhiTranslate="ecoLifeExpeditionApp.tour.videoUrl">Video Url</span></dt>
+                <dd>
+                    <span>{{ tour.videoUrl }}</span>
+                </dd>
+                <dt><span jhiTranslate="ecoLifeExpeditionApp.tour.conseil">Conseil</span></dt>
+                <dd>
+                    <span>{{ tour.conseil }}</span>
+                </dd>
+                <dt><span jhiTranslate="ecoLifeExpeditionApp.tour.prixTTC">Prix TTC</span></dt>
+                <dd>
+                    <span>{{ tour.prixTTC }}</span>
+                </dd>
+                <dt><span jhiTranslate="ecoLifeExpeditionApp.tour.reservation">Reservation</span></dt>
+                <dd>
+                    <div *ngIf="tour.reservation">
+                        <a [routerLink]="['/reservation', tour.reservation?.id, 'view']">{{ tour.reservation?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ecoLifeExpeditionApp.tour.region">Region</span></dt>
+                <dd>
+                    <div *ngIf="tour.region">
+                        <a [routerLink]="['/region', tour.region?.id, 'view']">{{ tour.region?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ecoLifeExpeditionApp.tour.typeCircuit">Type Circuit</span></dt>
+                <dd>
+                    <div *ngIf="tour.typeCircuit">
+                        <a [routerLink]="['/type-circuit', tour.typeCircuit?.id, 'view']">{{ tour.typeCircuit?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/tour', tour.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
