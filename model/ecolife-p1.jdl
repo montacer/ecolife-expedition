@@ -1,14 +1,3 @@
-application {
-	
-  config {
-    packageName ch.itsforward.ecolifeexpedition
-    baseName ecoLifeExpedition
-    applicationType monolith
-    databaseType sql
-  }
-  entities Pays, Region
-}
-
 entity Pays(PAYS) {
 	
 	codIsoPays String
