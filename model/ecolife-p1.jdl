@@ -1,0 +1,250 @@
+entity Pays(PAYS) {
+	
+	codIsoPays String
+	libPays String
+	codeDevisePays String
+}
+
+entity Region(REGION){
+	libRegion String
+}
+
+entity TypeCircuit(TYPE_CIRCUIT){
+	
+  libTypeCircuit String	
+}
+
+entity Tour(TOUR) {
+	
+   libTitre String
+   imageUrl  String 
+   videoUrl  String 
+   conseil String 
+   prixTTC Float
+
+}
+
+entity ServiceSupplementaire{
+	libelleService String
+}
+    
+entity Agence(AGENCE){
+	
+	libAgence String
+	adresseAgence String
+	contactAgence String
+}
+
+entity DonneurOrdre(DONNEUR_ORDRE) {
+	
+	nom String
+	prenom String
+	adresse String
+	numTelephone String
+	email String 
+	
+}
+
+entity Client{
+	
+	nom String
+	prenom String
+	adresse String
+	email String
+	dateNaissance LocalDate
+	
+}
+
+entity Reservation(RESERVATION){
+	
+	dateDebut LocalDate
+	dateFin LocalDate
+	nombreAdulte Integer
+	nombreJeune Integer
+	nombreEnfant Integer
+	montantTTC Float
+	libDevise String
+	
+} 
+
+entity Hotel{
+	
+	libelleHotel String
+	classeHotel Integer
+	
+}
+
+entity Chambre{
+	prixTTC Float
+}
+
+entity TypeChambre(TYPE_CHAMBRE){
+	libelleTypeChambre String
+}
+
+
+relationship OneToMany{
+	Pays to Region
+}
+
+relationship OneToMany{
+	 Region to Tour
+}
+
+relationship OneToMany{
+	TypeCircuit to Tour
+}
+
+relationship OneToMany{
+	Tour to ServiceSupplementaire
+}
+
+
+relationship OneToMany{
+	Reservation to Chambre
+}
+
+relationship OneToMany{
+	TypeChambre to Chambre
+}
+
+relationship OneToMany{
+	Hotel to Chambre
+}
+
+relationship OneToMany{
+	Agence to Hotel
+}
+
+
+relationship OneToOne {
+ Tour to Reservation
+ }
+ 
+ relationship OneToMany {
+ DonneurOrdre to Reservation
+ }
+ 
+ relationship OneToMany {
+  Reservation to Client
+ }
+ 
+
+
+/*
+ * 
+ entity 	Profil {
+	libProfil String
+}
+ 
+entity Transfer {
+ nom  String
+ type  String
+ adresse String
+ telephone String
+ periode  String
+ prix  Double
+ image  String 
+ video  String 
+}
+
+entity Hebergement{
+  idHeberg Integer
+  nom String
+  type String
+  adresse String
+  telephone String
+  periode  String
+  prix  Double
+  image  String 
+  video  String 
+}
+entity Client{
+ idClient Integer
+ nom String
+ age Integer
+}
+
+entity Avis {
+ idAvis Integer	
+ desciption String
+}
+entity Commande{
+  montant Integer
+}
+
+entity Payement{
+ modePayement String
+}
+ 
+entity LikeActivite{
+ nbreLike Integer
+}
+
+entity LikeTransfer{
+  nbreLike Integer
+}
+
+entity LikeHebergement{
+ nbreLike Integer
+}
+
+entity Vol{
+ id  Integer
+ company  String
+ classement  String
+ prix Double
+}
+ 
+
+ relationship OneToMany{
+ Client{activite} to Activite
+ }
+ relationship OneToOne{
+ Destination{vol} to Vol
+ }
+ 
+ relationship ManyToMany {
+ Region{activite(nom)} to Activite{region}
+ 
+ }
+
+ relationship OneToMany{
+  Client{transfer} to Transfer
+ }
+ relationship OneToMany{
+  Client{hebergement} to Hebergement
+ }
+relationship OneToMany{
+RegionActivite{transfer} to Transfer
+}
+relationship OneToMany{
+RegionActivite{hebergement} to Hebergement
+}
+relationship ManyToMany{
+RegionActivite{avis(desciption)} to Avis{regionActivite}
+}
+relationship OneToMany{
+RegionActivite{commande} to Commande
+}
+
+relationship OneToOne{
+Payement{commande} to Commande
+}
+relationship ManyToOne{
+Avis{client} to Client
+
+}
+* 
+  relationship ManyToMany {
+	Profil{activite} to Activite{profil}
+}
+
+ 
+ */  
+
+ 
+ 
+ 
+
+ 
