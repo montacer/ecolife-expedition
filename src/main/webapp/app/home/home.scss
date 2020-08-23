@@ -6,7 +6,7 @@ Main page styles
   display: inline-block;
   width: 347px;
   height: 497px;
-  background: url('../../content/images/jhipster_family_member_2.svg') no-repeat center top;
+  background: url('../../content/images/bg-ecolife.jpg') no-repeat center top;
   background-size: contain;
 }
 
@@ -17,7 +17,24 @@ Main page styles
   only screen and (min-resolution: 192dpi),
   only screen and (min-resolution: 2dppx) {
   .hipster {
-    background: url('../../content/images/jhipster_family_member_2.svg') no-repeat center top;
+    background: url('../../content/images/bg-ecolife.jpg') no-repeat center top;
     background-size: contain;
   }
+}
+
+body, html {
+  height: 100%;
+}
+
+.bg {
+  /* The image used */
+  background-image: url('../../content/images/bg-ecolife.jpg');
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }

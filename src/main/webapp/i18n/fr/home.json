@@ -1,19 +1,19 @@
 {
   "home": {
-    "title": "Bienvenue, Java Hipster !",
-    "subtitle": "Ceci est votre page d'accueil",
+    "title": "Bienvenue a ECOLIFE EXPDITION  !",
+    "subtitle": "Vous pouvez commencer votre selection",
     "logged": {
       "message": "Vous êtes connecté en tant que \"{{username}}\"."
     },
-    "question": "Si vous avez des questions à propos de JHipster :",
+    "question": "Si vous avez des questions à propos de Ecolife :",
     "link": {
-      "homepage": "Page d'accueil de JHipster",
-      "stackoverflow": "JHipster sur Stack Overflow",
-      "bugtracker": "JHipster bug tracker",
-      "chat": "JHipster public chat room",
-      "follow": "Suivez @jhipster sur Twitter"
+      "homepage": "Page d'accueil de Ecolife",
+      "stackoverflow": "Ecolife sur Stack Overflow",
+      "bugtracker": "Ecolife bug tracker",
+      "chat": "Ecolife public chat room",
+      "follow": "Suivez @Ecolife sur Twitter"
     },
-    "like": "Si vous aimez JHipster, donnez nous une étoile sur",
+    "like": "Si vous aimez Ecolife, donnez nous une étoile sur",
     "github": "GitHub "
   }
 }
