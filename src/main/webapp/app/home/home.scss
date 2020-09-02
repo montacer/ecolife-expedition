@@ -4,11 +4,25 @@ Main page styles
 .hipster {
   display: flow-root;
    width: 347px;
-   height: 900px;
-  background-image: url('../../content/images/bg-ecolife.jpg') ;
-background-repeat: no-repeat;
-  background-size: cover;
+   height: 497px;
+
 }
 
 /* wait autoprefixer update to allow simple generation of high pixel density media query */
+@media only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (-moz-min-device-pixel-ratio: 2),
+  only screen and (-o-min-device-pixel-ratio: 2/1),
+  only screen and (min-resolution: 192dpi),
+  only screen and (min-resolution: 2dppx) {
+  .hipster {
+    background-image: url('../../content/images/bg-ecolife.jpg') no-repeat center top;
+    background-size: 100% 100%;
+
+  }
+}
+
+.divstrech{
+    width: 100%; 
+	height: 90vh;
+}
 
