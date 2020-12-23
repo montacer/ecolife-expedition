@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HttpResponse } from '@angular/common/http';
 import { Subscription } from 'rxjs';
-import { JhiEventManager } from 'ng-jhipster';
+import { JhiEventManager, JhiDataUtils } from 'ng-jhipster';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { ITour } from 'app/shared/model/tour.model';
@@ -16,7 +16,12 @@ export class TourComponent implements OnInit, OnDestroy {
   tours?: ITour[];
   eventSubscriber?: Subscription;
 
-  constructor(protected tourService: TourService, protected eventManager: JhiEventManager, protected modalService: NgbModal) {}
+  constructor(
+    protected tourService: TourService,
+    protected dataUtils: JhiDataUtils,
+    protected eventManager: JhiEventManager,
+    protected modalService: NgbModal
+  ) {}
 
   loadAll(): void {
     this.tourService.query().subscribe((res: HttpResponse<ITour[]>) => (this.tours = res.body || []));
@@ -36,6 +41,14 @@ export class TourComponent implements OnInit, OnDestroy {
   trackId(index: number, item: ITour): number {
     // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
     return item.id!;
+  }
+
+  byteSize(base64String: string): string {
+    return this.dataUtils.byteSize(base64String);
+  }
+
+  openFile(contentType = '', base64String: string): void {
+    return this.dataUtils.openFile(contentType, base64String);
   }
 
   registerChangeInTours(): void {

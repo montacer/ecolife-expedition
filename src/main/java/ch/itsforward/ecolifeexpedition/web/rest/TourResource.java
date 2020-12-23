@@ -1,22 +1,31 @@
 package ch.itsforward.ecolifeexpedition.web.rest;
 
-import ch.itsforward.ecolifeexpedition.domain.Tour;
-import ch.itsforward.ecolifeexpedition.repository.TourRepository;
-import ch.itsforward.ecolifeexpedition.web.rest.errors.BadRequestAlertException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.nio.file.Path;
+import java.util.List;
+import java.util.Optional;
 
-import io.github.jhipster.web.util.HeaderUtil;
-import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.List;
-import java.util.Optional;
+import ch.itsforward.ecolifeexpedition.domain.Tour;
+import ch.itsforward.ecolifeexpedition.repository.TourRepository;
+import ch.itsforward.ecolifeexpedition.tools.MediaFileUtils;
+import ch.itsforward.ecolifeexpedition.web.rest.errors.BadRequestAlertException;
+import io.github.jhipster.web.util.HeaderUtil;
+import io.github.jhipster.web.util.ResponseUtil;
 
 /**
  * REST controller for managing {@link ch.itsforward.ecolifeexpedition.domain.Tour}.
@@ -32,6 +41,9 @@ public class TourResource {
 
     @Value("${jhipster.clientApp.name}")
     private String applicationName;
+    
+    @Value("${ecolife.mediaStorageLocation.video}")
+    private String videoStorageLocation;
 
     private final TourRepository tourRepository;
 
@@ -46,12 +58,21 @@ public class TourResource {
      * @return the {@link ResponseEntity} with status {@code 201 (Created)} and with body the new tour, or with status {@code 400 (Bad Request)} if the tour has already an ID.
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
+    
+
+   
+    
+    
     @PostMapping("/tours")
     public ResponseEntity<Tour> createTour(@RequestBody Tour tour) throws URISyntaxException {
         log.debug("REST request to save Tour : {}", tour);
         if (tour.getId() != null) {
             throw new BadRequestAlertException("A new tour cannot already have an ID", ENTITY_NAME, "idexists");
         }
+        Path file = MediaFileUtils.createMediaFile(videoStorageLocation, "video_tour", tour.getVideo());
+        log.info("file.getFileName() .............." + file.getFileName().toString());
+        tour.setVideoUrl(file.getFileName().toString());
+     
         Tour result = tourRepository.save(tour);
         return ResponseEntity.created(new URI("/api/tours/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
@@ -73,6 +94,9 @@ public class TourResource {
         if (tour.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
         }
+        Path file = MediaFileUtils.createMediaFile(videoStorageLocation, "video_tour", tour.getVideo());
+        log.info("file.getFileName().toString() .............." + file.getFileName().toString());
+        tour.setVideoUrl(file.getFileName().toString());
         Tour result = tourRepository.save(tour);
         return ResponseEntity.ok()
             .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, tour.getId().toString()))

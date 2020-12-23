@@ -1,21 +1,34 @@
 package ch.itsforward.ecolifeexpedition.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
-
-import javax.persistence.*;
-
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.annotations.Type;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
  * A Tour.
  */
 @Entity
 @Table(name = "tour")
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+//@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Tour implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -32,6 +45,20 @@ public class Tour implements Serializable {
 
     @Column(name = "video_url")
     private String videoUrl;
+
+    @Lob
+    @Type(type="org.hibernate.type.BinaryType")
+    @Column(name = "image")
+    private byte[] image;
+
+    @Column(name = "image_content_type")
+    private String imageContentType;
+    
+    
+    private byte[] video;
+
+    @Column(name = "video_content_type")
+    private String videoContentType;
 
     @Column(name = "conseil")
     private String conseil;
@@ -55,7 +82,7 @@ public class Tour implements Serializable {
     @JsonIgnoreProperties(value = "tours", allowSetters = true)
     private TypeCircuit typeCircuit;
 
-    
+    // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
         return id;
     }
@@ -101,6 +128,58 @@ public class Tour implements Serializable {
 
     public void setVideoUrl(String videoUrl) {
         this.videoUrl = videoUrl;
+    }
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public Tour image(byte[] image) {
+        this.image = image;
+        return this;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
+
+    public String getImageContentType() {
+        return imageContentType;
+    }
+
+    public Tour imageContentType(String imageContentType) {
+        this.imageContentType = imageContentType;
+        return this;
+    }
+
+    public void setImageContentType(String imageContentType) {
+        this.imageContentType = imageContentType;
+    }
+
+    public byte[] getVideo() {
+        return video;
+    }
+
+    public Tour video(byte[] video) {
+        this.video = video;
+        return this;
+    }
+
+    public void setVideo(byte[] video) {
+        this.video = video;
+    }
+
+    public String getVideoContentType() {
+        return videoContentType;
+    }
+
+    public Tour videoContentType(String videoContentType) {
+        this.videoContentType = videoContentType;
+        return this;
+    }
+
+    public void setVideoContentType(String videoContentType) {
+        this.videoContentType = videoContentType;
     }
 
     public String getConseil() {
@@ -192,7 +271,7 @@ public class Tour implements Serializable {
     public void setTypeCircuit(TypeCircuit typeCircuit) {
         this.typeCircuit = typeCircuit;
     }
-
+    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
     @Override
     public boolean equals(Object o) {
@@ -218,6 +297,10 @@ public class Tour implements Serializable {
             ", libTitre='" + getLibTitre() + "'" +
             ", imageUrl='" + getImageUrl() + "'" +
             ", videoUrl='" + getVideoUrl() + "'" +
+            ", image='" + getImage() + "'" +
+            ", imageContentType='" + getImageContentType() + "'" +
+            ", video='" + getVideo() + "'" +
+            ", videoContentType='" + getVideoContentType() + "'" +
             ", conseil='" + getConseil() + "'" +
             ", prixTTC=" + getPrixTTC() +
             "}";

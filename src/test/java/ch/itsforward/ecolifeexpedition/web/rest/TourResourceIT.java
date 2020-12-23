@@ -13,6 +13,7 @@ import org.springframework.http.MediaType;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.Base64Utils;
 import javax.persistence.EntityManager;
 import java.util.List;
 
@@ -37,6 +38,16 @@ public class TourResourceIT {
 
     private static final String DEFAULT_VIDEO_URL = "AAAAAAAAAA";
     private static final String UPDATED_VIDEO_URL = "BBBBBBBBBB";
+
+    private static final byte[] DEFAULT_IMAGE = TestUtil.createByteArray(1, "0");
+    private static final byte[] UPDATED_IMAGE = TestUtil.createByteArray(1, "1");
+    private static final String DEFAULT_IMAGE_CONTENT_TYPE = "image/jpg";
+    private static final String UPDATED_IMAGE_CONTENT_TYPE = "image/png";
+
+    private static final byte[] DEFAULT_VIDEO = TestUtil.createByteArray(1, "0");
+    private static final byte[] UPDATED_VIDEO = TestUtil.createByteArray(1, "1");
+    private static final String DEFAULT_VIDEO_CONTENT_TYPE = "image/jpg";
+    private static final String UPDATED_VIDEO_CONTENT_TYPE = "image/png";
 
     private static final String DEFAULT_CONSEIL = "AAAAAAAAAA";
     private static final String UPDATED_CONSEIL = "BBBBBBBBBB";
@@ -66,6 +77,10 @@ public class TourResourceIT {
             .libTitre(DEFAULT_LIB_TITRE)
             .imageUrl(DEFAULT_IMAGE_URL)
             .videoUrl(DEFAULT_VIDEO_URL)
+            .image(DEFAULT_IMAGE)
+            .imageContentType(DEFAULT_IMAGE_CONTENT_TYPE)
+            .video(DEFAULT_VIDEO)
+            .videoContentType(DEFAULT_VIDEO_CONTENT_TYPE)
             .conseil(DEFAULT_CONSEIL)
             .prixTTC(DEFAULT_PRIX_TTC);
         return tour;
@@ -81,6 +96,10 @@ public class TourResourceIT {
             .libTitre(UPDATED_LIB_TITRE)
             .imageUrl(UPDATED_IMAGE_URL)
             .videoUrl(UPDATED_VIDEO_URL)
+            .image(UPDATED_IMAGE)
+            .imageContentType(UPDATED_IMAGE_CONTENT_TYPE)
+            .video(UPDATED_VIDEO)
+            .videoContentType(UPDATED_VIDEO_CONTENT_TYPE)
             .conseil(UPDATED_CONSEIL)
             .prixTTC(UPDATED_PRIX_TTC);
         return tour;
@@ -108,6 +127,10 @@ public class TourResourceIT {
         assertThat(testTour.getLibTitre()).isEqualTo(DEFAULT_LIB_TITRE);
         assertThat(testTour.getImageUrl()).isEqualTo(DEFAULT_IMAGE_URL);
         assertThat(testTour.getVideoUrl()).isEqualTo(DEFAULT_VIDEO_URL);
+        assertThat(testTour.getImage()).isEqualTo(DEFAULT_IMAGE);
+        assertThat(testTour.getImageContentType()).isEqualTo(DEFAULT_IMAGE_CONTENT_TYPE);
+        assertThat(testTour.getVideo()).isEqualTo(DEFAULT_VIDEO);
+        assertThat(testTour.getVideoContentType()).isEqualTo(DEFAULT_VIDEO_CONTENT_TYPE);
         assertThat(testTour.getConseil()).isEqualTo(DEFAULT_CONSEIL);
         assertThat(testTour.getPrixTTC()).isEqualTo(DEFAULT_PRIX_TTC);
     }
@@ -146,6 +169,10 @@ public class TourResourceIT {
             .andExpect(jsonPath("$.[*].libTitre").value(hasItem(DEFAULT_LIB_TITRE)))
             .andExpect(jsonPath("$.[*].imageUrl").value(hasItem(DEFAULT_IMAGE_URL)))
             .andExpect(jsonPath("$.[*].videoUrl").value(hasItem(DEFAULT_VIDEO_URL)))
+            .andExpect(jsonPath("$.[*].imageContentType").value(hasItem(DEFAULT_IMAGE_CONTENT_TYPE)))
+            .andExpect(jsonPath("$.[*].image").value(hasItem(Base64Utils.encodeToString(DEFAULT_IMAGE))))
+            .andExpect(jsonPath("$.[*].videoContentType").value(hasItem(DEFAULT_VIDEO_CONTENT_TYPE)))
+            .andExpect(jsonPath("$.[*].video").value(hasItem(Base64Utils.encodeToString(DEFAULT_VIDEO))))
             .andExpect(jsonPath("$.[*].conseil").value(hasItem(DEFAULT_CONSEIL)))
             .andExpect(jsonPath("$.[*].prixTTC").value(hasItem(DEFAULT_PRIX_TTC.doubleValue())));
     }
@@ -164,6 +191,10 @@ public class TourResourceIT {
             .andExpect(jsonPath("$.libTitre").value(DEFAULT_LIB_TITRE))
             .andExpect(jsonPath("$.imageUrl").value(DEFAULT_IMAGE_URL))
             .andExpect(jsonPath("$.videoUrl").value(DEFAULT_VIDEO_URL))
+            .andExpect(jsonPath("$.imageContentType").value(DEFAULT_IMAGE_CONTENT_TYPE))
+            .andExpect(jsonPath("$.image").value(Base64Utils.encodeToString(DEFAULT_IMAGE)))
+            .andExpect(jsonPath("$.videoContentType").value(DEFAULT_VIDEO_CONTENT_TYPE))
+            .andExpect(jsonPath("$.video").value(Base64Utils.encodeToString(DEFAULT_VIDEO)))
             .andExpect(jsonPath("$.conseil").value(DEFAULT_CONSEIL))
             .andExpect(jsonPath("$.prixTTC").value(DEFAULT_PRIX_TTC.doubleValue()));
     }
@@ -191,6 +222,10 @@ public class TourResourceIT {
             .libTitre(UPDATED_LIB_TITRE)
             .imageUrl(UPDATED_IMAGE_URL)
             .videoUrl(UPDATED_VIDEO_URL)
+            .image(UPDATED_IMAGE)
+            .imageContentType(UPDATED_IMAGE_CONTENT_TYPE)
+            .video(UPDATED_VIDEO)
+            .videoContentType(UPDATED_VIDEO_CONTENT_TYPE)
             .conseil(UPDATED_CONSEIL)
             .prixTTC(UPDATED_PRIX_TTC);
 
@@ -206,6 +241,10 @@ public class TourResourceIT {
         assertThat(testTour.getLibTitre()).isEqualTo(UPDATED_LIB_TITRE);
         assertThat(testTour.getImageUrl()).isEqualTo(UPDATED_IMAGE_URL);
         assertThat(testTour.getVideoUrl()).isEqualTo(UPDATED_VIDEO_URL);
+        assertThat(testTour.getImage()).isEqualTo(UPDATED_IMAGE);
+        assertThat(testTour.getImageContentType()).isEqualTo(UPDATED_IMAGE_CONTENT_TYPE);
+        assertThat(testTour.getVideo()).isEqualTo(UPDATED_VIDEO);
+        assertThat(testTour.getVideoContentType()).isEqualTo(UPDATED_VIDEO_CONTENT_TYPE);
         assertThat(testTour.getConseil()).isEqualTo(UPDATED_CONSEIL);
         assertThat(testTour.getPrixTTC()).isEqualTo(UPDATED_PRIX_TTC);
     }

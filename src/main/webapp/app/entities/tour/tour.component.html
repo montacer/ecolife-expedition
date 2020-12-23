@@ -23,7 +23,7 @@
             <thead>
                 <tr>
                     <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
-                    <th scope="col" ><span jhiTranslate="ecoLifeExpeditionApp.tour.libTitre">Lib Titre</span></th>
+                    <th scope="col" ><span jhiTranslate="ecoLifeExpeditionApp.tour.libTitre">Titre</span></th>
                     <th scope="col" ><span jhiTranslate="ecoLifeExpeditionApp.tour.imageUrl">Image Url</span></th>
                     <th scope="col" ><span jhiTranslate="ecoLifeExpeditionApp.tour.videoUrl">Video Url</span></th>
                     <th scope="col" ><span jhiTranslate="ecoLifeExpeditionApp.tour.conseil">Conseil</span></th>
@@ -38,8 +38,8 @@
                 <tr *ngFor="let tour of tours ;trackBy: trackId">
                     <td><a [routerLink]="['/tour', tour.id, 'view']">{{ tour.id }}</a></td>
                     <td>{{ tour.libTitre }}</td>
-                    <td>{{ tour.imageUrl }}</td>
-                    <td>{{ tour.videoUrl }}</td>
+                    <td>{{ tour.imageUrl==null?'NON':'OUI' }}</td>
+                    <td>{{ tour.videoUrl==null?'NON':'OUI' }}</td>
                     <td>{{ tour.conseil }}</td>
                     <td>{{ tour.prixTTC }}</td>
                     <td>

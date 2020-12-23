@@ -19,6 +19,8 @@
       "libTitre": "Lib Titre",
       "imageUrl": "Image Url",
       "videoUrl": "Video Url",
+      "image": "Image",
+      "video": "Video",
       "conseil": "Conseil",
       "prixTTC": "Prix TTC",
       "reservation": "Reservation",

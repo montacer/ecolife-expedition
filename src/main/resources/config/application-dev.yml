@@ -118,3 +118,8 @@ jhipster:
 # ===================================================================
 
 # application:
+ecolife: 
+  mediaStorageLocation: 
+    video: ./video
+    audio: ./audio
+    image: ./image

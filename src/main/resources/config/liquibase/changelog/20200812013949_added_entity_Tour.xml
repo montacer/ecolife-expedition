@@ -25,6 +25,18 @@
             <column name="video_url" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
+            <column name="image" type="longblob">
+                <constraints nullable="true" />
+            </column>
+            <column name="image_content_type" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="video" type="longblob">
+                <constraints nullable="true" />
+            </column>
+            <column name="video_content_type" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
             <column name="conseil" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
@@ -66,6 +78,10 @@
             <column name="lib_titre" type="string"/>
             <column name="image_url" type="string"/>
             <column name="video_url" type="string"/>
+            <column name="image" type="blob"/>
+            <column name="image_content_type" type="string"/>
+            <column name="video" type="blob"/>
+            <column name="video_content_type" type="string"/>
             <column name="conseil" type="string"/>
             <column name="prix_ttc" type="numeric"/>
             <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->

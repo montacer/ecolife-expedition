@@ -1,12 +1,12 @@
 version: '2'
 services:
-  ecolife-postgresql:
+  ecolife-psql:
     image: postgres:12.3
     # volumes:
     #     - ~/volumes/jhipster/ecolife/postgresql/:/var/lib/postgresql/data/
     environment:
       - POSTGRES_USER=ecolife
-      - POSTGRES_PASSWORD=
+      - POSTGRES_PASSWORD=ecolife
       - POSTGRES_HOST_AUTH_METHOD=trust
     ports:
       - 5432:5432

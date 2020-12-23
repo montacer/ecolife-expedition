@@ -1,13 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 import { HttpResponse } from '@angular/common/http';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { JhiDataUtils, JhiFileLoadError, JhiEventManager, JhiEventWithContent } from 'ng-jhipster';
 
 import { ITour, Tour } from 'app/shared/model/tour.model';
 import { TourService } from './tour.service';
+import { AlertError } from 'app/shared/alert/alert-error.model';
 import { IReservation } from 'app/shared/model/reservation.model';
 import { ReservationService } from 'app/entities/reservation/reservation.service';
 import { IRegion } from 'app/shared/model/region.model';
@@ -32,6 +34,10 @@ export class TourUpdateComponent implements OnInit {
     libTitre: [],
     imageUrl: [],
     videoUrl: [],
+    image: [],
+    imageContentType: [],
+    video: [],
+    videoContentType: [],
     conseil: [],
     prixTTC: [],
     reservation: [],
@@ -40,10 +46,13 @@ export class TourUpdateComponent implements OnInit {
   });
 
   constructor(
+    protected dataUtils: JhiDataUtils,
+    protected eventManager: JhiEventManager,
     protected tourService: TourService,
     protected reservationService: ReservationService,
     protected regionService: RegionService,
     protected typeCircuitService: TypeCircuitService,
+    protected elementRef: ElementRef,
     protected activatedRoute: ActivatedRoute,
     private fb: FormBuilder
   ) {}
@@ -86,12 +95,42 @@ export class TourUpdateComponent implements OnInit {
       libTitre: tour.libTitre,
       imageUrl: tour.imageUrl,
       videoUrl: tour.videoUrl,
+      image: tour.image,
+      imageContentType: tour.imageContentType,
+      video: tour.video,
+      videoContentType: tour.videoContentType,
       conseil: tour.conseil,
       prixTTC: tour.prixTTC,
       reservation: tour.reservation,
       region: tour.region,
       typeCircuit: tour.typeCircuit,
     });
+  }
+
+  byteSize(base64String: string): string {
+    return this.dataUtils.byteSize(base64String);
+  }
+
+  openFile(contentType: string, base64String: string): void {
+    this.dataUtils.openFile(contentType, base64String);
+  }
+
+  setFileData(event: Event, field: string, isImage: boolean): void {
+    this.dataUtils.loadFileToForm(event, this.editForm, field, isImage).subscribe(null, (err: JhiFileLoadError) => {
+      this.eventManager.broadcast(
+        new JhiEventWithContent<AlertError>('ecoLifeExpeditionApp.error', { ...err, key: 'error.file.' + err.key })
+      );
+    });
+  }
+
+  clearInputImage(field: string, fieldContentType: string, idInput: string): void {
+    this.editForm.patchValue({
+      [field]: null,
+      [fieldContentType]: null,
+    });
+    if (this.elementRef && idInput && this.elementRef.nativeElement.querySelector('#' + idInput)) {
+      this.elementRef.nativeElement.querySelector('#' + idInput).value = null;
+    }
   }
 
   previousState(): void {
@@ -115,6 +154,10 @@ export class TourUpdateComponent implements OnInit {
       libTitre: this.editForm.get(['libTitre'])!.value,
       imageUrl: this.editForm.get(['imageUrl'])!.value,
       videoUrl: this.editForm.get(['videoUrl'])!.value,
+      imageContentType: this.editForm.get(['imageContentType'])!.value,
+      image: this.editForm.get(['image'])!.value,
+      videoContentType: this.editForm.get(['videoContentType'])!.value,
+      video: this.editForm.get(['video'])!.value,
       conseil: this.editForm.get(['conseil'])!.value,
       prixTTC: this.editForm.get(['prixTTC'])!.value,
       reservation: this.editForm.get(['reservation'])!.value,

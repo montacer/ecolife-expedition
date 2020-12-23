@@ -8,6 +8,10 @@ export interface ITour {
   libTitre?: string;
   imageUrl?: string;
   videoUrl?: string;
+  imageContentType?: string;
+  image?: any;
+  videoContentType?: string;
+  video?: any;
   conseil?: string;
   prixTTC?: number;
   reservation?: IReservation;
@@ -22,6 +26,10 @@ export class Tour implements ITour {
     public libTitre?: string,
     public imageUrl?: string,
     public videoUrl?: string,
+    public imageContentType?: string,
+    public image?: any,
+    public videoContentType?: string,
+    public video?: any,
     public conseil?: string,
     public prixTTC?: number,
     public reservation?: IReservation,

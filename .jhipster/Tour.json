@@ -14,6 +14,16 @@
       "fieldType": "String"
     },
     {
+      "fieldName": "image",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    },
+    {
+      "fieldName": "video",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "any"
+    },
+    {
       "fieldName": "conseil",
       "fieldType": "String"
     },

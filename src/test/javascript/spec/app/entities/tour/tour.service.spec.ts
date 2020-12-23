@@ -20,7 +20,7 @@ describe('Service Tests', () => {
       service = injector.get(TourService);
       httpMock = injector.get(HttpTestingController);
 
-      elemDefault = new Tour(0, 'AAAAAAA', 'AAAAAAA', 'AAAAAAA', 'AAAAAAA', 0);
+      elemDefault = new Tour(0, 'AAAAAAA', 'AAAAAAA', 'AAAAAAA', 'image/png', 'AAAAAAA', 'image/png', 'AAAAAAA', 'AAAAAAA', 0);
     });
 
     describe('Service methods', () => {
@@ -57,6 +57,8 @@ describe('Service Tests', () => {
             libTitre: 'BBBBBB',
             imageUrl: 'BBBBBB',
             videoUrl: 'BBBBBB',
+            image: 'BBBBBB',
+            video: 'BBBBBB',
             conseil: 'BBBBBB',
             prixTTC: 1,
           },
@@ -78,6 +80,8 @@ describe('Service Tests', () => {
             libTitre: 'BBBBBB',
             imageUrl: 'BBBBBB',
             videoUrl: 'BBBBBB',
+            image: 'BBBBBB',
+            video: 'BBBBBB',
             conseil: 'BBBBBB',
             prixTTC: 1,
           },

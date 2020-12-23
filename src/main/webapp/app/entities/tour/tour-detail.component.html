@@ -20,6 +20,30 @@
                 <dd>
                     <span>{{ tour.videoUrl }}</span>
                 </dd>
+                <dt><span jhiTranslate="ecoLifeExpeditionApp.tour.image">Image</span></dt>
+                <dd>
+                    <div *ngIf="tour.image">
+                        <a (click)="openFile(tour.imageContentType, tour.image)">
+                            <img [src]="'data:' + tour.imageContentType + ';base64,' + tour.image" style="max-width: 100%;" alt="tour image"/>
+                        </a>
+                        {{ tour.imageContentType }}, {{ byteSize(tour.image) }}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ecoLifeExpeditionApp.tour.video">Video</span></dt>
+                <dd>
+                    <div *ngIf="tour.video">
+                        <a (click)="openFile(tour.videoContentType, tour.video)" jhiTranslate="entity.action.open">open</a>
+                        {{ tour.videoContentType }}, {{ byteSize(tour.video) }}
+                    </div>
+                    
+					<div class="video">
+						<video controls  #videoPlayer width="auto" height="240">
+						<source src="http://localhost:8080/media/video/{{ tour.videoUrl }}" type="video/mp4" />
+							Browser not supported
+						</video>
+					</div>
+					
+                </dd>
                 <dt><span jhiTranslate="ecoLifeExpeditionApp.tour.conseil">Conseil</span></dt>
                 <dd>
                     <span>{{ tour.conseil }}</span>
