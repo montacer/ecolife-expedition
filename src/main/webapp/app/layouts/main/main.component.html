@@ -5,7 +5,345 @@
 </div>
 
 <div class="container-fluid">
-    <div class="card jh-card">
-        <router-outlet></router-outlet>
-    </div>
+<!--     <div class="card jh-card"> -->
+<!--         <router-outlet></router-outlet> -->
+<!--     </div> -->
+    
+   <header id="header-1">
+
+		<div class="wand-container">
+			<div class="header-content1">
+				<div class="search-area">
+					<div class="search-area__close"></div>
+					<form action="#">
+						<input class="search-area__input" placeholder="Search..."
+							type="text">
+						<button class="search-area__submit" type="submit">
+							<span>Hit Enter to search or Esc key to close</span>
+						</button>
+					</form>
+				</div>
+				<nav class="header-nav-mobile">
+					<ul>
+						<li><a href="#">HOME <i class="fa fa-angle-down"></i></a>
+							<ul class="sub-menu">
+								<li><a href="index.html">HOME 1</a></li>
+								<li><a href="index-2.html">HOME 2</a></li>
+								<li><a href="index-3.html">HOME 3</a></li>
+								<li><a href="index-4.html">HOME 4</a></li>
+								<li><a href="index-5.html">HOME 5</a></li>
+							</ul></li>
+						<li><a href="#">TOURS <i class="fa fa-angle-down"></i></a>
+							<ul class="sub-menu">
+								<li><a href="tour-grid.html">TOURS GRID</a></li>
+								<li><a href="tour-list.html">TOURS LIST</a></li>
+								<li><a href="#">TOURS ITEMS<i class="fa fa-angle-down"></i></a>
+									<ul>
+										<li><a href="tour-item.html">TOURS ITEM</a></li>
+										<li><a href="tour-item-2.html">TOURS ITEM2</a></li>
+										<li><a href="tour-item-3.html">TOURS ITEM3</a></li>
+									</ul></li>
+							</ul></li>
+						<li><a href="#">DESTINATIONS <i class="fa fa-angle-down"></i></a>
+							<ul class="sub-menu">
+								<li><a href="destination-grid.html">DESTINATION GRID</a></li>
+								<li><a href="destination-mansory.html">DESTINATION
+										MANSORY</a></li>
+								<li><a href="destination-item.html">DESTINATION ITEM</a></li>
+							</ul></li>
+						<li><a href="#">BLOG <i class="fa fa-angle-down"></i></a>
+							<ul class="sub-menu">
+								<li><a href="blog.html">BLOG LIST</a></li>
+								<li><a href="blog-grid.html">BLOG GRID</a></li>
+								<li><a href="blog-single.html">BLOG SINGLE</a></li>
+							</ul></li>
+						<li><a href="#">PAGES <i class="fa fa-angle-down"></i></a>
+							<ul class="sub-menu">
+								<li><a href="aboutus.html">ABOUT US</a></li>
+								<li><a href="404.html">404 PAGE</a></li>
+							</ul></li>
+						<li><a href="contact.html">CONTACT <i
+								class="fa fa-angle-down"></i></a></li>
+						<li>
+							<div class="header-nav-mobile__search-area">
+								<a class="header-nav-mobile__signin" href="#"><img
+									src="../../../assets/images/account.png" alt="account"></a> <a
+									class="header-nav-mobile__search-bar"> <img
+									src="../../../assets/images/headersearch.png" alt="headersearch">
+								</a>
+							</div>
+						</li>
+					</ul>
+				</nav>
+
+
+				<div class="header-content1__hamburger">
+					<span></span> <span></span> <span></span>
+				</div>
+			</div>
+			<div class="header-tittle1">
+				<img src="../../../assets/images/uploads/pagebanner/header1-tittle.png"
+					alt="header-1tittle">
+			</div>
+		</div>
+		
+		-->
+		<div id="form-1-area">
+			<div class="container">
+				<div class="form-area">
+					<form id="wanderlust-form1" action="#">
+						<div class="form__item form__item--select">
+							<label>DESTINATION</label>
+							<div class="custom-select">
+								<select>
+									<option value="0">Select destinaion</option>
+									<option value="SanFrancisco">SanFrancisco</option>
+									<option value="NewYork">NewYork</option>
+									<option value="California">California</option>
+								</select>
+							</div>
+						</div>
+						<div class="form__item ">
+							<label>CHECK IN</label>
+							<div class="form__item--datepicker">
+								<span class="far fa-calendar-alt"></span> <input
+									value="31 / 4 / 2017" type="text" id="date-check-in"
+									data-select="datepicker">
+							</div>
+						</div>
+						<div class="form__item">
+							<label>CHECK OUT</label>
+							<div class="form__item--datepicker">
+								<span class="far fa-calendar-alt"></span> <input
+									value="6 / 2 / 2018" type="text" id="date-check-out"
+									data-select="datepicker">
+							</div>
+						</div>
+						<div class="form__item form__item--select">
+							<label>TRAVEL TYPE</label>
+							<div class="custom-select">
+								<select>
+									<option value="0">Select destinaion</option>
+									<option value="Adventure">Adventure</option>
+									<option value="Hiking">Hiking</option>
+									<option value="Suffing">Suffing</option>
+								</select>
+							</div>
+						</div>
+						<div class="form__item form__item--submit">
+							<input type="submit" value="FIND NOW">
+						</div>
+
+					</form>
+				</div>
+			</div>
+
+		</div>
+	</header>
+
+
+
+
+
+
+
+	<section>
+		<div class="container">
+			<div class="top-desti__tittle">
+				<!-- section tittle -->
+
+
+
+				<div class="section-tittle">
+					<h2>Top Destination</h2>
+					<div class="section-tittle__line-under"></div>
+					<p>
+						Top <span>Destination</span>
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="top-desti">
+			<a href="destination-item.html" class="top-desti__item"> <img
+				src="../../../assets/images/uploads/destination/desti1.jpg" alt="desti1">
+				<div class="top-desti__ammout">
+					<span><i class="fa fa-map-marker"></i>BAGAN</span> <span>38
+						Tours</span>
+				</div>
+			</a> <a href="destination-item.html" class="top-desti__item"> <img
+				src="../../../assets/images/uploads/destination/desti2.jpg" alt="desti1">
+				<div class="top-desti__ammout">
+					<span><i class="fa fa-map-marker"></i>KATA TJUTA</span> <span>21
+						Tours</span>
+				</div>
+			</a> <a href="destination-item.html" class="top-desti__item"> <img
+				src="../../../assets/images/uploads/destination/desti3.jpg" alt="desti1">
+				<div class="top-desti__ammout">
+					<span><i class="fa fa-map-marker"></i>HERMANUS</span> <span>38
+						Tours</span>
+				</div>
+			</a> <a href="destination-item.html" class="top-desti__item"> <img
+				src="../../../assets/images/uploads/destination/desti4.jpg" alt="desti1">
+				<div class="top-desti__ammout">
+					<span><i class="fa fa-map-marker"></i>SYDNEY</span> <span>38
+						Tours</span>
+				</div>
+			</a> <a href="destination-item.html" class="top-desti__item"> <img
+				src="../../../assets/images/uploads/destination/desti5.jpg" alt="desti1">
+				<div class="top-desti__ammout">
+					<span><i class="fa fa-map-marker"></i>LAKE GARDA</span> <span>38
+						Tours</span>
+				</div>
+			</a>
+		</div>
+	</section>
+
+	<section id="col-3-tours">
+		<div class="container">
+			<div class="trending-tour__tittle">
+				<!-- section tittle -->
+
+
+
+				<div class="section-tittle">
+					<h2>Trending Tour</h2>
+					<div class="section-tittle__line-under"></div>
+					<p>
+						Trending <span>Tour</span>
+					</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-4 col-sm-6 col-12">
+					<a href="tour-item.html" class="trending-tour-item">
+						<div class="trending-tour-item__sale"></div> <img
+						class="trending-tour-item__thumnail"
+						src="../../../assets/images/uploads/tours/tour1.jpg" alt="tour1">
+						<div class="trending-tour-item__info">
+							<h3 class="trending-tour-item__name">nepal camp treks</h3>
+							<div class="trending-tour-item__group-infor">
+								<div class="trending-tour-item__group-infor--left">
+									<span class="trending-tour-item__group-infor__rating"></span>
+									<div class="trending-tour-item__group-infor__lasting">
+										<img src="../../../assets/images/tours/lasting.png" alt="lasting">
+										5 Days / 4 Nights
+									</div>
+								</div>
+
+								<p class="trending-tour-item__group-infor__sale-price">$999</p>
+								<span class="trending-tour-item__group-infor__price">$799</span>
+
+							</div>
+						</div>
+					</a>
+				</div>
+				<div class="col-lg-4 col-sm-6 col-12">
+					<a href="tour-item.html" class="trending-tour-item"> <img
+						class="trending-tour-item__thumnail"
+						src="../../../assets/images/uploads/tours/tour2.jpg" alt="tour1">
+						<div class="trending-tour-item__info">
+							<h3 class="trending-tour-item__name">trekking everest</h3>
+							<div class="trending-tour-item__group-infor">
+								<div class="trending-tour-item__group-infor--left">
+									<span class="trending-tour-item__group-infor__rating--4star"></span>
+									<div class="trending-tour-item__group-infor__lasting">
+										<img src="../../../assets/images/tours/lasting.png" alt="lasting">
+										7 Days / 6 Nights
+									</div>
+								</div>
+								<span class="trending-tour-item__group-infor__price">$652</span>
+
+							</div>
+						</div>
+					</a>
+				</div>
+				<div class="col-lg-4 col-sm-6 col-12">
+					<a href="tour-item.html" class="trending-tour-item"> <img
+						class="trending-tour-item__thumnail"
+						src="../../../assets/images/uploads/tours/tour3.jpg" alt="tour1">
+						<div class="trending-tour-item__info">
+							<h3 class="trending-tour-item__name">Kelingking beach</h3>
+							<div class="trending-tour-item__group-infor">
+								<div class="trending-tour-item__group-infor--left">
+									<span class="trending-tour-item__group-infor__rating"></span>
+									<div class="trending-tour-item__group-infor__lasting">
+										<img src="../../../assets/images/tours/lasting.png" alt="lasting">
+										3 Days / 2 Nights
+									</div>
+								</div>
+								<span class="trending-tour-item__group-infor__price">$456</span>
+
+							</div>
+						</div>
+					</a>
+				</div>
+
+				<div class="col-lg-4 col-sm-6 col-12">
+					<a href="tour-item.html" class="trending-tour-item"> <img
+						class="trending-tour-item__thumnail"
+						src="../../../assets/images/uploads/tours/tour4.jpg" alt="tour4">
+						<div class="trending-tour-item__info">
+							<h3 class="trending-tour-item__name">Turkey Encompassed</h3>
+							<div class="trending-tour-item__group-infor">
+								<div class="trending-tour-item__group-infor--left">
+									<span class="trending-tour-item__group-infor__rating"></span>
+									<div class="trending-tour-item__group-infor__lasting">
+										<img src="../../../assets/images/tours/lasting.png" alt="lasting">
+										6 Days / 6 Nights
+									</div>
+								</div>
+
+								<span class="trending-tour-item__group-infor__price">$703</span>
+
+							</div>
+						</div>
+					</a>
+				</div>
+				<div class="col-lg-4 col-sm-6 col-12">
+					<a href="tour-item.html" class="trending-tour-item"> <img
+						class="trending-tour-item__thumnail"
+						src="../../../assets/images/uploads/tours/tour5.jpg" alt="tour5">
+						<div class="trending-tour-item__info">
+							<h3 class="trending-tour-item__name">Broho Midnight Tour</h3>
+							<div class="trending-tour-item__group-infor">
+								<div class="trending-tour-item__group-infor--left">
+									<span class="trending-tour-item__group-infor__rating--3star"></span>
+									<div class="trending-tour-item__group-infor__lasting">
+										<img src="../../../assets/images/tours/lasting.png" alt="lasting">
+										2 Days / 1 Nights
+									</div>
+								</div>
+								<span class="trending-tour-item__group-infor__price">$531</span>
+
+							</div>
+						</div>
+					</a>
+				</div>
+				<div class="col-lg-4 col-sm-6 col-12">
+					<a href="tour-item.html" class="trending-tour-item">
+						<div class="trending-tour-item__sale"></div> <img
+						class="trending-tour-item__thumnail"
+						src="../../../assets/images/uploads/tours/tour6.jpg" alt="tour6">
+						<div class="trending-tour-item__info">
+							<h3 class="trending-tour-item__name">Giza Pyramids</h3>
+							<div class="trending-tour-item__group-infor">
+								<div class="trending-tour-item__group-infor--left">
+									<span class="trending-tour-item__group-infor__rating--4star"></span>
+									<div class="trending-tour-item__group-infor__lasting">
+										<img src="../../../assets/images/tours/lasting.png" alt="lasting">
+										5 Days / 4 Nights
+									</div>
+								</div>
+
+								<p class="trending-tour-item__group-infor__sale-price">$898</p>
+								<span class="trending-tour-item__group-infor__price">$600</span>
+
+							</div>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
 </div>

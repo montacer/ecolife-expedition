@@ -61,7 +61,7 @@
                         <input type="file" id="file_video" (change)="setFileData($event, 'video', false)" jhiTranslate="entity.action.addblob"/>
                    <div class="video">
 						<video controls  #videoPlayer width="auto" height="240">
-						<source src="http://localhost:8080/media/video/{{ tour.videoUrl }}" type="video/mp4" />
+						<source src="http://localhost:8080/media/video/{{ editForm.get('videoUrl')!.value }}" type="video/mp4" />
 							Browser not supported
 						</video>
 					</div>
