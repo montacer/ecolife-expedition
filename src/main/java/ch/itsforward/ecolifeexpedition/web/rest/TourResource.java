@@ -58,11 +58,6 @@ public class TourResource {
      * @return the {@link ResponseEntity} with status {@code 201 (Created)} and with body the new tour, or with status {@code 400 (Bad Request)} if the tour has already an ID.
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
-    
-
-   
-    
-    
     @PostMapping("/tours")
     public ResponseEntity<Tour> createTour(@RequestBody Tour tour) throws URISyntaxException {
         log.debug("REST request to save Tour : {}", tour);
@@ -111,7 +106,9 @@ public class TourResource {
     @GetMapping("/tours")
     public List<Tour> getAllTours() {
         log.debug("REST request to get all Tours");
-        return tourRepository.findAll();
+        List<Tour> result =  tourRepository.findAll();
+        result.forEach(tour -> { tour.setVideo(null); tour.setImage(null);});
+        return result;
     }
 
     /**

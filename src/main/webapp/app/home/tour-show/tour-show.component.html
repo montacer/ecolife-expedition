@@ -1,0 +1,23 @@
+
+<a href="tour-item.html" class="trending-tour-item">
+	<div class="trending-tour-item__sale"></div> <img
+	class="trending-tour-item__thumnail" [src]="tourToShow.imageUrl"
+	alt="tour1">
+	<div class="trending-tour-item__info">
+		<h3 class="trending-tour-item__name">{{ tourToShow.libTitre }}</h3>
+		<div class="trending-tour-item__group-infor">
+			<div class="trending-tour-item__group-infor--left">
+				<span class="trending-tour-item__group-infor__rating"></span>
+				<div class="trending-tour-item__group-infor__lasting">
+					<img src="../../../assets/images/tours/lasting.png" alt="lasting">
+					5 Days / 4 Nights
+				</div>
+			</div>
+
+			<p class="trending-tour-item__group-infor__sale-price">$999</p>
+			<span class="trending-tour-item__group-infor__price">{{
+				tourToShow.prixTTC }}</span>
+
+		</div>
+	</div>
+</a>

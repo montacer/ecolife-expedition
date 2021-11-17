@@ -55,8 +55,8 @@ public class Reservation implements Serializable {
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     private Set<Client> clients = new HashSet<>();
 
-    @OneToOne(mappedBy = "reservation")
-    @JsonIgnore
+    @ManyToOne
+    @JsonIgnoreProperties(value = "reservations", allowSetters = true)
     private Tour tour;
 
     @ManyToOne

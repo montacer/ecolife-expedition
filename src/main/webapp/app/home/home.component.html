@@ -32,16 +32,7 @@
 
 	<div class="wand-container">
 		<div class="header-content1">
-			<div class="search-area">
-				<div class="search-area__close"></div>
-				<form action="#">
-					<input class="search-area__input" placeholder="Search..."
-						type="text">
-					<button class="search-area__submit" type="submit">
-						<span>Hit Enter to search or Esc key to close</span>
-					</button>
-				</form>
-			</div>
+
 			<nav class="header-nav-mobile">
 				<ul>
 					<li><a href="#">HOME <i class="fa fa-angle-down"></i></a>
@@ -110,19 +101,17 @@
 	<div id="form-1-area">
 		<div class="container">
 			<div class="form-area">
-				<form id="editForm" name="editForm" role="form" novalidate
-					(ngSubmit)="search()" [formGroup]="editForm">
-
+				<form name="searchForm" role="form" novalidate
+					(ngSubmit)="searchTours()" [formGroup]="searchForm">
 
 					<div class="form-group form__item form__item--select">
-						<label>TRAVEL DESTINCATION</label> 
-						
+						<label>TRAVEL DESTINCATION</label>
+
 						<div>
-							<select [(ngModel)]="selectedDestination" class="form__item "
-								(change)="onChange()" id="field_destination" name="destination"
-								formControlName="destination">
+							<select class="form__item " id="field_destination"
+								name="destination" formControlName="destination">
 								<option [ngValue]="null"></option>
-								<option [ngValue]="destination"
+								<option [ngValue]="destination.id"
 									*ngFor="let destination of destinations; ">{{
 									destination.libRegion }}</option>
 							</select>
@@ -134,36 +123,54 @@
 							<select class="form__item " id="field_typeCircuit"
 								name="typeCircuit" formControlName="typeCircuit">
 								<option [ngValue]="null"></option>
-								<option [ngValue]="typeCircuit"
+								<option [ngValue]="typeCircuit.id"
 									*ngFor="let typeCircuit of typeCircuits; ">{{
 									typeCircuit.libTypeCircuit }}</option>
 							</select>
 						</div>
 					</div>
 					<div style="height: 25px"></div>
-					<div class="form__item ">
-						<label>CHECK IN</label>
-						<div class="form__item--datepicker">
-							<span class="far fa-calendar-alt"></span> <input
-								type="text" id="field_date-check-in" 
-								name="dateCheckout" formControlName="dateCheckin"
-								data-select="datepicker">
+					
+					
+					<div class="form-group" style="width: 180px; display: inline-block;">
+						<label class="form-control-label" for="field_dateCheckin">Check IN
+							</label>
+						<div class="input-group">
+							<input id="field_dateCheckin" type="text" class="form-control"
+								name="dateCheckin" ngbDatepicker
+								#dateCheckinDp="ngbDatepicker" formControlName="dateCheckin" />
+							<span class="input-group-append">
+								<button type="button" class="btn btn-secondary"
+									(click)="dateCheckinDp.toggle()">
+									<fa-icon icon="calendar-alt"></fa-icon>
+								</button>
+							</span>
 						</div>
-					</div>
-					<div class="form__item">
-						<label>CHECK OUT</label>
-						<div class="form__item--datepicker">
-							<span class="far fa-calendar-alt"></span> <input
-								type="text" id="field_date-check-out"
-								name="dateCheckout" formControlName="dateCheckout"
-								data-select="datepicker">
-						</div>
+
 					</div>
 
-					<div class="form__item form__item--submit">
-						<input type="submit" value="FIND NOW">
+					<div class="form-group" style="width: 180px;display: inline-block;">
+						<label class="form-control-label" for="field_dateCheckout">Check OUT
+							</label>
+						<div class="input-group">
+							<input id="field_dateCheckout" type="text" class="form-control"
+								name="dateCheckout" ngbDatepicker
+								#dateCheckoutDp="ngbDatepicker" formControlName="dateCheckout" />
+							<span class="input-group-append">
+								<button type="button" class="btn btn-secondary"
+									(click)="dateCheckoutDp.toggle()">
+									<fa-icon icon="calendar-alt"></fa-icon>
+								</button>
+							</span>
+						</div>
+
 					</div>
-					
+
+
+					<div class="form__item form__item--submit">
+						<input type="submit" value="FIND NOW" />
+					</div>
+
 					<div style="height: 5px"></div>
 
 				</form>
@@ -197,13 +204,15 @@
 	</div>
 
 	<div class="top-desti">
+
 		<a href="destination-item.html" class="top-desti__item"> <img
 			src="../../assets/images/uploads/destination/desti1.jpg" alt="desti1">
 			<div class="top-desti__ammout">
 				<span><i class="fa fa-map-marker"></i>BAGAN</span> <span>38
 					Tours</span>
 			</div>
-		</a> <a href="destination-item.html" class="top-desti__item"> <img
+		</a> <a href="destina
+		tion-item.html" class="top-desti__item"> <img
 			src="../../assets/images/uploads/destination/desti2.jpg" alt="desti1">
 			<div class="top-desti__ammout">
 				<span><i class="fa fa-map-marker"></i>KATA TJUTA</span> <span>21
@@ -247,29 +256,12 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-lg-4 col-sm-6 col-12">
-				<a href="tour-item.html" class="trending-tour-item">
-					<div class="trending-tour-item__sale"></div> <img
-					class="trending-tour-item__thumnail"
-					src="../../assets/images/uploads/tours/tour1.jpg" alt="tour1">
-					<div class="trending-tour-item__info">
-						<h3 class="trending-tour-item__name">nepal camp treks</h3>
-						<div class="trending-tour-item__group-infor">
-							<div class="trending-tour-item__group-infor--left">
-								<span class="trending-tour-item__group-infor__rating"></span>
-								<div class="trending-tour-item__group-infor__lasting">
-									<img src="../../assets/images/tours/lasting.png" alt="lasting">
-									5 Days / 4 Nights
-								</div>
-							</div>
 
-							<p class="trending-tour-item__group-infor__sale-price">$999</p>
-							<span class="trending-tour-item__group-infor__price">$799</span>
-
-						</div>
-					</div>
-				</a>
+			<div *ngFor="let number of [0,1,2,3,4]"
+				class="col-lg-4 col-sm-6 col-12">
+				<jhi-tour-show></jhi-tour-show>
 			</div>
+
 			<div class="col-lg-4 col-sm-6 col-12">
 				<a href="tour-item.html" class="trending-tour-item"> <img
 					class="trending-tour-item__thumnail"
@@ -378,7 +370,7 @@
 		</div>
 	</div>
 </section>
-
+<!-- 
 <section>
 	<div class="video-popup-1">
 		<div class="video-popup-1__head-Brg"></div>
@@ -405,7 +397,7 @@
 		<div class="preview-video-1__close"></div>
 		<div class="preview-video-1__area">
 			<span class="preview-video-1__btn-close">&times;</span>
-			<iframe class="preview-video-1__iframe" src="#"
+			<iframe class="preview-video-1__iframe" src="#" 
 				allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
 				data-src="https://www.youtube.com/embed/ePtcI8obTVo?autoplay=1"
 				allowfullscreen></iframe>
@@ -413,7 +405,7 @@
 	</div>
 
 </section>
-
+ -->
 
 
 <section class="travel-tip-1__area">
