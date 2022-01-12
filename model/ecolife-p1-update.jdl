@@ -1,0 +1,108 @@
+application {
+	
+    config {
+      packageName ch.itsforward.ecolifeexpedition
+      baseName ecoLifeExpedition
+      applicationType monolith
+      databaseType sql
+    }
+    entities TypeTarif, Tour, TourMedia, TarifTour, TarifServiceSupplementaire
+} 
+
+/*************************************************
+ * MODULE COMMUN
+ */
+entity Pays(PAYS) {
+	codIsoPays String
+	libPays String
+	codeDevisePays String
+}
+entity Region(REGION){
+	libRegion String
+}
+entity TypeTarif {
+	libTypeTarif String
+}
+enum MediaType {
+	AUDIO, VIDEO, IMAGE
+}
+enum Stars {
+	ONE ("1"), TWO ("2"), THREE ("3"), FOUR ("4") , FIVE ("5")
+}
+relationship OneToMany{
+	Pays to Region
+}
+/*****************************************************************************
+ * MODULE TOUR/ACTIVITE
+ */
+entity TypeCircuit(TYPE_CIRCUIT){
+	libTypeCircuit String
+}
+enum TourStatus {
+	ACTIVE , DISABLED
+}
+enum Saison {
+	ETE, AUTOMNE, HIVER, PRINTEMPS
+}
+entity Tour(TOUR) {
+   libTitre String
+   imageUrl String 
+   videoUrl String 
+   imageContent Blob
+   videoContent Blob
+   conseil String 
+   prixTTC Float
+   description String
+   remise Boolean
+   prixRemise Float
+   starScore Float
+   duree Duration
+   saison Saison
+   status TourStatus
+}
+
+  
+entity ServiceSupplementaire{
+	libelleService String
+}
+entity TourMedia {
+	mediaUrl String
+	mediaType MediaType
+	mediacontent Blob
+}
+entity TarifTour {
+	montantTTC Float
+}
+entity TarifServiceSupplementaire {
+	montantTTC Float
+}
+relationship OneToMany{
+	Tour to TourMedia
+}
+//relationship ManyToOne{
+//	TourMedia to Tour
+//}
+relationship OneToMany{
+	TypeTarif to TarifTour
+}
+//relationship ManyToOne{
+//	TarifTour  to TypeTarif
+//}
+relationship OneToMany{
+	TypeTarif to TarifServiceSupplementaire
+}
+//relationship ManyToOne{
+//	TarifServiceSupplementaire  to TypeTarif
+//}
+relationship OneToMany{
+	Region to Tour
+}
+relationship OneToMany{
+	TypeCircuit to Tour
+}
+relationship OneToMany{
+	Tour to ServiceSupplementaire
+}
+/*
+ * MODULE TOUR/ACTIVITE
+ **********************************************************/
