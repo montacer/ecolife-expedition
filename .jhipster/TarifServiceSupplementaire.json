@@ -1,0 +1,29 @@
+{
+  "name": "TarifServiceSupplementaire",
+  "fields": [
+    {
+      "fieldName": "montantTTC",
+      "fieldType": "Float"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "typeTarif",
+      "otherEntityRelationshipName": "tarifServiceSupplementaire",
+      "relationshipName": "typeTarif",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20220112021918",
+  "entityTableName": "tarif_service_supplementaire",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["ecoLifeExpedition"]
+}

@@ -23,12 +23,20 @@
             <thead>
                 <tr>
                     <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
-                    <th scope="col" ><span jhiTranslate="ecoLifeExpeditionApp.tour.libTitre">Titre</span></th>
+                    <th scope="col" ><span jhiTranslate="ecoLifeExpeditionApp.tour.libTitre">Lib Titre</span></th>
                     <th scope="col" ><span jhiTranslate="ecoLifeExpeditionApp.tour.imageUrl">Image Url</span></th>
                     <th scope="col" ><span jhiTranslate="ecoLifeExpeditionApp.tour.videoUrl">Video Url</span></th>
+                    <th scope="col" ><span jhiTranslate="ecoLifeExpeditionApp.tour.imageContent">Image Content</span></th>
+                    <th scope="col" ><span jhiTranslate="ecoLifeExpeditionApp.tour.videoContent">Video Content</span></th>
                     <th scope="col" ><span jhiTranslate="ecoLifeExpeditionApp.tour.conseil">Conseil</span></th>
                     <th scope="col" ><span jhiTranslate="ecoLifeExpeditionApp.tour.prixTTC">Prix TTC</span></th>
-                    <th scope="col" ><span jhiTranslate="ecoLifeExpeditionApp.tour.reservation">Reservation</span></th>
+                    <th scope="col" ><span jhiTranslate="ecoLifeExpeditionApp.tour.description">Description</span></th>
+                    <th scope="col" ><span jhiTranslate="ecoLifeExpeditionApp.tour.remise">Remise</span></th>
+                    <th scope="col" ><span jhiTranslate="ecoLifeExpeditionApp.tour.prixRemise">Prix Remise</span></th>
+                    <th scope="col" ><span jhiTranslate="ecoLifeExpeditionApp.tour.starScore">Star Score</span></th>
+                    <th scope="col" ><span jhiTranslate="ecoLifeExpeditionApp.tour.duree">Duree</span></th>
+                    <th scope="col" ><span jhiTranslate="ecoLifeExpeditionApp.tour.saison">Saison</span></th>
+                    <th scope="col" ><span jhiTranslate="ecoLifeExpeditionApp.tour.status">Status</span></th>
                     <th scope="col" ><span jhiTranslate="ecoLifeExpeditionApp.tour.region">Region</span></th>
                     <th scope="col" ><span jhiTranslate="ecoLifeExpeditionApp.tour.typeCircuit">Type Circuit</span></th>
                     <th scope="col"></th>
@@ -40,13 +48,23 @@
                     <td>{{ tour.libTitre }}</td>
                     <td>{{ tour.imageUrl==null?'NON':'OUI' }}</td>
                     <td>{{ tour.videoUrl==null?'NON':'OUI' }}</td>
+                    <td>
+                        <a *ngIf="tour.imageContent" (click)="openFile(tour.imageContentContentType, tour.imageContent)" jhiTranslate="entity.action.open">open</a>
+                        <span *ngIf="tour.imageContent">{{ tour.imageContentContentType }}, {{ byteSize(tour.imageContent) }}</span>
+                    </td>
+                    <td>
+                        <a *ngIf="tour.videoContent" (click)="openFile(tour.videoContentContentType, tour.videoContent)" jhiTranslate="entity.action.open">open</a>
+                        <span *ngIf="tour.videoContent">{{ tour.videoContentContentType }}, {{ byteSize(tour.videoContent) }}</span>
+                    </td>
                     <td>{{ tour.conseil }}</td>
                     <td>{{ tour.prixTTC }}</td>
-                    <td>
-                        <div *ngIf="tour.reservation">
-                            <a [routerLink]="['/reservation', tour.reservation?.id, 'view']" >{{ tour.reservation?.id }}</a>
-                        </div>
-                    </td>
+                    <td>{{ tour.description }}</td>
+                    <td>{{ tour.remise }}</td>
+                    <td>{{ tour.prixRemise }}</td>
+                    <td>{{ tour.starScore }}</td>
+                    <td>{{ tour.duree }}</td>
+                    <td jhiTranslate="{{ 'ecoLifeExpeditionApp.Saison.' + tour.saison }}">{{ tour.saison }}</td>
+                    <td jhiTranslate="{{ 'ecoLifeExpeditionApp.TourStatus.' + tour.status }}">{{ tour.status }}</td>
                     <td>
                         <div *ngIf="tour.region">
                             <a [routerLink]="['/region', tour.region?.id, 'view']" >{{ tour.region?.id }}</a>

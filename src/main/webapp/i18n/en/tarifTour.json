@@ -1,0 +1,23 @@
+{
+  "ecoLifeExpeditionApp": {
+    "tarifTour": {
+      "home": {
+        "title": "Tarif Tours",
+        "createLabel": "Create a new Tarif Tour",
+        "createOrEditLabel": "Create or edit a Tarif Tour",
+        "notFound": "No Tarif Tours found"
+      },
+      "created": "A new Tarif Tour is created with identifier {{ param }}",
+      "updated": "A Tarif Tour is updated with identifier {{ param }}",
+      "deleted": "A Tarif Tour is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Tarif Tour {{ id }}?"
+      },
+      "detail": {
+        "title": "Tarif Tour"
+      },
+      "montantTTC": "Montant TTC",
+      "typeTarif": "Type Tarif"
+    }
+  }
+}

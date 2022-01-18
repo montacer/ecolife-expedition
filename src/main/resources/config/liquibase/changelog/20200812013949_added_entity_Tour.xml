@@ -25,16 +25,16 @@
             <column name="video_url" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="image" type="longblob">
+            <column name="image_content" type="longblob">
                 <constraints nullable="true" />
             </column>
-            <column name="image_content_type" type="varchar(255)">
+            <column name="image_content_content_type" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="video" type="longblob">
+            <column name="video_content" type="longblob">
                 <constraints nullable="true" />
             </column>
-            <column name="video_content_type" type="varchar(255)">
+            <column name="video_content_content_type" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
             <column name="conseil" type="varchar(255)">
@@ -43,8 +43,26 @@
             <column name="prix_ttc" type="${floatType}">
                 <constraints nullable="true" />
             </column>
-            <column name="reservation_id" type="bigint">
-                <constraints unique="true" nullable="true" uniqueConstraintName="ux_tour_reservation_id" />
+            <column name="description" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="remise" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="prix_remise" type="${floatType}">
+                <constraints nullable="true" />
+            </column>
+            <column name="star_score" type="${floatType}">
+                <constraints nullable="true" />
+            </column>
+            <column name="duree" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="saison" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="status" type="varchar(255)">
+                <constraints nullable="true" />
             </column>
             <column name="region_id" type="bigint">
                 <constraints nullable="true" />
@@ -78,12 +96,19 @@
             <column name="lib_titre" type="string"/>
             <column name="image_url" type="string"/>
             <column name="video_url" type="string"/>
-            <column name="image" type="blob"/>
-            <column name="image_content_type" type="string"/>
-            <column name="video" type="blob"/>
-            <column name="video_content_type" type="string"/>
+            <column name="image_content" type="blob"/>
+            <column name="image_content_content_type" type="string"/>
+            <column name="video_content" type="blob"/>
+            <column name="video_content_content_type" type="string"/>
             <column name="conseil" type="string"/>
             <column name="prix_ttc" type="numeric"/>
+            <column name="description" type="string"/>
+            <column name="remise" type="boolean"/>
+            <column name="prix_remise" type="numeric"/>
+            <column name="star_score" type="numeric"/>
+            <column name="duree" type="numeric"/>
+            <column name="saison" type="string"/>
+            <column name="status" type="string"/>
             <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
         </loadData>
     </changeSet>

@@ -14,12 +14,12 @@
       "fieldType": "String"
     },
     {
-      "fieldName": "image",
+      "fieldName": "imageContent",
       "fieldType": "byte[]",
-      "fieldTypeBlobContent": "image"
+      "fieldTypeBlobContent": "any"
     },
     {
-      "fieldName": "video",
+      "fieldName": "videoContent",
       "fieldType": "byte[]",
       "fieldTypeBlobContent": "any"
     },
@@ -30,16 +30,44 @@
     {
       "fieldName": "prixTTC",
       "fieldType": "Float"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "remise",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "prixRemise",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "starScore",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "duree",
+      "fieldType": "Duration"
+    },
+    {
+      "fieldName": "saison",
+      "fieldType": "Saison",
+      "fieldValues": "ETE,AUTOMNE,HIVER,PRINTEMPS"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "TourStatus",
+      "fieldValues": "ACTIVE,DISABLED"
     }
   ],
   "relationships": [
     {
-      "relationshipType": "one-to-one",
-      "otherEntityName": "reservation",
+      "relationshipType": "one-to-many",
+      "otherEntityName": "tourMedia",
       "otherEntityRelationshipName": "tour",
-      "relationshipName": "reservation",
-      "otherEntityField": "id",
-      "ownerSide": true
+      "relationshipName": "tourMedia"
     },
     {
       "relationshipType": "one-to-many",
@@ -72,5 +100,5 @@
   "readOnly": false,
   "embedded": false,
   "clientRootFolder": "",
-  "applications": "*"
+  "applications": ["ecoLifeExpedition"]
 }

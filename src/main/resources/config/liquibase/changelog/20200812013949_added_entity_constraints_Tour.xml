@@ -8,12 +8,6 @@
     -->
     <changeSet id="20200812013949-2" author="jhipster">
         
-        <addForeignKeyConstraint baseColumnNames="reservation_id"
-                                 baseTableName="tour"
-                                 constraintName="fk_tour_reservation_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="reservation"/>
-
         <addForeignKeyConstraint baseColumnNames="region_id"
                                  baseTableName="tour"
                                  constraintName="fk_tour_region_id"

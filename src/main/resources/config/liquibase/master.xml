@@ -14,6 +14,8 @@
     <property name="uuidType" value="varchar(36)" dbms="h2, mysql, mariadb"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200812012355_added_entity_Pays.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200812012455_added_entity_Region.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20200812013849_added_entity_TypeCircuit.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20200812013949_added_entity_Tour.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20200812014049_added_entity_ServiceSupplementaire.xml" relativeToChangelogFile="false"/>
@@ -24,16 +26,21 @@
     <include file="config/liquibase/changelog/20200812014549_added_entity_Hotel.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20200812014649_added_entity_Chambre.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20200812014749_added_entity_TypeChambre.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200812012355_added_entity_Pays.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200812012455_added_entity_Region.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220112021318_added_entity_TypeTarif.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220112021718_added_entity_TourMedia.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220112021818_added_entity_TarifTour.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220112021918_added_entity_TarifServiceSupplementaire.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20200812012455_added_entity_constraints_Region.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20200812013949_added_entity_constraints_Tour.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20200812014049_added_entity_constraints_ServiceSupplementaire.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20200812014349_added_entity_constraints_Client.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20200812014449_added_entity_constraints_Reservation.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20200812014549_added_entity_constraints_Hotel.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20200812014649_added_entity_constraints_Chambre.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200812012455_added_entity_constraints_Region.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220112021718_added_entity_constraints_TourMedia.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220112021818_added_entity_constraints_TarifTour.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220112021918_added_entity_constraints_TarifServiceSupplementaire.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>

@@ -5,6 +5,14 @@ import { RouterModule } from '@angular/router';
   imports: [
     RouterModule.forChild([
       {
+        path: 'pays',
+        loadChildren: () => import('./pays/pays.module').then(m => m.EcoLifeExpeditionPaysModule),
+      },
+      {
+        path: 'region',
+        loadChildren: () => import('./region/region.module').then(m => m.EcoLifeExpeditionRegionModule),
+      },
+      {
         path: 'type-circuit',
         loadChildren: () => import('./type-circuit/type-circuit.module').then(m => m.EcoLifeExpeditionTypeCircuitModule),
       },
@@ -46,12 +54,23 @@ import { RouterModule } from '@angular/router';
         loadChildren: () => import('./type-chambre/type-chambre.module').then(m => m.EcoLifeExpeditionTypeChambreModule),
       },
       {
-        path: 'pays',
-        loadChildren: () => import('./pays/pays.module').then(m => m.EcoLifeExpeditionPaysModule),
+        path: 'type-tarif',
+        loadChildren: () => import('./type-tarif/type-tarif.module').then(m => m.EcoLifeExpeditionTypeTarifModule),
       },
       {
-        path: 'region',
-        loadChildren: () => import('./region/region.module').then(m => m.EcoLifeExpeditionRegionModule),
+        path: 'tour-media',
+        loadChildren: () => import('./tour-media/tour-media.module').then(m => m.EcoLifeExpeditionTourMediaModule),
+      },
+      {
+        path: 'tarif-tour',
+        loadChildren: () => import('./tarif-tour/tarif-tour.module').then(m => m.EcoLifeExpeditionTarifTourModule),
+      },
+      {
+        path: 'tarif-service-supplementaire',
+        loadChildren: () =>
+          import('./tarif-service-supplementaire/tarif-service-supplementaire.module').then(
+            m => m.EcoLifeExpeditionTarifServiceSupplementaireModule
+          ),
       },
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ]),

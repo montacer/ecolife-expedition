@@ -15,6 +15,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Base64Utils;
 import javax.persistence.EntityManager;
+import java.time.Duration;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -22,6 +23,8 @@ import static org.hamcrest.Matchers.hasItem;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
+import ch.itsforward.ecolifeexpedition.domain.enumeration.Saison;
+import ch.itsforward.ecolifeexpedition.domain.enumeration.TourStatus;
 /**
  * Integration tests for the {@link TourResource} REST controller.
  */
@@ -39,21 +42,42 @@ public class TourResourceIT {
     private static final String DEFAULT_VIDEO_URL = "AAAAAAAAAA";
     private static final String UPDATED_VIDEO_URL = "BBBBBBBBBB";
 
-    private static final byte[] DEFAULT_IMAGE = TestUtil.createByteArray(1, "0");
-    private static final byte[] UPDATED_IMAGE = TestUtil.createByteArray(1, "1");
-    private static final String DEFAULT_IMAGE_CONTENT_TYPE = "image/jpg";
-    private static final String UPDATED_IMAGE_CONTENT_TYPE = "image/png";
+    private static final byte[] DEFAULT_IMAGE_CONTENT = TestUtil.createByteArray(1, "0");
+    private static final byte[] UPDATED_IMAGE_CONTENT = TestUtil.createByteArray(1, "1");
+    private static final String DEFAULT_IMAGE_CONTENT_CONTENT_TYPE = "image/jpg";
+    private static final String UPDATED_IMAGE_CONTENT_CONTENT_TYPE = "image/png";
 
-    private static final byte[] DEFAULT_VIDEO = TestUtil.createByteArray(1, "0");
-    private static final byte[] UPDATED_VIDEO = TestUtil.createByteArray(1, "1");
-    private static final String DEFAULT_VIDEO_CONTENT_TYPE = "image/jpg";
-    private static final String UPDATED_VIDEO_CONTENT_TYPE = "image/png";
+    private static final byte[] DEFAULT_VIDEO_CONTENT = TestUtil.createByteArray(1, "0");
+    private static final byte[] UPDATED_VIDEO_CONTENT = TestUtil.createByteArray(1, "1");
+    private static final String DEFAULT_VIDEO_CONTENT_CONTENT_TYPE = "image/jpg";
+    private static final String UPDATED_VIDEO_CONTENT_CONTENT_TYPE = "image/png";
 
     private static final String DEFAULT_CONSEIL = "AAAAAAAAAA";
     private static final String UPDATED_CONSEIL = "BBBBBBBBBB";
 
     private static final Float DEFAULT_PRIX_TTC = 1F;
     private static final Float UPDATED_PRIX_TTC = 2F;
+
+    private static final String DEFAULT_DESCRIPTION = "AAAAAAAAAA";
+    private static final String UPDATED_DESCRIPTION = "BBBBBBBBBB";
+
+    private static final Boolean DEFAULT_REMISE = false;
+    private static final Boolean UPDATED_REMISE = true;
+
+    private static final Float DEFAULT_PRIX_REMISE = 1F;
+    private static final Float UPDATED_PRIX_REMISE = 2F;
+
+    private static final Float DEFAULT_STAR_SCORE = 1F;
+    private static final Float UPDATED_STAR_SCORE = 2F;
+
+    private static final Duration DEFAULT_DUREE = Duration.ofHours(6);
+    private static final Duration UPDATED_DUREE = Duration.ofHours(12);
+
+    private static final Saison DEFAULT_SAISON = Saison.ETE;
+    private static final Saison UPDATED_SAISON = Saison.AUTOMNE;
+
+    private static final TourStatus DEFAULT_STATUS = TourStatus.ACTIVE;
+    private static final TourStatus UPDATED_STATUS = TourStatus.DISABLED;
 
     @Autowired
     private TourRepository tourRepository;
@@ -77,12 +101,19 @@ public class TourResourceIT {
             .libTitre(DEFAULT_LIB_TITRE)
             .imageUrl(DEFAULT_IMAGE_URL)
             .videoUrl(DEFAULT_VIDEO_URL)
-            .image(DEFAULT_IMAGE)
-            .imageContentType(DEFAULT_IMAGE_CONTENT_TYPE)
-            .video(DEFAULT_VIDEO)
-            .videoContentType(DEFAULT_VIDEO_CONTENT_TYPE)
+            .imageContent(DEFAULT_IMAGE_CONTENT)
+            .imageContentContentType(DEFAULT_IMAGE_CONTENT_CONTENT_TYPE)
+            .videoContent(DEFAULT_VIDEO_CONTENT)
+            .videoContentContentType(DEFAULT_VIDEO_CONTENT_CONTENT_TYPE)
             .conseil(DEFAULT_CONSEIL)
-            .prixTTC(DEFAULT_PRIX_TTC);
+            .prixTTC(DEFAULT_PRIX_TTC)
+            .description(DEFAULT_DESCRIPTION)
+            .remise(DEFAULT_REMISE)
+            .prixRemise(DEFAULT_PRIX_REMISE)
+            .starScore(DEFAULT_STAR_SCORE)
+            .duree(DEFAULT_DUREE)
+            .saison(DEFAULT_SAISON)
+            .status(DEFAULT_STATUS);
         return tour;
     }
     /**
@@ -96,12 +127,19 @@ public class TourResourceIT {
             .libTitre(UPDATED_LIB_TITRE)
             .imageUrl(UPDATED_IMAGE_URL)
             .videoUrl(UPDATED_VIDEO_URL)
-            .image(UPDATED_IMAGE)
-            .imageContentType(UPDATED_IMAGE_CONTENT_TYPE)
-            .video(UPDATED_VIDEO)
-            .videoContentType(UPDATED_VIDEO_CONTENT_TYPE)
+            .imageContent(UPDATED_IMAGE_CONTENT)
+            .imageContentContentType(UPDATED_IMAGE_CONTENT_CONTENT_TYPE)
+            .videoContent(UPDATED_VIDEO_CONTENT)
+            .videoContentContentType(UPDATED_VIDEO_CONTENT_CONTENT_TYPE)
             .conseil(UPDATED_CONSEIL)
-            .prixTTC(UPDATED_PRIX_TTC);
+            .prixTTC(UPDATED_PRIX_TTC)
+            .description(UPDATED_DESCRIPTION)
+            .remise(UPDATED_REMISE)
+            .prixRemise(UPDATED_PRIX_REMISE)
+            .starScore(UPDATED_STAR_SCORE)
+            .duree(UPDATED_DUREE)
+            .saison(UPDATED_SAISON)
+            .status(UPDATED_STATUS);
         return tour;
     }
 
@@ -127,12 +165,19 @@ public class TourResourceIT {
         assertThat(testTour.getLibTitre()).isEqualTo(DEFAULT_LIB_TITRE);
         assertThat(testTour.getImageUrl()).isEqualTo(DEFAULT_IMAGE_URL);
         assertThat(testTour.getVideoUrl()).isEqualTo(DEFAULT_VIDEO_URL);
-        assertThat(testTour.getImage()).isEqualTo(DEFAULT_IMAGE);
-        assertThat(testTour.getImageContentType()).isEqualTo(DEFAULT_IMAGE_CONTENT_TYPE);
-        assertThat(testTour.getVideo()).isEqualTo(DEFAULT_VIDEO);
-        assertThat(testTour.getVideoContentType()).isEqualTo(DEFAULT_VIDEO_CONTENT_TYPE);
+        assertThat(testTour.getImageContent()).isEqualTo(DEFAULT_IMAGE_CONTENT);
+        assertThat(testTour.getImageContentContentType()).isEqualTo(DEFAULT_IMAGE_CONTENT_CONTENT_TYPE);
+        assertThat(testTour.getVideoContent()).isEqualTo(DEFAULT_VIDEO_CONTENT);
+        assertThat(testTour.getVideoContentContentType()).isEqualTo(DEFAULT_VIDEO_CONTENT_CONTENT_TYPE);
         assertThat(testTour.getConseil()).isEqualTo(DEFAULT_CONSEIL);
         assertThat(testTour.getPrixTTC()).isEqualTo(DEFAULT_PRIX_TTC);
+        assertThat(testTour.getDescription()).isEqualTo(DEFAULT_DESCRIPTION);
+        assertThat(testTour.isRemise()).isEqualTo(DEFAULT_REMISE);
+        assertThat(testTour.getPrixRemise()).isEqualTo(DEFAULT_PRIX_REMISE);
+        assertThat(testTour.getStarScore()).isEqualTo(DEFAULT_STAR_SCORE);
+        assertThat(testTour.getDuree()).isEqualTo(DEFAULT_DUREE);
+        assertThat(testTour.getSaison()).isEqualTo(DEFAULT_SAISON);
+        assertThat(testTour.getStatus()).isEqualTo(DEFAULT_STATUS);
     }
 
     @Test
@@ -169,12 +214,19 @@ public class TourResourceIT {
             .andExpect(jsonPath("$.[*].libTitre").value(hasItem(DEFAULT_LIB_TITRE)))
             .andExpect(jsonPath("$.[*].imageUrl").value(hasItem(DEFAULT_IMAGE_URL)))
             .andExpect(jsonPath("$.[*].videoUrl").value(hasItem(DEFAULT_VIDEO_URL)))
-            .andExpect(jsonPath("$.[*].imageContentType").value(hasItem(DEFAULT_IMAGE_CONTENT_TYPE)))
-            .andExpect(jsonPath("$.[*].image").value(hasItem(Base64Utils.encodeToString(DEFAULT_IMAGE))))
-            .andExpect(jsonPath("$.[*].videoContentType").value(hasItem(DEFAULT_VIDEO_CONTENT_TYPE)))
-            .andExpect(jsonPath("$.[*].video").value(hasItem(Base64Utils.encodeToString(DEFAULT_VIDEO))))
+            .andExpect(jsonPath("$.[*].imageContentContentType").value(hasItem(DEFAULT_IMAGE_CONTENT_CONTENT_TYPE)))
+            .andExpect(jsonPath("$.[*].imageContent").value(hasItem(Base64Utils.encodeToString(DEFAULT_IMAGE_CONTENT))))
+            .andExpect(jsonPath("$.[*].videoContentContentType").value(hasItem(DEFAULT_VIDEO_CONTENT_CONTENT_TYPE)))
+            .andExpect(jsonPath("$.[*].videoContent").value(hasItem(Base64Utils.encodeToString(DEFAULT_VIDEO_CONTENT))))
             .andExpect(jsonPath("$.[*].conseil").value(hasItem(DEFAULT_CONSEIL)))
-            .andExpect(jsonPath("$.[*].prixTTC").value(hasItem(DEFAULT_PRIX_TTC.doubleValue())));
+            .andExpect(jsonPath("$.[*].prixTTC").value(hasItem(DEFAULT_PRIX_TTC.doubleValue())))
+            .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION)))
+            .andExpect(jsonPath("$.[*].remise").value(hasItem(DEFAULT_REMISE.booleanValue())))
+            .andExpect(jsonPath("$.[*].prixRemise").value(hasItem(DEFAULT_PRIX_REMISE.doubleValue())))
+            .andExpect(jsonPath("$.[*].starScore").value(hasItem(DEFAULT_STAR_SCORE.doubleValue())))
+            .andExpect(jsonPath("$.[*].duree").value(hasItem(DEFAULT_DUREE.toString())))
+            .andExpect(jsonPath("$.[*].saison").value(hasItem(DEFAULT_SAISON.toString())))
+            .andExpect(jsonPath("$.[*].status").value(hasItem(DEFAULT_STATUS.toString())));
     }
     
     @Test
@@ -191,12 +243,19 @@ public class TourResourceIT {
             .andExpect(jsonPath("$.libTitre").value(DEFAULT_LIB_TITRE))
             .andExpect(jsonPath("$.imageUrl").value(DEFAULT_IMAGE_URL))
             .andExpect(jsonPath("$.videoUrl").value(DEFAULT_VIDEO_URL))
-            .andExpect(jsonPath("$.imageContentType").value(DEFAULT_IMAGE_CONTENT_TYPE))
-            .andExpect(jsonPath("$.image").value(Base64Utils.encodeToString(DEFAULT_IMAGE)))
-            .andExpect(jsonPath("$.videoContentType").value(DEFAULT_VIDEO_CONTENT_TYPE))
-            .andExpect(jsonPath("$.video").value(Base64Utils.encodeToString(DEFAULT_VIDEO)))
+            .andExpect(jsonPath("$.imageContentContentType").value(DEFAULT_IMAGE_CONTENT_CONTENT_TYPE))
+            .andExpect(jsonPath("$.imageContent").value(Base64Utils.encodeToString(DEFAULT_IMAGE_CONTENT)))
+            .andExpect(jsonPath("$.videoContentContentType").value(DEFAULT_VIDEO_CONTENT_CONTENT_TYPE))
+            .andExpect(jsonPath("$.videoContent").value(Base64Utils.encodeToString(DEFAULT_VIDEO_CONTENT)))
             .andExpect(jsonPath("$.conseil").value(DEFAULT_CONSEIL))
-            .andExpect(jsonPath("$.prixTTC").value(DEFAULT_PRIX_TTC.doubleValue()));
+            .andExpect(jsonPath("$.prixTTC").value(DEFAULT_PRIX_TTC.doubleValue()))
+            .andExpect(jsonPath("$.description").value(DEFAULT_DESCRIPTION))
+            .andExpect(jsonPath("$.remise").value(DEFAULT_REMISE.booleanValue()))
+            .andExpect(jsonPath("$.prixRemise").value(DEFAULT_PRIX_REMISE.doubleValue()))
+            .andExpect(jsonPath("$.starScore").value(DEFAULT_STAR_SCORE.doubleValue()))
+            .andExpect(jsonPath("$.duree").value(DEFAULT_DUREE.toString()))
+            .andExpect(jsonPath("$.saison").value(DEFAULT_SAISON.toString()))
+            .andExpect(jsonPath("$.status").value(DEFAULT_STATUS.toString()));
     }
     @Test
     @Transactional
@@ -222,12 +281,19 @@ public class TourResourceIT {
             .libTitre(UPDATED_LIB_TITRE)
             .imageUrl(UPDATED_IMAGE_URL)
             .videoUrl(UPDATED_VIDEO_URL)
-            .image(UPDATED_IMAGE)
-            .imageContentType(UPDATED_IMAGE_CONTENT_TYPE)
-            .video(UPDATED_VIDEO)
-            .videoContentType(UPDATED_VIDEO_CONTENT_TYPE)
+            .imageContent(UPDATED_IMAGE_CONTENT)
+            .imageContentContentType(UPDATED_IMAGE_CONTENT_CONTENT_TYPE)
+            .videoContent(UPDATED_VIDEO_CONTENT)
+            .videoContentContentType(UPDATED_VIDEO_CONTENT_CONTENT_TYPE)
             .conseil(UPDATED_CONSEIL)
-            .prixTTC(UPDATED_PRIX_TTC);
+            .prixTTC(UPDATED_PRIX_TTC)
+            .description(UPDATED_DESCRIPTION)
+            .remise(UPDATED_REMISE)
+            .prixRemise(UPDATED_PRIX_REMISE)
+            .starScore(UPDATED_STAR_SCORE)
+            .duree(UPDATED_DUREE)
+            .saison(UPDATED_SAISON)
+            .status(UPDATED_STATUS);
 
         restTourMockMvc.perform(put("/api/tours")
             .contentType(MediaType.APPLICATION_JSON)
@@ -241,12 +307,19 @@ public class TourResourceIT {
         assertThat(testTour.getLibTitre()).isEqualTo(UPDATED_LIB_TITRE);
         assertThat(testTour.getImageUrl()).isEqualTo(UPDATED_IMAGE_URL);
         assertThat(testTour.getVideoUrl()).isEqualTo(UPDATED_VIDEO_URL);
-        assertThat(testTour.getImage()).isEqualTo(UPDATED_IMAGE);
-        assertThat(testTour.getImageContentType()).isEqualTo(UPDATED_IMAGE_CONTENT_TYPE);
-        assertThat(testTour.getVideo()).isEqualTo(UPDATED_VIDEO);
-        assertThat(testTour.getVideoContentType()).isEqualTo(UPDATED_VIDEO_CONTENT_TYPE);
+        assertThat(testTour.getImageContent()).isEqualTo(UPDATED_IMAGE_CONTENT);
+        assertThat(testTour.getImageContentContentType()).isEqualTo(UPDATED_IMAGE_CONTENT_CONTENT_TYPE);
+        assertThat(testTour.getVideoContent()).isEqualTo(UPDATED_VIDEO_CONTENT);
+        assertThat(testTour.getVideoContentContentType()).isEqualTo(UPDATED_VIDEO_CONTENT_CONTENT_TYPE);
         assertThat(testTour.getConseil()).isEqualTo(UPDATED_CONSEIL);
         assertThat(testTour.getPrixTTC()).isEqualTo(UPDATED_PRIX_TTC);
+        assertThat(testTour.getDescription()).isEqualTo(UPDATED_DESCRIPTION);
+        assertThat(testTour.isRemise()).isEqualTo(UPDATED_REMISE);
+        assertThat(testTour.getPrixRemise()).isEqualTo(UPDATED_PRIX_REMISE);
+        assertThat(testTour.getStarScore()).isEqualTo(UPDATED_STAR_SCORE);
+        assertThat(testTour.getDuree()).isEqualTo(UPDATED_DUREE);
+        assertThat(testTour.getSaison()).isEqualTo(UPDATED_SAISON);
+        assertThat(testTour.getStatus()).isEqualTo(UPDATED_STATUS);
     }
 
     @Test

@@ -1,0 +1,23 @@
+{
+  "ecoLifeExpeditionApp": {
+    "tarifTour": {
+      "home": {
+        "title": "TarifTours",
+        "createLabel": "Créer un nouveau Tarif Tour",
+        "createOrEditLabel": "Créer ou éditer un Tarif Tour",
+        "notFound": "Aucun Tarif Tour trouvé"
+      },
+      "created": "Un nouveau Tarif Tour a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Tarif Tour avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Tarif Tour avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Tarif Tour {{ id }} ?"
+      },
+      "detail": {
+        "title": "Tarif Tour"
+      },
+      "montantTTC": "Montant TTC",
+      "typeTarif": "Type Tarif"
+    }
+  }
+}

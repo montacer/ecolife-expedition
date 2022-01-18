@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { JhiDataUtils } from 'ng-jhipster';
 
@@ -9,9 +9,6 @@ import { ITour } from 'app/shared/model/tour.model';
   templateUrl: './tour-detail.component.html',
 })
 export class TourDetailComponent implements OnInit {
-
-
-  
   tour: ITour | null = null;
 
   constructor(protected dataUtils: JhiDataUtils, protected activatedRoute: ActivatedRoute) {}
@@ -31,11 +28,4 @@ export class TourDetailComponent implements OnInit {
   previousState(): void {
     window.history.back();
   }
-
-
-  toggleVideo(): void {}
-
-
-
-
 }

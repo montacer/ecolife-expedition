@@ -1,0 +1,24 @@
+{
+  "ecoLifeExpeditionApp": {
+    "typeTarif": {
+      "home": {
+        "title": "TypeTarifs",
+        "createLabel": "Créer un nouveau Type Tarif",
+        "createOrEditLabel": "Créer ou éditer un Type Tarif",
+        "notFound": "Aucun Type Tarif trouvé"
+      },
+      "created": "Un nouveau Type Tarif a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Type Tarif avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Type Tarif avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Type Tarif {{ id }} ?"
+      },
+      "detail": {
+        "title": "Type Tarif"
+      },
+      "libTypeTarif": "Lib Type Tarif",
+      "tarifTour": "Tarif Tour",
+      "tarifServiceSupplementaire": "Tarif Service Supplementaire"
+    }
+  }
+}

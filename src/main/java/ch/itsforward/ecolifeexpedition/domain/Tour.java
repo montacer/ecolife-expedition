@@ -1,348 +1,433 @@
 package ch.itsforward.ecolifeexpedition.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
+import javax.persistence.*;
+
 import java.io.Serializable;
 import java.time.Duration;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.Column;
-import javax.persistence.Convert;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Lob;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import ch.itsforward.ecolifeexpedition.domain.enumeration.Saison;
 
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
-import org.hibernate.annotations.Type;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-import ch.itsforward.ecolifeexpedition.domain.converter.DurationToStringConverter;
+import ch.itsforward.ecolifeexpedition.domain.enumeration.TourStatus;
 
 /**
  * A Tour.
  */
 @Entity
 @Table(name = "tour")
-//@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Tour implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-	@Column(name = "lib_titre")
-	private String libTitre;
+    @Column(name = "lib_titre")
+    private String libTitre;
 
-	@Column(name = "description")
-	private String description;
+    @Column(name = "image_url")
+    private String imageUrl;
 
-	@Column(name = "image_url")
-	private String imageUrl;
+    @Column(name = "video_url")
+    private String videoUrl;
 
-	@Column(name = "video_url")
-	private String videoUrl;
+    @Lob
+    @Column(name = "image_content")
+    private byte[] imageContent;
 
-	@Lob
-	@Type(type = "org.hibernate.type.BinaryType")
-	@Column(name = "image")
-	private byte[] image;
+    @Column(name = "image_content_content_type")
+    private String imageContentContentType;
 
-	@Column(name = "image_content_type")
-	private String imageContentType;
+    @Lob
+    @Column(name = "video_content")
+    private byte[] videoContent;
 
-	private byte[] video;
+    @Column(name = "video_content_content_type")
+    private String videoContentContentType;
 
-	@Column(name = "video_content_type")
-	private String videoContentType;
+    @Column(name = "conseil")
+    private String conseil;
 
-	@Column(name = "conseil")
-	private String conseil;
+    @Column(name = "prix_ttc")
+    private Float prixTTC;
 
-	@Column(name = "prix_ttc")
-	private Float prixTTC;
+    @Column(name = "description")
+    private String description;
 
-	@Column
-	@Convert(converter = DurationToStringConverter.class)
-	private Duration duree;
+    @Column(name = "remise")
+    private Boolean remise;
 
-	@Column(name = "existe_remise")
-	private boolean remise;
+    @Column(name = "prix_remise")
+    private Float prixRemise;
 
-	@Column(name = "prix_remise")
-	private Float prixRemise;
+    @Column(name = "star_score")
+    private Float starScore;
 
-	@OneToMany(mappedBy = "tour")
-	@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-	private Set<Reservation> reservations = new HashSet<>();
+    @Column(name = "duree")
+    private Duration duree;
 
-	@OneToMany(mappedBy = "tour")
-	@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-	private Set<ServiceSupplementaire> serviceSupplementaires = new HashSet<>();
+    @Enumerated(EnumType.STRING)
+    @Column(name = "saison")
+    private Saison saison;
 
-	@ManyToOne
-	@JsonIgnoreProperties(value = "tours", allowSetters = true)
-	private Region region;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "status")
+    private TourStatus status;
 
-	@ManyToOne
-	@JsonIgnoreProperties(value = "tours", allowSetters = true)
-	private TypeCircuit typeCircuit;
+    @OneToMany(mappedBy = "tour")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    private Set<TourMedia> tourMedias = new HashSet<>();
 
-	// jhipster-needle-entity-add-field - JHipster will add fields here
-	public Long getId() {
-		return id;
-	}
+    @OneToMany(mappedBy = "tour")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    private Set<ServiceSupplementaire> serviceSupplementaires = new HashSet<>();
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    @ManyToOne
+    @JsonIgnoreProperties(value = "tours", allowSetters = true)
+    private Region region;
 
-	public String getLibTitre() {
-		return libTitre;
-	}
+    @ManyToOne
+    @JsonIgnoreProperties(value = "tours", allowSetters = true)
+    private TypeCircuit typeCircuit;
 
-	public Tour libTitre(String libTitre) {
-		this.libTitre = libTitre;
-		return this;
-	}
+    // jhipster-needle-entity-add-field - JHipster will add fields here
+    public Long getId() {
+        return id;
+    }
 
-	public void setLibTitre(String libTitre) {
-		this.libTitre = libTitre;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public String getImageUrl() {
-		return imageUrl;
-	}
+    public String getLibTitre() {
+        return libTitre;
+    }
 
-	public Tour imageUrl(String imageUrl) {
-		this.imageUrl = imageUrl;
-		return this;
-	}
+    public Tour libTitre(String libTitre) {
+        this.libTitre = libTitre;
+        return this;
+    }
 
-	public void setImageUrl(String imageUrl) {
-		this.imageUrl = imageUrl;
-	}
-
-	public String getVideoUrl() {
-		return videoUrl;
-	}
-
-	public Tour videoUrl(String videoUrl) {
-		this.videoUrl = videoUrl;
-		return this;
-	}
-
-	public void setVideoUrl(String videoUrl) {
-		this.videoUrl = videoUrl;
-	}
-
-	public byte[] getImage() {
-		return image;
-	}
-
-	public Tour image(byte[] image) {
-		this.image = image;
-		return this;
-	}
-
-	public void setImage(byte[] image) {
-		this.image = image;
-	}
-
-	public String getImageContentType() {
-		return imageContentType;
-	}
-
-	public Tour imageContentType(String imageContentType) {
-		this.imageContentType = imageContentType;
-		return this;
-	}
-
-	public void setImageContentType(String imageContentType) {
-		this.imageContentType = imageContentType;
-	}
-
-	public byte[] getVideo() {
-		return video;
-	}
-
-	public Tour video(byte[] video) {
-		this.video = video;
-		return this;
-	}
-
-	public void setVideo(byte[] video) {
-		this.video = video;
-	}
-
-	public String getVideoContentType() {
-		return videoContentType;
-	}
-
-	public Tour videoContentType(String videoContentType) {
-		this.videoContentType = videoContentType;
-		return this;
-	}
-
-	public void setVideoContentType(String videoContentType) {
-		this.videoContentType = videoContentType;
-	}
-
-	public String getConseil() {
-		return conseil;
-	}
-
-	public Tour conseil(String conseil) {
-		this.conseil = conseil;
-		return this;
-	}
-
-	public void setConseil(String conseil) {
-		this.conseil = conseil;
-	}
-
-	public Float getPrixTTC() {
-		return prixTTC;
-	}
-
-	public Tour prixTTC(Float prixTTC) {
-		this.prixTTC = prixTTC;
-		return this;
-	}
-
-	public void setPrixTTC(Float prixTTC) {
-		this.prixTTC = prixTTC;
-	}
-
-	public Set<Reservation> getReservations() {
-		return reservations;
-	}
-
-	public Tour addReservation(Reservation reservation) {
-		this.reservations.add(reservation);
-		reservation.setTour(this);
-		return this;
-	}
-
-	public void setReservations(Set<Reservation> reservations) {
-		this.reservations = reservations;
-	}
-
-	public Set<ServiceSupplementaire> getServiceSupplementaires() {
-		return serviceSupplementaires;
-	}
-
-	public Tour serviceSupplementaires(Set<ServiceSupplementaire> serviceSupplementaires) {
-		this.serviceSupplementaires = serviceSupplementaires;
-		return this;
-	}
-
-	public Tour addServiceSupplementaire(ServiceSupplementaire serviceSupplementaire) {
-		this.serviceSupplementaires.add(serviceSupplementaire);
-		serviceSupplementaire.setTour(this);
-		return this;
-	}
-
-	public Tour removeServiceSupplementaire(ServiceSupplementaire serviceSupplementaire) {
-		this.serviceSupplementaires.remove(serviceSupplementaire);
-		serviceSupplementaire.setTour(null);
-		return this;
-	}
-
-	public void setServiceSupplementaires(Set<ServiceSupplementaire> serviceSupplementaires) {
-		this.serviceSupplementaires = serviceSupplementaires;
-	}
-
-	public Region getRegion() {
-		return region;
-	}
-
-	public Tour region(Region region) {
-		this.region = region;
-		return this;
-	}
-
-	public void setRegion(Region region) {
-		this.region = region;
-	}
-
-	public TypeCircuit getTypeCircuit() {
-		return typeCircuit;
-	}
-
-	public Tour typeCircuit(TypeCircuit typeCircuit) {
-		this.typeCircuit = typeCircuit;
-		return this;
-	}
-
-	public void setTypeCircuit(TypeCircuit typeCircuit) {
-		this.typeCircuit = typeCircuit;
-	}
-
-	public Duration getDuree() {
-		return duree;
-	}
-
-	public void setDuree(Duration duree) {
-		this.duree = duree;
-	}
-
-	public boolean isRemise() {
-		return remise;
-	}
-
-	public void setRemise(boolean remise) {
-		this.remise = remise;
-	}
-
-	public Float getPrixRemise() {
-		return prixRemise;
-	}
-
-	public void setPrixRemise(Float prixRemise) {
-		this.prixRemise = prixRemise;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	// jhipster-needle-entity-add-getters-setters - JHipster will add getters and
-	// setters here
-
-	@Override
-	public boolean equals(Object o) {
-		if (this == o) {
-			return true;
-		}
-		if (!(o instanceof Tour)) {
-			return false;
-		}
-		return id != null && id.equals(((Tour) o).id);
-	}
-
-	@Override
-	public int hashCode() {
-		return 31;
-	}
-
-	// prettier-ignore
-	@Override
-	public String toString() {
-		return "Tour [id=" + id + ", libTitre=" + libTitre + ", description=" + description + ", imageUrl=" + imageUrl
-				+ ", videoUrl=" + videoUrl + ", prixTTC=" + prixTTC + ", duree=" + duree + ", remise=" + remise
-				+ ", prixRemise=" + prixRemise + "]";
-	}
+    public void setLibTitre(String libTitre) {
+        this.libTitre = libTitre;
+    }
 
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public Tour imageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+        return this;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public String getVideoUrl() {
+        return videoUrl;
+    }
+
+    public Tour videoUrl(String videoUrl) {
+        this.videoUrl = videoUrl;
+        return this;
+    }
+
+    public void setVideoUrl(String videoUrl) {
+        this.videoUrl = videoUrl;
+    }
+
+    public byte[] getImageContent() {
+        return imageContent;
+    }
+
+    public Tour imageContent(byte[] imageContent) {
+        this.imageContent = imageContent;
+        return this;
+    }
+
+    public void setImageContent(byte[] imageContent) {
+        this.imageContent = imageContent;
+    }
+
+    public String getImageContentContentType() {
+        return imageContentContentType;
+    }
+
+    public Tour imageContentContentType(String imageContentContentType) {
+        this.imageContentContentType = imageContentContentType;
+        return this;
+    }
+
+    public void setImageContentContentType(String imageContentContentType) {
+        this.imageContentContentType = imageContentContentType;
+    }
+
+    public byte[] getVideoContent() {
+        return videoContent;
+    }
+
+    public Tour videoContent(byte[] videoContent) {
+        this.videoContent = videoContent;
+        return this;
+    }
+
+    public void setVideoContent(byte[] videoContent) {
+        this.videoContent = videoContent;
+    }
+
+    public String getVideoContentContentType() {
+        return videoContentContentType;
+    }
+
+    public Tour videoContentContentType(String videoContentContentType) {
+        this.videoContentContentType = videoContentContentType;
+        return this;
+    }
+
+    public void setVideoContentContentType(String videoContentContentType) {
+        this.videoContentContentType = videoContentContentType;
+    }
+
+    public String getConseil() {
+        return conseil;
+    }
+
+    public Tour conseil(String conseil) {
+        this.conseil = conseil;
+        return this;
+    }
+
+    public void setConseil(String conseil) {
+        this.conseil = conseil;
+    }
+
+    public Float getPrixTTC() {
+        return prixTTC;
+    }
+
+    public Tour prixTTC(Float prixTTC) {
+        this.prixTTC = prixTTC;
+        return this;
+    }
+
+    public void setPrixTTC(Float prixTTC) {
+        this.prixTTC = prixTTC;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public Tour description(String description) {
+        this.description = description;
+        return this;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Boolean isRemise() {
+        return remise;
+    }
+
+    public Tour remise(Boolean remise) {
+        this.remise = remise;
+        return this;
+    }
+
+    public void setRemise(Boolean remise) {
+        this.remise = remise;
+    }
+
+    public Float getPrixRemise() {
+        return prixRemise;
+    }
+
+    public Tour prixRemise(Float prixRemise) {
+        this.prixRemise = prixRemise;
+        return this;
+    }
+
+    public void setPrixRemise(Float prixRemise) {
+        this.prixRemise = prixRemise;
+    }
+
+    public Float getStarScore() {
+        return starScore;
+    }
+
+    public Tour starScore(Float starScore) {
+        this.starScore = starScore;
+        return this;
+    }
+
+    public void setStarScore(Float starScore) {
+        this.starScore = starScore;
+    }
+
+    public Duration getDuree() {
+        return duree;
+    }
+
+    public Tour duree(Duration duree) {
+        this.duree = duree;
+        return this;
+    }
+
+    public void setDuree(Duration duree) {
+        this.duree = duree;
+    }
+
+    public Saison getSaison() {
+        return saison;
+    }
+
+    public Tour saison(Saison saison) {
+        this.saison = saison;
+        return this;
+    }
+
+    public void setSaison(Saison saison) {
+        this.saison = saison;
+    }
+
+    public TourStatus getStatus() {
+        return status;
+    }
+
+    public Tour status(TourStatus status) {
+        this.status = status;
+        return this;
+    }
+
+    public void setStatus(TourStatus status) {
+        this.status = status;
+    }
+
+    public Set<TourMedia> getTourMedias() {
+        return tourMedias;
+    }
+
+    public Tour tourMedias(Set<TourMedia> tourMedias) {
+        this.tourMedias = tourMedias;
+        return this;
+    }
+
+    public Tour addTourMedia(TourMedia tourMedia) {
+        this.tourMedias.add(tourMedia);
+        tourMedia.setTour(this);
+        return this;
+    }
+
+    public Tour removeTourMedia(TourMedia tourMedia) {
+        this.tourMedias.remove(tourMedia);
+        tourMedia.setTour(null);
+        return this;
+    }
+
+    public void setTourMedias(Set<TourMedia> tourMedias) {
+        this.tourMedias = tourMedias;
+    }
+
+    public Set<ServiceSupplementaire> getServiceSupplementaires() {
+        return serviceSupplementaires;
+    }
+
+    public Tour serviceSupplementaires(Set<ServiceSupplementaire> serviceSupplementaires) {
+        this.serviceSupplementaires = serviceSupplementaires;
+        return this;
+    }
+
+    public Tour addServiceSupplementaire(ServiceSupplementaire serviceSupplementaire) {
+        this.serviceSupplementaires.add(serviceSupplementaire);
+        serviceSupplementaire.setTour(this);
+        return this;
+    }
+
+    public Tour removeServiceSupplementaire(ServiceSupplementaire serviceSupplementaire) {
+        this.serviceSupplementaires.remove(serviceSupplementaire);
+        serviceSupplementaire.setTour(null);
+        return this;
+    }
+
+    public void setServiceSupplementaires(Set<ServiceSupplementaire> serviceSupplementaires) {
+        this.serviceSupplementaires = serviceSupplementaires;
+    }
+
+    public Region getRegion() {
+        return region;
+    }
+
+    public Tour region(Region region) {
+        this.region = region;
+        return this;
+    }
+
+    public void setRegion(Region region) {
+        this.region = region;
+    }
+
+    public TypeCircuit getTypeCircuit() {
+        return typeCircuit;
+    }
+
+    public Tour typeCircuit(TypeCircuit typeCircuit) {
+        this.typeCircuit = typeCircuit;
+        return this;
+    }
+
+    public void setTypeCircuit(TypeCircuit typeCircuit) {
+        this.typeCircuit = typeCircuit;
+    }
+    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Tour)) {
+            return false;
+        }
+        return id != null && id.equals(((Tour) o).id);
+    }
+
+    @Override
+    public int hashCode() {
+        return 31;
+    }
+
+    // prettier-ignore
+    @Override
+    public String toString() {
+        return "Tour{" +
+            "id=" + getId() +
+            ", libTitre='" + getLibTitre() + "'" +
+            ", imageUrl='" + getImageUrl() + "'" +
+            ", videoUrl='" + getVideoUrl() + "'" +
+            ", imageContent='" + getImageContent() + "'" +
+            ", imageContentContentType='" + getImageContentContentType() + "'" +
+            ", videoContent='" + getVideoContent() + "'" +
+            ", videoContentContentType='" + getVideoContentContentType() + "'" +
+            ", conseil='" + getConseil() + "'" +
+            ", prixTTC=" + getPrixTTC() +
+            ", description='" + getDescription() + "'" +
+            ", remise='" + isRemise() + "'" +
+            ", prixRemise=" + getPrixRemise() +
+            ", starScore=" + getStarScore() +
+            ", duree='" + getDuree() + "'" +
+            ", saison='" + getSaison() + "'" +
+            ", status='" + getStatus() + "'" +
+            "}";
+    }
 }

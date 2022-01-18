@@ -58,6 +58,15 @@ public class HotelResource {
             .body(result);
     }
 
+    /**
+     * {@code PUT  /hotels} : Updates an existing hotel.
+     *
+     * @param hotel the hotel to update.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the updated hotel,
+     * or with status {@code 400 (Bad Request)} if the hotel is not valid,
+     * or with status {@code 500 (Internal Server Error)} if the hotel couldn't be updated.
+     * @throws URISyntaxException if the Location URI syntax is incorrect.
+     */
     @PutMapping("/hotels")
     public ResponseEntity<Hotel> updateHotel(@RequestBody Hotel hotel) throws URISyntaxException {
         log.debug("REST request to update Hotel : {}", hotel);
@@ -70,20 +79,37 @@ public class HotelResource {
             .body(result);
     }
 
+    /**
+     * {@code GET  /hotels} : get all the hotels.
+     *
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of hotels in body.
+     */
     @GetMapping("/hotels")
     public List<Hotel> getAllHotels() {
         log.debug("REST request to get all Hotels");
         return hotelRepository.findAll();
     }
 
-      @GetMapping("/hotels/{id}")
+    /**
+     * {@code GET  /hotels/:id} : get the "id" hotel.
+     *
+     * @param id the id of the hotel to retrieve.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the hotel, or with status {@code 404 (Not Found)}.
+     */
+    @GetMapping("/hotels/{id}")
     public ResponseEntity<Hotel> getHotel(@PathVariable Long id) {
         log.debug("REST request to get Hotel : {}", id);
         Optional<Hotel> hotel = hotelRepository.findById(id);
         return ResponseUtil.wrapOrNotFound(hotel);
     }
 
-      @DeleteMapping("/hotels/{id}")
+    /**
+     * {@code DELETE  /hotels/:id} : delete the "id" hotel.
+     *
+     * @param id the id of the hotel to delete.
+     * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
+     */
+    @DeleteMapping("/hotels/{id}")
     public ResponseEntity<Void> deleteHotel(@PathVariable Long id) {
         log.debug("REST request to delete Hotel : {}", id);
         hotelRepository.deleteById(id);

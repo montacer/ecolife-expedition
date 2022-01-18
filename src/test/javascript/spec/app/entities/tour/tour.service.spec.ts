@@ -2,6 +2,8 @@ import { TestBed, getTestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { TourService } from 'app/entities/tour/tour.service';
 import { ITour, Tour } from 'app/shared/model/tour.model';
+import { Saison } from 'app/shared/model/enumerations/saison.model';
+import { TourStatus } from 'app/shared/model/enumerations/tour-status.model';
 
 describe('Service Tests', () => {
   describe('Tour Service', () => {
@@ -20,7 +22,25 @@ describe('Service Tests', () => {
       service = injector.get(TourService);
       httpMock = injector.get(HttpTestingController);
 
-      elemDefault = new Tour(0, 'AAAAAAA', 'AAAAAAA', 'AAAAAAA', 'image/png', 'AAAAAAA', 'image/png', 'AAAAAAA', 'AAAAAAA', 0);
+      elemDefault = new Tour(
+        0,
+        'AAAAAAA',
+        'AAAAAAA',
+        'AAAAAAA',
+        'image/png',
+        'AAAAAAA',
+        'image/png',
+        'AAAAAAA',
+        'AAAAAAA',
+        0,
+        'AAAAAAA',
+        false,
+        0,
+        0,
+        0,
+        Saison.ETE,
+        TourStatus.ACTIVE
+      );
     });
 
     describe('Service methods', () => {
@@ -57,10 +77,17 @@ describe('Service Tests', () => {
             libTitre: 'BBBBBB',
             imageUrl: 'BBBBBB',
             videoUrl: 'BBBBBB',
-            image: 'BBBBBB',
-            video: 'BBBBBB',
+            imageContent: 'BBBBBB',
+            videoContent: 'BBBBBB',
             conseil: 'BBBBBB',
             prixTTC: 1,
+            description: 'BBBBBB',
+            remise: true,
+            prixRemise: 1,
+            starScore: 1,
+            duree: 'BBBBBB',
+            saison: 'BBBBBB',
+            status: 'BBBBBB',
           },
           elemDefault
         );
@@ -80,10 +107,17 @@ describe('Service Tests', () => {
             libTitre: 'BBBBBB',
             imageUrl: 'BBBBBB',
             videoUrl: 'BBBBBB',
-            image: 'BBBBBB',
-            video: 'BBBBBB',
+            imageContent: 'BBBBBB',
+            videoContent: 'BBBBBB',
             conseil: 'BBBBBB',
             prixTTC: 1,
+            description: 'BBBBBB',
+            remise: true,
+            prixRemise: 1,
+            starScore: 1,
+            duree: 'BBBBBB',
+            saison: 'BBBBBB',
+            status: 'BBBBBB',
           },
           elemDefault
         );

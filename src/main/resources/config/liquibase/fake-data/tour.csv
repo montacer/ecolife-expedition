@@ -1,11 +1,11 @@
-id;lib_titre;image_url;video_url;image;image_content_type;video;video_content_type;conseil;prix_ttc
-1;multi-byte Brand;Granite Ball International;optimize 6th generation;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.png;image/png;ADP;9425
-2;best-of-breed Planner;Administrator;Mouse value-added;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.png;image/png;recontextualize hardware invoice;28291
-3;Checking Account;Investor Reverse-engineered;Beauty;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.png;image/png;Florida;51504
-4;HDD;microchip Robust;Car;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.png;image/png;Lead payment;69429
-5;invoice North Carolina;Team-oriented haptic;East Caribbean Dollar Chief Devolved;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.png;image/png;Generic maximized;43710
-6;Sausages Internal;Quality;Home viral index;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.png;image/png;infrastructures;212
-7;Estate Credit Card Account XML;Intelligent transmitting;context-sensitive;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.png;image/png;Texas Sleek payment;30768
-8;Practical Cotton Sausages rich;calculate;Sleek;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.png;image/png;user-centric Frozen;1309
-9;Liberian Dollar Bermuda;deposit Cambridgeshire;Investor global Web;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.png;image/png;Monitored;14997
-10;haptic pink;Row AGP Singapore Dollar;Bypass;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.png;image/png;Regional feed COM;4967
+id;lib_titre;image_url;video_url;image_content;image_content_content_type;video_content;video_content_content_type;conseil;prix_ttc;description;remise;prix_remise;star_score;duree;saison;status
+1;multi-byte Brand;Granite Ball International;optimize 6th generation;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.png;image/png;ADP;9425;best-of-breed Planner;false;98563;42432;63496;ETE;ACTIVE
+2;Checking Account;Investor Reverse-engineered;Beauty;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.png;image/png;Florida;51504;HDD;true;71126;17338;25076;HIVER;DISABLED
+3;PNG;feed Chief;Devolved deposit Money Market Account;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.png;image/png;e-markets Sausages;91737;Unbranded Metal Sausages Home viral;true;41335;5079;42335;AUTOMNE;DISABLED
+4;Corners gold;didactic Stand-alone Texas;Nigeria;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.png;image/png;interface Practical Cotton Sausages rich;15955;Money Market Account Sleek e-services;true;14474;96782;1309;HIVER;DISABLED
+5;global Web;Monitored;Singapore;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.png;image/png;pink online;73238;Quality-focused protocol Bypass;true;90323;39397;70504;ETE;DISABLED
+6;budgetary management;firewall;Kids initiative projection;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.png;image/png;hack Kiribati;95148;COM deposit partnerships;true;98435;17364;81741;AUTOMNE;DISABLED
+7;Credit Card Account;expedite interface Customer;holistic Tasty Plastic Computer;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.png;image/png;redundant CSS;34929;CSS USB;false;9909;20717;34191;AUTOMNE;DISABLED
+8;Research Tasty Frozen Chicken parse;Consultant plum;cross-platform;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.png;image/png;ROI Cliffs;26507;Optimization;false;98132;2042;10048;HIVER;ACTIVE
+9;primary Seamless;SCSI Practical Rubber Bike Switchable;Cotton;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.png;image/png;indexing azure e-business;77158;Global;false;7258;94182;92393;AUTOMNE;ACTIVE
+10;Samoa;Cambridgeshire synergy exuding;generating Unbranded Fresh Bike database;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.png;image/png;synthesizing;87405;e-commerce firmware;true;88442;19205;82652;AUTOMNE;ACTIVE

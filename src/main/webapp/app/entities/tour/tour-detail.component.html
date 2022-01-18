@@ -20,29 +20,19 @@
                 <dd>
                     <span>{{ tour.videoUrl }}</span>
                 </dd>
-                <dt><span jhiTranslate="ecoLifeExpeditionApp.tour.image">Image</span></dt>
+                <dt><span jhiTranslate="ecoLifeExpeditionApp.tour.imageContent">Image Content</span></dt>
                 <dd>
-                    <div *ngIf="tour.image">
-                        <a (click)="openFile(tour.imageContentType, tour.image)">
-                            <img [src]="'data:' + tour.imageContentType + ';base64,' + tour.image" style="max-width: 100%;" alt="tour image"/>
-                        </a>
-                        {{ tour.imageContentType }}, {{ byteSize(tour.image) }}
+                    <div *ngIf="tour.imageContent">
+                        <a (click)="openFile(tour.imageContentContentType, tour.imageContent)" jhiTranslate="entity.action.open">open</a>
+                        {{ tour.imageContentContentType }}, {{ byteSize(tour.imageContent) }}
                     </div>
                 </dd>
-                <dt><span jhiTranslate="ecoLifeExpeditionApp.tour.video">Video</span></dt>
+                <dt><span jhiTranslate="ecoLifeExpeditionApp.tour.videoContent">Video Content</span></dt>
                 <dd>
-                    <div *ngIf="tour.video">
-                        <a (click)="openFile(tour.videoContentType, tour.video)" jhiTranslate="entity.action.open">open</a>
-                        {{ tour.videoContentType }}, {{ byteSize(tour.video) }}
+                    <div *ngIf="tour.videoContent">
+                        <a (click)="openFile(tour.videoContentContentType, tour.videoContent)" jhiTranslate="entity.action.open">open</a>
+                        {{ tour.videoContentContentType }}, {{ byteSize(tour.videoContent) }}
                     </div>
-                    
-					<div class="video">
-						<video controls  #videoPlayer width="auto" height="240">
-						<source src="http://localhost:8080/media/video/{{ tour.videoUrl }}" type="video/mp4" />
-							Browser not supported
-						</video>
-					</div>
-					
                 </dd>
                 <dt><span jhiTranslate="ecoLifeExpeditionApp.tour.conseil">Conseil</span></dt>
                 <dd>
@@ -52,11 +42,33 @@
                 <dd>
                     <span>{{ tour.prixTTC }}</span>
                 </dd>
-                <dt><span jhiTranslate="ecoLifeExpeditionApp.tour.reservation">Reservation</span></dt>
+                <dt><span jhiTranslate="ecoLifeExpeditionApp.tour.description">Description</span></dt>
                 <dd>
-                    <div *ngIf="tour.reservation">
-                        <a [routerLink]="['/reservation', tour.reservation?.id, 'view']">{{ tour.reservation?.id }}</a>
-                    </div>
+                    <span>{{ tour.description }}</span>
+                </dd>
+                <dt><span jhiTranslate="ecoLifeExpeditionApp.tour.remise">Remise</span></dt>
+                <dd>
+                    <span>{{ tour.remise }}</span>
+                </dd>
+                <dt><span jhiTranslate="ecoLifeExpeditionApp.tour.prixRemise">Prix Remise</span></dt>
+                <dd>
+                    <span>{{ tour.prixRemise }}</span>
+                </dd>
+                <dt><span jhiTranslate="ecoLifeExpeditionApp.tour.starScore">Star Score</span></dt>
+                <dd>
+                    <span>{{ tour.starScore }}</span>
+                </dd>
+                <dt><span jhiTranslate="ecoLifeExpeditionApp.tour.duree">Duree</span></dt>
+                <dd>
+                    <span>{{ tour.duree }}</span>
+                </dd>
+                <dt><span jhiTranslate="ecoLifeExpeditionApp.tour.saison">Saison</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'ecoLifeExpeditionApp.Saison.' + tour.saison }}">{{ tour.saison }}</span>
+                </dd>
+                <dt><span jhiTranslate="ecoLifeExpeditionApp.tour.status">Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'ecoLifeExpeditionApp.TourStatus.' + tour.status }}">{{ tour.status }}</span>
                 </dd>
                 <dt><span jhiTranslate="ecoLifeExpeditionApp.tour.region">Region</span></dt>
                 <dd>

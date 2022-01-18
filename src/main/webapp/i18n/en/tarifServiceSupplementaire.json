@@ -1,0 +1,23 @@
+{
+  "ecoLifeExpeditionApp": {
+    "tarifServiceSupplementaire": {
+      "home": {
+        "title": "Tarif Service Supplementaires",
+        "createLabel": "Create a new Tarif Service Supplementaire",
+        "createOrEditLabel": "Create or edit a Tarif Service Supplementaire",
+        "notFound": "No Tarif Service Supplementaires found"
+      },
+      "created": "A new Tarif Service Supplementaire is created with identifier {{ param }}",
+      "updated": "A Tarif Service Supplementaire is updated with identifier {{ param }}",
+      "deleted": "A Tarif Service Supplementaire is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Tarif Service Supplementaire {{ id }}?"
+      },
+      "detail": {
+        "title": "Tarif Service Supplementaire"
+      },
+      "montantTTC": "Montant TTC",
+      "typeTarif": "Type Tarif"
+    }
+  }
+}

@@ -43,5 +43,5 @@
     "skipClient": false,
     "skipServer": false
   },
-  "entities": ["Pays", "Region"]
+  "entities": ["TypeTarif", "Tour", "TourMedia", "TarifTour", "TarifServiceSupplementaire"]
 }

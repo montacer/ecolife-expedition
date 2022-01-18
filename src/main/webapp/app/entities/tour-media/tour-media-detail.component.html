@@ -1,0 +1,47 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="tourMedia">
+            <h2><span jhiTranslate="ecoLifeExpeditionApp.tourMedia.detail.title">Tour Media</span> {{ tourMedia.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ecoLifeExpeditionApp.tourMedia.mediaUrl">Media Url</span></dt>
+                <dd>
+                    <span>{{ tourMedia.mediaUrl }}</span>
+                </dd>
+                <dt><span jhiTranslate="ecoLifeExpeditionApp.tourMedia.mediaType">Media Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'ecoLifeExpeditionApp.MediaType.' + tourMedia.mediaType }}">{{ tourMedia.mediaType }}</span>
+                </dd>
+                <dt><span jhiTranslate="ecoLifeExpeditionApp.tourMedia.mediacontent">Mediacontent</span></dt>
+                <dd>
+                    <div *ngIf="tourMedia.mediacontent">
+                        <a (click)="openFile(tourMedia.mediacontentContentType, tourMedia.mediacontent)" jhiTranslate="entity.action.open">open</a>
+                        {{ tourMedia.mediacontentContentType }}, {{ byteSize(tourMedia.mediacontent) }}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ecoLifeExpeditionApp.tourMedia.tour">Tour</span></dt>
+                <dd>
+                    <div *ngIf="tourMedia.tour">
+                        <a [routerLink]="['/tour', tourMedia.tour?.id, 'view']">{{ tourMedia.tour?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/tour-media', tourMedia.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

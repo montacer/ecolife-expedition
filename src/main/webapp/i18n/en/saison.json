@@ -1,0 +1,11 @@
+{
+  "ecoLifeExpeditionApp": {
+    "Saison": {
+      "null": "",
+      "ETE": "ETE",
+      "AUTOMNE": "AUTOMNE",
+      "HIVER": "HIVER",
+      "PRINTEMPS": "PRINTEMPS"
+    }
+  }
+}

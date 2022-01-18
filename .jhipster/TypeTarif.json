@@ -1,0 +1,34 @@
+{
+  "name": "TypeTarif",
+  "fields": [
+    {
+      "fieldName": "libTypeTarif",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "tarifTour",
+      "otherEntityRelationshipName": "typeTarif",
+      "relationshipName": "tarifTour"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "tarifServiceSupplementaire",
+      "otherEntityRelationshipName": "typeTarif",
+      "relationshipName": "tarifServiceSupplementaire"
+    }
+  ],
+  "changelogDate": "20220112021318",
+  "entityTableName": "type_tarif",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["ecoLifeExpedition"]
+}

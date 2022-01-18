@@ -1,0 +1,25 @@
+{
+  "ecoLifeExpeditionApp": {
+    "tourMedia": {
+      "home": {
+        "title": "TourMedias",
+        "createLabel": "Créer un nouveau Tour Media",
+        "createOrEditLabel": "Créer ou éditer un Tour Media",
+        "notFound": "Aucun Tour Media trouvé"
+      },
+      "created": "Un nouveau Tour Media a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Tour Media avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Tour Media avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Tour Media {{ id }} ?"
+      },
+      "detail": {
+        "title": "Tour Media"
+      },
+      "mediaUrl": "Media Url",
+      "mediaType": "Media Type",
+      "mediacontent": "Mediacontent",
+      "tour": "Tour"
+    }
+  }
+}

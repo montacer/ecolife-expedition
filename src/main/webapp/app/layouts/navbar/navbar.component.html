@@ -28,6 +28,18 @@
                 </a>
                 <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="entity-menu">
                     <li>
+                        <a class="dropdown-item" routerLink="pays" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.pays">Pays</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="region" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.region">Region</span>
+                        </a>
+                    </li>
+                    <li>
                         <a class="dropdown-item" routerLink="type-circuit" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
                             <span jhiTranslate="global.menu.entities.typeCircuit">Type Circuit</span>
@@ -88,15 +100,27 @@
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item" routerLink="pays" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                        <a class="dropdown-item" routerLink="type-tarif" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.pays">Pays</span>
+                            <span jhiTranslate="global.menu.entities.typeTarif">Type Tarif</span>
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item" routerLink="region" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                        <a class="dropdown-item" routerLink="tour-media" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.region">Region</span>
+                            <span jhiTranslate="global.menu.entities.tourMedia">Tour Media</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="tarif-tour" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.tarifTour">Tarif Tour</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="tarif-service-supplementaire" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.tarifServiceSupplementaire">Tarif Service Supplementaire</span>
                         </a>
                     </li>
                     <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->

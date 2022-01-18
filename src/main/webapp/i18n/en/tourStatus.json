@@ -1,0 +1,9 @@
+{
+  "ecoLifeExpeditionApp": {
+    "TourStatus": {
+      "null": "",
+      "ACTIVE": "ACTIVE",
+      "DISABLED": "DISABLED"
+    }
+  }
+}

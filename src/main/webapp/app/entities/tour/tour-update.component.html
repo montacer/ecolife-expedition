@@ -30,46 +30,41 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="ecoLifeExpeditionApp.tour.image" for="field_image">Image</label>
+                    <label class="form-control-label" jhiTranslate="ecoLifeExpeditionApp.tour.imageContent" for="field_imageContent">Image Content</label>
                     <div>
-                        <img [src]="'data:' + editForm.get('imageContentType')!.value + ';base64,' + editForm.get('image')!.value" style="max-height: 100px;" *ngIf="editForm.get('image')!.value" alt="tour image"/>
-                        <div *ngIf="editForm.get('image')!.value" class="form-text text-danger clearfix">
-                            <span class="pull-left">{{ editForm.get('imageContentType')!.value }}, {{ byteSize(editForm.get('image')!.value) }}</span>
-                            <button type="button" (click)="clearInputImage('image', 'imageContentType', 'file_image')" class="btn btn-secondary btn-xs pull-right">
-                                <fa-icon icon="times"></fa-icon>
-                            </button>
-                        </div>
-                        <input type="file" id="file_image" (change)="setFileData($event, 'image', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
-                    </div>
-                    <input type="hidden" class="form-control" name="image" id="field_image"
-                           formControlName="image"/>
-                    <input type="hidden" class="form-control" name="imageContentType" id="field_imageContentType"
-                           formControlName="imageContentType" />
-                </div>
-
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="ecoLifeExpeditionApp.tour.video" for="field_video">Video</label>
-                    <div>
-                        <div *ngIf="editForm.get('video')!.value" class="form-text text-danger clearfix">
-                            <a class="pull-left" (click)="openFile(editForm.get('videoContentType')!.value, editForm.get('video')!.value)" jhiTranslate="entity.action.open">open</a><br>
-                            <span class="pull-left">{{ editForm.get('videoContentType')!.value }}, {{ byteSize(editForm.get('video')!.value) }}</span>
-                            <button type="button" (click)="editForm.patchValue({video: null});editForm.patchValue({videoContentType: null});"
+                        <div *ngIf="editForm.get('imageContent')!.value" class="form-text text-danger clearfix">
+                            <a class="pull-left" (click)="openFile(editForm.get('imageContentContentType')!.value, editForm.get('imageContent')!.value)" jhiTranslate="entity.action.open">open</a><br>
+                            <span class="pull-left">{{ editForm.get('imageContentContentType')!.value }}, {{ byteSize(editForm.get('imageContent')!.value) }}</span>
+                            <button type="button" (click)="editForm.patchValue({imageContent: null});editForm.patchValue({imageContentContentType: null});"
                                     class="btn btn-secondary btn-xs pull-right">
                                 <fa-icon icon="times"></fa-icon>
                             </button>
                         </div>
-                        <input type="file" id="file_video" (change)="setFileData($event, 'video', false)" jhiTranslate="entity.action.addblob"/>
-                   <div class="video">
-						<video controls  #videoPlayer width="auto" height="240">
-						<source src="http://localhost:8080/media/video/{{ editForm.get('videoUrl')!.value }}" type="video/mp4" />
-							Browser not supported
-						</video>
-					</div>
+                        <input type="file" id="file_imageContent" (change)="setFileData($event, 'imageContent', false)" jhiTranslate="entity.action.addblob"/>
                     </div>
-                    <input type="hidden" class="form-control" name="video" id="field_video"
-                           formControlName="video"/>
-                    <input type="hidden" class="form-control" name="videoContentType" id="field_videoContentType"
-                           formControlName="videoContentType" />
+                    <input type="hidden" class="form-control" name="imageContent" id="field_imageContent"
+                           formControlName="imageContent"/>
+                    <input type="hidden" class="form-control" name="imageContentContentType" id="field_imageContentContentType"
+                           formControlName="imageContentContentType" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ecoLifeExpeditionApp.tour.videoContent" for="field_videoContent">Video Content</label>
+                    <div>
+                        <div *ngIf="editForm.get('videoContent')!.value" class="form-text text-danger clearfix">
+                            <a class="pull-left" (click)="openFile(editForm.get('videoContentContentType')!.value, editForm.get('videoContent')!.value)" jhiTranslate="entity.action.open">open</a><br>
+                            <span class="pull-left">{{ editForm.get('videoContentContentType')!.value }}, {{ byteSize(editForm.get('videoContent')!.value) }}</span>
+                            <button type="button" (click)="editForm.patchValue({videoContent: null});editForm.patchValue({videoContentContentType: null});"
+                                    class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon icon="times"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_videoContent" (change)="setFileData($event, 'videoContent', false)" jhiTranslate="entity.action.addblob"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="videoContent" id="field_videoContent"
+                           formControlName="videoContent"/>
+                    <input type="hidden" class="form-control" name="videoContentContentType" id="field_videoContentContentType"
+                           formControlName="videoContentContentType" />
                 </div>
 
                 <div class="form-group">
@@ -85,10 +80,50 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="ecoLifeExpeditionApp.tour.reservation" for="field_reservation">Reservation</label>
-                    <select class="form-control" id="field_reservation" name="reservation" formControlName="reservation">
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="reservationOption.id === editForm.get('reservation')!.value?.id ? editForm.get('reservation')!.value : reservationOption" *ngFor="let reservationOption of reservations; trackBy: trackById">{{ reservationOption.id }}</option>
+                    <label class="form-control-label" jhiTranslate="ecoLifeExpeditionApp.tour.description" for="field_description">Description</label>
+                    <input type="text" class="form-control" name="description" id="field_description"
+                           formControlName="description"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ecoLifeExpeditionApp.tour.remise" for="field_remise">Remise</label>
+                    <input type="checkbox" class="form-control" name="remise" id="field_remise"
+                           formControlName="remise"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ecoLifeExpeditionApp.tour.prixRemise" for="field_prixRemise">Prix Remise</label>
+                    <input type="number" class="form-control" name="prixRemise" id="field_prixRemise"
+                           formControlName="prixRemise"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ecoLifeExpeditionApp.tour.starScore" for="field_starScore">Star Score</label>
+                    <input type="number" class="form-control" name="starScore" id="field_starScore"
+                           formControlName="starScore"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ecoLifeExpeditionApp.tour.duree" for="field_duree">Duree</label>
+                    <input type="number" class="form-control" name="duree" id="field_duree"
+                           formControlName="duree"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ecoLifeExpeditionApp.tour.saison" for="field_saison">Saison</label>
+                    <select class="form-control" name="saison" formControlName="saison" id="field_saison">
+                        <option value="ETE">{{ 'ecoLifeExpeditionApp.Saison.ETE' | translate }}</option>
+                        <option value="AUTOMNE">{{ 'ecoLifeExpeditionApp.Saison.AUTOMNE' | translate }}</option>
+                        <option value="HIVER">{{ 'ecoLifeExpeditionApp.Saison.HIVER' | translate }}</option>
+                        <option value="PRINTEMPS">{{ 'ecoLifeExpeditionApp.Saison.PRINTEMPS' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ecoLifeExpeditionApp.tour.status" for="field_status">Status</label>
+                    <select class="form-control" name="status" formControlName="status" id="field_status">
+                        <option value="ACTIVE">{{ 'ecoLifeExpeditionApp.TourStatus.ACTIVE' | translate }}</option>
+                        <option value="DISABLED">{{ 'ecoLifeExpeditionApp.TourStatus.DISABLED' | translate }}</option>
                     </select>
                 </div>
 

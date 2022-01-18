@@ -1,23 +1,20 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HttpResponse } from '@angular/common/http';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 import { JhiDataUtils, JhiFileLoadError, JhiEventManager, JhiEventWithContent } from 'ng-jhipster';
 
 import { ITour, Tour } from 'app/shared/model/tour.model';
 import { TourService } from './tour.service';
 import { AlertError } from 'app/shared/alert/alert-error.model';
-import { IReservation } from 'app/shared/model/reservation.model';
-import { ReservationService } from 'app/entities/reservation/reservation.service';
 import { IRegion } from 'app/shared/model/region.model';
 import { RegionService } from 'app/entities/region/region.service';
 import { ITypeCircuit } from 'app/shared/model/type-circuit.model';
 import { TypeCircuitService } from 'app/entities/type-circuit/type-circuit.service';
 
-type SelectableEntity = IReservation | IRegion | ITypeCircuit;
+type SelectableEntity = IRegion | ITypeCircuit;
 
 @Component({
   selector: 'jhi-tour-update',
@@ -25,7 +22,6 @@ type SelectableEntity = IReservation | IRegion | ITypeCircuit;
 })
 export class TourUpdateComponent implements OnInit {
   isSaving = false;
-  reservations: IReservation[] = [];
   regions: IRegion[] = [];
   typecircuits: ITypeCircuit[] = [];
 
@@ -34,13 +30,19 @@ export class TourUpdateComponent implements OnInit {
     libTitre: [],
     imageUrl: [],
     videoUrl: [],
-    image: [],
-    imageContentType: [],
-    video: [],
-    videoContentType: [],
+    imageContent: [],
+    imageContentContentType: [],
+    videoContent: [],
+    videoContentContentType: [],
     conseil: [],
     prixTTC: [],
-    reservation: [],
+    description: [],
+    remise: [],
+    prixRemise: [],
+    starScore: [],
+    duree: [],
+    saison: [],
+    status: [],
     region: [],
     typeCircuit: [],
   });
@@ -49,10 +51,8 @@ export class TourUpdateComponent implements OnInit {
     protected dataUtils: JhiDataUtils,
     protected eventManager: JhiEventManager,
     protected tourService: TourService,
-    protected reservationService: ReservationService,
     protected regionService: RegionService,
     protected typeCircuitService: TypeCircuitService,
-    protected elementRef: ElementRef,
     protected activatedRoute: ActivatedRoute,
     private fb: FormBuilder
   ) {}
@@ -60,28 +60,6 @@ export class TourUpdateComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ tour }) => {
       this.updateForm(tour);
-
-      this.reservationService
-        .query({ filter: 'tour-is-null' })
-        .pipe(
-          map((res: HttpResponse<IReservation[]>) => {
-            return res.body || [];
-          })
-        )
-        .subscribe((resBody: IReservation[]) => {
-          if (!tour.reservation || !tour.reservation.id) {
-            this.reservations = resBody;
-          } else {
-            this.reservationService
-              .find(tour.reservation.id)
-              .pipe(
-                map((subRes: HttpResponse<IReservation>) => {
-                  return subRes.body ? [subRes.body].concat(resBody) : resBody;
-                })
-              )
-              .subscribe((concatRes: IReservation[]) => (this.reservations = concatRes));
-          }
-        });
 
       this.regionService.query().subscribe((res: HttpResponse<IRegion[]>) => (this.regions = res.body || []));
 
@@ -95,13 +73,19 @@ export class TourUpdateComponent implements OnInit {
       libTitre: tour.libTitre,
       imageUrl: tour.imageUrl,
       videoUrl: tour.videoUrl,
-      image: tour.image,
-      imageContentType: tour.imageContentType,
-      video: tour.video,
-      videoContentType: tour.videoContentType,
+      imageContent: tour.imageContent,
+      imageContentContentType: tour.imageContentContentType,
+      videoContent: tour.videoContent,
+      videoContentContentType: tour.videoContentContentType,
       conseil: tour.conseil,
       prixTTC: tour.prixTTC,
-      reservation: tour.reservation,
+      description: tour.description,
+      remise: tour.remise,
+      prixRemise: tour.prixRemise,
+      starScore: tour.starScore,
+      duree: tour.duree,
+      saison: tour.saison,
+      status: tour.status,
       region: tour.region,
       typeCircuit: tour.typeCircuit,
     });
@@ -121,16 +105,6 @@ export class TourUpdateComponent implements OnInit {
         new JhiEventWithContent<AlertError>('ecoLifeExpeditionApp.error', { ...err, key: 'error.file.' + err.key })
       );
     });
-  }
-
-  clearInputImage(field: string, fieldContentType: string, idInput: string): void {
-    this.editForm.patchValue({
-      [field]: null,
-      [fieldContentType]: null,
-    });
-    if (this.elementRef && idInput && this.elementRef.nativeElement.querySelector('#' + idInput)) {
-      this.elementRef.nativeElement.querySelector('#' + idInput).value = null;
-    }
   }
 
   previousState(): void {
@@ -154,13 +128,19 @@ export class TourUpdateComponent implements OnInit {
       libTitre: this.editForm.get(['libTitre'])!.value,
       imageUrl: this.editForm.get(['imageUrl'])!.value,
       videoUrl: this.editForm.get(['videoUrl'])!.value,
-      imageContentType: this.editForm.get(['imageContentType'])!.value,
-      image: this.editForm.get(['image'])!.value,
-      videoContentType: this.editForm.get(['videoContentType'])!.value,
-      video: this.editForm.get(['video'])!.value,
+      imageContentContentType: this.editForm.get(['imageContentContentType'])!.value,
+      imageContent: this.editForm.get(['imageContent'])!.value,
+      videoContentContentType: this.editForm.get(['videoContentContentType'])!.value,
+      videoContent: this.editForm.get(['videoContent'])!.value,
       conseil: this.editForm.get(['conseil'])!.value,
       prixTTC: this.editForm.get(['prixTTC'])!.value,
-      reservation: this.editForm.get(['reservation'])!.value,
+      description: this.editForm.get(['description'])!.value,
+      remise: this.editForm.get(['remise'])!.value,
+      prixRemise: this.editForm.get(['prixRemise'])!.value,
+      starScore: this.editForm.get(['starScore'])!.value,
+      duree: this.editForm.get(['duree'])!.value,
+      saison: this.editForm.get(['saison'])!.value,
+      status: this.editForm.get(['status'])!.value,
       region: this.editForm.get(['region'])!.value,
       typeCircuit: this.editForm.get(['typeCircuit'])!.value,
     };
