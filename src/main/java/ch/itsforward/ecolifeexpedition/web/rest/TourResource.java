@@ -64,7 +64,7 @@ public class TourResource {
         if (tour.getId() != null) {
             throw new BadRequestAlertException("A new tour cannot already have an ID", ENTITY_NAME, "idexists");
         }
-        Path file = MediaFileUtils.createMediaFile(videoStorageLocation, "video_tour", tour.getVideo());
+        Path file = MediaFileUtils.createMediaFile(videoStorageLocation, "video_tour", tour.getVideoContent());
         log.info("file.getFileName() .............." + file.getFileName().toString());
         tour.setVideoUrl(file.getFileName().toString());
      
@@ -89,7 +89,7 @@ public class TourResource {
         if (tour.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
         }
-        Path file = MediaFileUtils.createMediaFile(videoStorageLocation, "video_tour", tour.getVideo());
+        Path file = MediaFileUtils.createMediaFile(videoStorageLocation, "video_tour", tour.getVideoContent());
         log.info("file.getFileName().toString() .............." + file.getFileName().toString());
         tour.setVideoUrl(file.getFileName().toString());
         Tour result = tourRepository.save(tour);
@@ -107,7 +107,7 @@ public class TourResource {
     public List<Tour> getAllTours() {
         log.debug("REST request to get all Tours");
         List<Tour> result =  tourRepository.findAll();
-        result.forEach(tour -> { tour.setVideo(null); tour.setImage(null);});
+        result.forEach(tour -> { tour.setVideoContent(null); tour.setImageContent(null);});
         return result;
     }
 
