@@ -1,0 +1,57 @@
+{
+  "name": "Hebergement",
+  "fields": [
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "adresse",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lattitude",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "longitude",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "montantTTc",
+      "fieldType": "Float"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "reservationHebergement",
+      "otherEntityRelationshipName": "hebergement",
+      "relationshipName": "reservationHebergement"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "avisHebergement",
+      "otherEntityRelationshipName": "hebergement",
+      "relationshipName": "avisHebergement"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "typeHebergement",
+      "otherEntityRelationshipName": "hebergement",
+      "relationshipName": "typeHebergement",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20220119015438",
+  "entityTableName": "hebergement",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

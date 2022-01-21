@@ -2,6 +2,7 @@
   "ecoLifeExpeditionApp": {
     "MediaType": {
       "null": "",
+      "TEXT": "TEXT",
       "AUDIO": "AUDIO",
       "VIDEO": "VIDEO",
       "IMAGE": "IMAGE"

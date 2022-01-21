@@ -1,5 +1,6 @@
 package ch.itsforward.ecolifeexpedition.domain;
 
+import io.swagger.annotations.ApiModel;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -10,8 +11,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * A Agence.
+ * MODULE RESERVATION\n
  */
+@ApiModel(description = "MODULE RESERVATION\n")
 @Entity
 @Table(name = "agence")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
@@ -36,7 +38,7 @@ public class Agence implements Serializable {
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     private Set<Hotel> hotels = new HashSet<>();
 
-    
+    // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
         return id;
     }
@@ -108,7 +110,7 @@ public class Agence implements Serializable {
     public void setHotels(Set<Hotel> hotels) {
         this.hotels = hotels;
     }
-
+    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
     @Override
     public boolean equals(Object o) {

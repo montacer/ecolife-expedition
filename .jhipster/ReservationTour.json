@@ -1,0 +1,37 @@
+{
+  "name": "ReservationTour",
+  "fields": [
+    {
+      "fieldName": "montantTotalTTC",
+      "fieldType": "Float"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "reservation",
+      "otherEntityRelationshipName": "reservationTour",
+      "relationshipName": "reservation",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "reservation",
+      "otherEntityRelationshipName": "reservationTour",
+      "relationshipName": "reservation",
+      "ownerSide": false
+    }
+  ],
+  "changelogDate": "20220119014938",
+  "entityTableName": "reservation_tour",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

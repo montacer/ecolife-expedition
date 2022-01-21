@@ -30,15 +30,28 @@ public class Hotel implements Serializable {
     @Column(name = "classe_hotel")
     private Integer classeHotel;
 
+    @Column(name = "adresse")
+    private String adresse;
+
+    @Column(name = "lattitude")
+    private Float lattitude;
+
+    @Column(name = "longitude")
+    private Float longitude;
+
     @OneToMany(mappedBy = "hotel")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     private Set<Chambre> chambres = new HashSet<>();
+
+    @OneToMany(mappedBy = "hotel")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    private Set<HotelMedia> hotelMedias = new HashSet<>();
 
     @ManyToOne
     @JsonIgnoreProperties(value = "hotels", allowSetters = true)
     private Agence agence;
 
-    
+    // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
         return id;
     }
@@ -73,6 +86,45 @@ public class Hotel implements Serializable {
         this.classeHotel = classeHotel;
     }
 
+    public String getAdresse() {
+        return adresse;
+    }
+
+    public Hotel adresse(String adresse) {
+        this.adresse = adresse;
+        return this;
+    }
+
+    public void setAdresse(String adresse) {
+        this.adresse = adresse;
+    }
+
+    public Float getLattitude() {
+        return lattitude;
+    }
+
+    public Hotel lattitude(Float lattitude) {
+        this.lattitude = lattitude;
+        return this;
+    }
+
+    public void setLattitude(Float lattitude) {
+        this.lattitude = lattitude;
+    }
+
+    public Float getLongitude() {
+        return longitude;
+    }
+
+    public Hotel longitude(Float longitude) {
+        this.longitude = longitude;
+        return this;
+    }
+
+    public void setLongitude(Float longitude) {
+        this.longitude = longitude;
+    }
+
     public Set<Chambre> getChambres() {
         return chambres;
     }
@@ -98,6 +150,31 @@ public class Hotel implements Serializable {
         this.chambres = chambres;
     }
 
+    public Set<HotelMedia> getHotelMedias() {
+        return hotelMedias;
+    }
+
+    public Hotel hotelMedias(Set<HotelMedia> hotelMedias) {
+        this.hotelMedias = hotelMedias;
+        return this;
+    }
+
+    public Hotel addHotelMedia(HotelMedia hotelMedia) {
+        this.hotelMedias.add(hotelMedia);
+        hotelMedia.setHotel(this);
+        return this;
+    }
+
+    public Hotel removeHotelMedia(HotelMedia hotelMedia) {
+        this.hotelMedias.remove(hotelMedia);
+        hotelMedia.setHotel(null);
+        return this;
+    }
+
+    public void setHotelMedias(Set<HotelMedia> hotelMedias) {
+        this.hotelMedias = hotelMedias;
+    }
+
     public Agence getAgence() {
         return agence;
     }
@@ -110,7 +187,7 @@ public class Hotel implements Serializable {
     public void setAgence(Agence agence) {
         this.agence = agence;
     }
-
+    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
     @Override
     public boolean equals(Object o) {
@@ -135,6 +212,9 @@ public class Hotel implements Serializable {
             "id=" + getId() +
             ", libelleHotel='" + getLibelleHotel() + "'" +
             ", classeHotel=" + getClasseHotel() +
+            ", adresse='" + getAdresse() + "'" +
+            ", lattitude=" + getLattitude() +
+            ", longitude=" + getLongitude() +
             "}";
     }
 }

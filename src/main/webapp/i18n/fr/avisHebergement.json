@@ -1,0 +1,26 @@
+{
+  "ecoLifeExpeditionApp": {
+    "avisHebergement": {
+      "home": {
+        "title": "AvisHebergements",
+        "createLabel": "Créer un nouveau Avis Hebergement",
+        "createOrEditLabel": "Créer ou éditer un Avis Hebergement",
+        "notFound": "Aucun Avis Hebergement trouvé"
+      },
+      "created": "Un nouveau Avis Hebergement a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Avis Hebergement avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Avis Hebergement avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Avis Hebergement {{ id }} ?"
+      },
+      "detail": {
+        "title": "Avis Hebergement"
+      },
+      "author": "Author",
+      "nbreEtoile": "Nbre Etoile",
+      "commentaire": "Commentaire",
+      "avisHebergementMedia": "Avis Hebergement Media",
+      "hebergement": "Hebergement"
+    }
+  }
+}

@@ -28,11 +28,11 @@ public class TypeTarif implements Serializable {
 
     @OneToMany(mappedBy = "typeTarif")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<TarifTour> tarifTours = new HashSet<>();
+    private Set<TarifTransfert> tarifTransferts = new HashSet<>();
 
     @OneToMany(mappedBy = "typeTarif")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<TarifServiceSupplementaire> tarifServiceSupplementaires = new HashSet<>();
+    private Set<TarifHebergement> tarifHebergements = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -56,54 +56,54 @@ public class TypeTarif implements Serializable {
         this.libTypeTarif = libTypeTarif;
     }
 
-    public Set<TarifTour> getTarifTours() {
-        return tarifTours;
+    public Set<TarifTransfert> getTarifTransferts() {
+        return tarifTransferts;
     }
 
-    public TypeTarif tarifTours(Set<TarifTour> tarifTours) {
-        this.tarifTours = tarifTours;
+    public TypeTarif tarifTransferts(Set<TarifTransfert> tarifTransferts) {
+        this.tarifTransferts = tarifTransferts;
         return this;
     }
 
-    public TypeTarif addTarifTour(TarifTour tarifTour) {
-        this.tarifTours.add(tarifTour);
-        tarifTour.setTypeTarif(this);
+    public TypeTarif addTarifTransfert(TarifTransfert tarifTransfert) {
+        this.tarifTransferts.add(tarifTransfert);
+        tarifTransfert.setTypeTarif(this);
         return this;
     }
 
-    public TypeTarif removeTarifTour(TarifTour tarifTour) {
-        this.tarifTours.remove(tarifTour);
-        tarifTour.setTypeTarif(null);
+    public TypeTarif removeTarifTransfert(TarifTransfert tarifTransfert) {
+        this.tarifTransferts.remove(tarifTransfert);
+        tarifTransfert.setTypeTarif(null);
         return this;
     }
 
-    public void setTarifTours(Set<TarifTour> tarifTours) {
-        this.tarifTours = tarifTours;
+    public void setTarifTransferts(Set<TarifTransfert> tarifTransferts) {
+        this.tarifTransferts = tarifTransferts;
     }
 
-    public Set<TarifServiceSupplementaire> getTarifServiceSupplementaires() {
-        return tarifServiceSupplementaires;
+    public Set<TarifHebergement> getTarifHebergements() {
+        return tarifHebergements;
     }
 
-    public TypeTarif tarifServiceSupplementaires(Set<TarifServiceSupplementaire> tarifServiceSupplementaires) {
-        this.tarifServiceSupplementaires = tarifServiceSupplementaires;
+    public TypeTarif tarifHebergements(Set<TarifHebergement> tarifHebergements) {
+        this.tarifHebergements = tarifHebergements;
         return this;
     }
 
-    public TypeTarif addTarifServiceSupplementaire(TarifServiceSupplementaire tarifServiceSupplementaire) {
-        this.tarifServiceSupplementaires.add(tarifServiceSupplementaire);
-        tarifServiceSupplementaire.setTypeTarif(this);
+    public TypeTarif addTarifHebergement(TarifHebergement tarifHebergement) {
+        this.tarifHebergements.add(tarifHebergement);
+        tarifHebergement.setTypeTarif(this);
         return this;
     }
 
-    public TypeTarif removeTarifServiceSupplementaire(TarifServiceSupplementaire tarifServiceSupplementaire) {
-        this.tarifServiceSupplementaires.remove(tarifServiceSupplementaire);
-        tarifServiceSupplementaire.setTypeTarif(null);
+    public TypeTarif removeTarifHebergement(TarifHebergement tarifHebergement) {
+        this.tarifHebergements.remove(tarifHebergement);
+        tarifHebergement.setTypeTarif(null);
         return this;
     }
 
-    public void setTarifServiceSupplementaires(Set<TarifServiceSupplementaire> tarifServiceSupplementaires) {
-        this.tarifServiceSupplementaires = tarifServiceSupplementaires;
+    public void setTarifHebergements(Set<TarifHebergement> tarifHebergements) {
+        this.tarifHebergements = tarifHebergements;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

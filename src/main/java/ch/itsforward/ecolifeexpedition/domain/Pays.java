@@ -1,5 +1,6 @@
 package ch.itsforward.ecolifeexpedition.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -34,9 +35,13 @@ public class Pays implements Serializable {
 
     @OneToMany(mappedBy = "pays")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<Region> regions = new HashSet<>();
+    private Set<Region> listRegions = new HashSet<>();
 
-    
+    @ManyToOne
+    @JsonIgnoreProperties(value = "pays", allowSetters = true)
+    private Region regionOrigine;
+
+    // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
         return id;
     }
@@ -84,31 +89,44 @@ public class Pays implements Serializable {
         this.codeDevisePays = codeDevisePays;
     }
 
-    public Set<Region> getRegions() {
-        return regions;
+    public Set<Region> getListRegions() {
+        return listRegions;
     }
 
-    public Pays regions(Set<Region> regions) {
-        this.regions = regions;
+    public Pays listRegions(Set<Region> regions) {
+        this.listRegions = regions;
         return this;
     }
 
-    public Pays addRegion(Region region) {
-        this.regions.add(region);
+    public Pays addListRegions(Region region) {
+        this.listRegions.add(region);
         region.setPays(this);
         return this;
     }
 
-    public Pays removeRegion(Region region) {
-        this.regions.remove(region);
+    public Pays removeListRegions(Region region) {
+        this.listRegions.remove(region);
         region.setPays(null);
         return this;
     }
 
-    public void setRegions(Set<Region> regions) {
-        this.regions = regions;
+    public void setListRegions(Set<Region> regions) {
+        this.listRegions = regions;
     }
 
+    public Region getRegionOrigine() {
+        return regionOrigine;
+    }
+
+    public Pays regionOrigine(Region region) {
+        this.regionOrigine = region;
+        return this;
+    }
+
+    public void setRegionOrigine(Region region) {
+        this.regionOrigine = region;
+    }
+    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
     @Override
     public boolean equals(Object o) {

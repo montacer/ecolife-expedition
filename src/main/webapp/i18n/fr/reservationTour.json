@@ -1,0 +1,24 @@
+{
+  "ecoLifeExpeditionApp": {
+    "reservationTour": {
+      "home": {
+        "title": "ReservationTours",
+        "createLabel": "Créer un nouveau Reservation Tour",
+        "createOrEditLabel": "Créer ou éditer un Reservation Tour",
+        "notFound": "Aucun Reservation Tour trouvé"
+      },
+      "created": "Un nouveau Reservation Tour a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Reservation Tour avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Reservation Tour avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Reservation Tour {{ id }} ?"
+      },
+      "detail": {
+        "title": "Reservation Tour"
+      },
+      "montantTotalTTC": "Montant Total TTC",
+      "reservation": "Reservation",
+      "reservation": "Reservation"
+    }
+  }
+}

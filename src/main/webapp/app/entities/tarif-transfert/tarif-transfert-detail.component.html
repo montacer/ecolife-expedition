@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="tarifTransfert">
+            <h2><span jhiTranslate="ecoLifeExpeditionApp.tarifTransfert.detail.title">Tarif Transfert</span> {{ tarifTransfert.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ecoLifeExpeditionApp.tarifTransfert.montantTTC">Montant TTC</span></dt>
+                <dd>
+                    <span>{{ tarifTransfert.montantTTC }}</span>
+                </dd>
+                <dt><span jhiTranslate="ecoLifeExpeditionApp.tarifTransfert.typeTransfert">Type Transfert</span></dt>
+                <dd>
+                    <div *ngIf="tarifTransfert.typeTransfert">
+                        <a [routerLink]="['/type-transfert', tarifTransfert.typeTransfert?.id, 'view']">{{ tarifTransfert.typeTransfert?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ecoLifeExpeditionApp.tarifTransfert.typeTarif">Type Tarif</span></dt>
+                <dd>
+                    <div *ngIf="tarifTransfert.typeTarif">
+                        <a [routerLink]="['/type-tarif', tarifTransfert.typeTarif?.id, 'view']">{{ tarifTransfert.typeTarif?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/tarif-transfert', tarifTransfert.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

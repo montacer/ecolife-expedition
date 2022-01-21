@@ -19,7 +19,7 @@ entity Tour(TOUR) {
    libTitre String
    imageUrl  String 
    videoUrl  String 
-      image  ImageBlob 
+   image  ImageBlob 
    video  Blob 
    conseil String 
    prixTTC Float

@@ -1,0 +1,26 @@
+{
+  "ecoLifeExpeditionApp": {
+    "avisTourMedia": {
+      "home": {
+        "title": "Avis Tour Medias",
+        "createLabel": "Create a new Avis Tour Media",
+        "createOrEditLabel": "Create or edit a Avis Tour Media",
+        "notFound": "No Avis Tour Medias found"
+      },
+      "created": "A new Avis Tour Media is created with identifier {{ param }}",
+      "updated": "A Avis Tour Media is updated with identifier {{ param }}",
+      "deleted": "A Avis Tour Media is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Avis Tour Media {{ id }}?"
+      },
+      "detail": {
+        "title": "Avis Tour Media"
+      },
+      "mediaType": "Media Type",
+      "mediaUrl": "Media Url",
+      "mediacontent": "Mediacontent",
+      "score": "Score",
+      "avisTour": "Avis Tour"
+    }
+  }
+}

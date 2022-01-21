@@ -41,11 +41,13 @@ public class Reservation implements Serializable {
     @Column(name = "nombre_enfant")
     private Integer nombreEnfant;
 
-    @Column(name = "montant_ttc")
-    private Float montantTTC;
+    @Column(name = "montant_total_ttc")
+    private Float montantTotalTTC;
 
     @Column(name = "lib_devise")
     private String libDevise;
+
+    
 
     @OneToMany(mappedBy = "reservation")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
@@ -55,15 +57,22 @@ public class Reservation implements Serializable {
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     private Set<Client> clients = new HashSet<>();
 
-    @ManyToOne
-    @JsonIgnoreProperties(value = "reservations", allowSetters = true)
-    private Tour tour;
+    @OneToOne
+    @JsonIgnore
+    private ReservationTour reservationTour;
+
+    @OneToOne
+    @JsonIgnore
+    private ReservationHebergement reservationHebergement;
+
+    @OneToOne
+    @JsonIgnore
+    private ReservationTransfert reservationTransfert;
 
     @ManyToOne
     @JsonIgnoreProperties(value = "reservations", allowSetters = true)
     private DonneurOrdre donneurOrdre;
 
-    
     public Long getId() {
         return id;
     }
@@ -137,17 +146,17 @@ public class Reservation implements Serializable {
         this.nombreEnfant = nombreEnfant;
     }
 
-    public Float getMontantTTC() {
-        return montantTTC;
+    public Float getMontantTotalTTC() {
+        return montantTotalTTC;
     }
 
-    public Reservation montantTTC(Float montantTTC) {
-        this.montantTTC = montantTTC;
+    public Reservation montantTotalTTC(Float montantTotalTTC) {
+        this.montantTotalTTC = montantTotalTTC;
         return this;
     }
 
-    public void setMontantTTC(Float montantTTC) {
-        this.montantTTC = montantTTC;
+    public void setMontantTotalTTC(Float montantTotalTTC) {
+        this.montantTotalTTC = montantTotalTTC;
     }
 
     public String getLibDevise() {
@@ -163,6 +172,7 @@ public class Reservation implements Serializable {
         this.libDevise = libDevise;
     }
 
+    
     public Set<Chambre> getChambres() {
         return chambres;
     }
@@ -213,17 +223,43 @@ public class Reservation implements Serializable {
         this.clients = clients;
     }
 
-    public Tour getTour() {
-        return tour;
+    public ReservationTour getReservationTour() {
+        return reservationTour;
     }
 
-    public Reservation tour(Tour tour) {
-        this.tour = tour;
+    public Reservation reservationTour(ReservationTour reservationTour) {
+        this.reservationTour = reservationTour;
         return this;
     }
 
-    public void setTour(Tour tour) {
-        this.tour = tour;
+    public void setReservationTour(ReservationTour reservationTour) {
+        this.reservationTour = reservationTour;
+    }
+
+    public ReservationHebergement getReservationHebergement() {
+        return reservationHebergement;
+    }
+
+    public Reservation reservationHebergement(ReservationHebergement reservationHebergement) {
+        this.reservationHebergement = reservationHebergement;
+        return this;
+    }
+
+    public void setReservationHebergement(ReservationHebergement reservationHebergement) {
+        this.reservationHebergement = reservationHebergement;
+    }
+
+    public ReservationTransfert getReservationTransfert() {
+        return reservationTransfert;
+    }
+
+    public Reservation reservationTransfert(ReservationTransfert reservationTransfert) {
+        this.reservationTransfert = reservationTransfert;
+        return this;
+    }
+
+    public void setReservationTransfert(ReservationTransfert reservationTransfert) {
+        this.reservationTransfert = reservationTransfert;
     }
 
     public DonneurOrdre getDonneurOrdre() {
@@ -238,7 +274,7 @@ public class Reservation implements Serializable {
     public void setDonneurOrdre(DonneurOrdre donneurOrdre) {
         this.donneurOrdre = donneurOrdre;
     }
-
+    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
     @Override
     public boolean equals(Object o) {
@@ -266,7 +302,7 @@ public class Reservation implements Serializable {
             ", nombreAdulte=" + getNombreAdulte() +
             ", nombreJeune=" + getNombreJeune() +
             ", nombreEnfant=" + getNombreEnfant() +
-            ", montantTTC=" + getMontantTTC() +
+            ", montantTotalTTC=" + getMontantTotalTTC() +
             ", libDevise='" + getLibDevise() + "'" +
             "}";
     }

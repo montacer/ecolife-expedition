@@ -1,0 +1,249 @@
+/*************************************************
+ * MODULE TRANSFERT
+ */
+ 
+
+enum MediaType {
+	TEXT, AUDIO, VIDEO, IMAGE
+}
+enum Stars {
+	ONE ("1"), TWO ("2"), THREE ("3"), FOUR ("4") , FIVE ("5")
+}
+
+entity TypeTarif {
+	libTypeTarif String
+}
+ 
+entity TarifTransfert {
+	montantTTC Float
+}
+entity TypeTransfert {
+	libTypeTransfert String
+}
+entity Transfert{
+	montantTTC Float
+}
+
+entity AvisTransfert {
+	author String
+	nbreEtoile Stars
+	commentaire String
+
+}
+
+relationship OneToMany{
+	Transfert to AvisTransfert
+}
+//relationship ManyToOne{
+//	AvisTransfert to Transfert
+//}
+relationship OneToMany{
+	TypeTransfert to Transfert
+}
+//relationship ManyToOne{
+//	Transfert to TypeTransfert
+//}
+relationship OneToMany{
+	TypeTransfert to TarifTransfert
+}
+//relationship ManyToOne{
+//	TarifTransfert  to TypeTransfert
+//}
+relationship OneToMany{
+	TypeTarif to TarifTransfert
+}
+//relationship ManyToOne{
+//	TarifTransfert  to TypeTarif
+//}
+
+/***********************************************************
+ * MODULE RESERVATION
+ * 
+ */
+entity Agence(AGENCE){
+	libAgence String
+	adresseAgence String
+	contactAgence String
+}
+entity DonneurOrdre(DONNEUR_ORDRE) {
+	nom String
+	prenom String
+	adresse String
+	numTelephone String
+	email String
+}
+entity Client{
+	nom String
+	prenom String
+	adresse String
+	email String
+	dateNaissance LocalDate
+}
+entity Reservation(RESERVATION){
+	dateDebut LocalDate
+	dateFin LocalDate
+	nombreAdulte Integer
+	nombreJeune Integer
+	nombreEnfant Integer
+	montantTotalTTC Float
+	libDevise String
+}
+entity ReservationTour {
+	montantTotalTTC Float
+}
+relationship OneToOne{
+	Reservation to ReservationTour
+}
+
+
+relationship OneToOne{
+	ReservationTour to Reservation
+}
+entity ReservationHebergement {
+	montantTotalTTC Float
+}
+relationship OneToOne{
+	Reservation to ReservationHebergement
+}
+relationship OneToOne{
+	ReservationHebergement to Reservation
+}
+relationship OneToMany{
+	Hebergement to ReservationHebergement
+}
+entity ReservationTransfert {
+	montantTotalTTC Float
+}
+relationship OneToOne{
+	Reservation to ReservationTransfert
+}
+relationship OneToOne{
+	ReservationTransfert to Reservation
+}
+relationship OneToMany{
+	Transfert to ReservationTransfert
+}
+/*
+ * FIN MODULE RESERVATION
+ * 
+ *********************************************************************/
+/********************************************************************
+ * MODULE HEBERGEMENT
+ */
+
+
+entity TypeHebergement{
+	LibTypeHebergement String // Hotel, maison d'hote, auberge, appartement meublé, ....
+}
+
+entity Hebergement{
+	description String
+	adresse String
+	lattitude Float
+	longitude Float
+	montantTTc Float
+}
+
+relationship OneToMany{
+	TypeHebergement to Hebergement
+}
+
+entity Hotel{
+	libelleHotel String
+	classeHotel Integer
+	adresse String
+	lattitude Float
+	longitude Float
+}
+
+entity HotelMedia {
+	mediaUrl String
+	mediaType MediaType
+	mediacontent Blob
+}
+
+entity TarifHebergement {
+	montantTTC Float
+}
+
+entity Chambre{
+	prixTTC Float
+}
+
+entity TypeChambre(TYPE_CHAMBRE){
+	libelleTypeChambre String
+}
+
+relationship OneToMany{
+	Reservation to Chambre
+}
+
+relationship OneToMany{
+	TypeChambre to Chambre
+}
+relationship OneToMany{
+	Hotel to Chambre
+}
+relationship OneToMany{
+	Agence to Hotel
+}
+
+relationship OneToMany {
+	DonneurOrdre to Reservation
+}
+relationship OneToMany {
+	Reservation to Client
+}
+relationship OneToMany{
+	Hotel to HotelMedia
+}
+relationship OneToMany{
+	TypeTarif to TarifHebergement
+}
+/*
+ *  FIN MODULE HEBERGEMENT
+ ********************************************************************/
+/***********************************************************************
+ * MODULE AVIS ET COMMENTAIRE 
+ */
+entity AvisTour {
+	author String
+	nbreEtoile Stars
+	commentaire String
+	
+}
+
+entity AvisTourMedia {
+	mediaType MediaType
+	mediaUrl String
+	mediacontent Blob
+	score Stars
+}
+
+relationship OneToMany{
+	AvisTour to AvisTourMedia
+}
+entity AvisHebergement {
+	author String
+	nbreEtoile Stars
+	commentaire String
+
+}
+
+entity AvisHebergementMedia {
+	mediaType MediaType
+	mediaUrl String
+	mediacontent Blob
+
+}
+
+relationship OneToMany{
+	Hebergement to AvisHebergement
+}
+
+relationship OneToMany{
+	AvisHebergement to AvisHebergementMedia
+}
+/***********************************************************************
+ * MODULE AVIS ET COMMENTAIRE 
+ */

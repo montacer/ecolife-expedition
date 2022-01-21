@@ -24,6 +24,24 @@
                 </div>
 
                 <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ecoLifeExpeditionApp.hotel.adresse" for="field_adresse">Adresse</label>
+                    <input type="text" class="form-control" name="adresse" id="field_adresse"
+                           formControlName="adresse"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ecoLifeExpeditionApp.hotel.lattitude" for="field_lattitude">Lattitude</label>
+                    <input type="number" class="form-control" name="lattitude" id="field_lattitude"
+                           formControlName="lattitude"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ecoLifeExpeditionApp.hotel.longitude" for="field_longitude">Longitude</label>
+                    <input type="number" class="form-control" name="longitude" id="field_longitude"
+                           formControlName="longitude"/>
+                </div>
+
+                <div class="form-group">
                     <label class="form-control-label" jhiTranslate="ecoLifeExpeditionApp.hotel.agence" for="field_agence">Agence</label>
                     <select class="form-control" id="field_agence" name="agence" formControlName="agence">
                         <option [ngValue]="null"></option>

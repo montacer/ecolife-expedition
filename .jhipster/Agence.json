@@ -32,5 +32,6 @@
   "readOnly": false,
   "embedded": false,
   "clientRootFolder": "",
-  "applications": "*"
+  "applications": "*",
+  "javadoc": "MODULE RESERVATION\\n"
 }

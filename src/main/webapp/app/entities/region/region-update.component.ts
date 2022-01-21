@@ -9,6 +9,10 @@ import { IRegion, Region } from 'app/shared/model/region.model';
 import { RegionService } from './region.service';
 import { IPays } from 'app/shared/model/pays.model';
 import { PaysService } from 'app/entities/pays/pays.service';
+import { ITypeRegion } from 'app/shared/model/type-region.model';
+import { TypeRegionService } from 'app/entities/type-region/type-region.service';
+
+type SelectableEntity = IPays | ITypeRegion;
 
 @Component({
   selector: 'jhi-region-update',
@@ -17,16 +21,19 @@ import { PaysService } from 'app/entities/pays/pays.service';
 export class RegionUpdateComponent implements OnInit {
   isSaving = false;
   pays: IPays[] = [];
+  typeregions: ITypeRegion[] = [];
 
   editForm = this.fb.group({
     id: [],
     libRegion: [],
     pays: [],
+    typeRegion: [],
   });
 
   constructor(
     protected regionService: RegionService,
     protected paysService: PaysService,
+    protected typeRegionService: TypeRegionService,
     protected activatedRoute: ActivatedRoute,
     private fb: FormBuilder
   ) {}
@@ -36,6 +43,8 @@ export class RegionUpdateComponent implements OnInit {
       this.updateForm(region);
 
       this.paysService.query().subscribe((res: HttpResponse<IPays[]>) => (this.pays = res.body || []));
+
+      this.typeRegionService.query().subscribe((res: HttpResponse<ITypeRegion[]>) => (this.typeregions = res.body || []));
     });
   }
 
@@ -44,6 +53,7 @@ export class RegionUpdateComponent implements OnInit {
       id: region.id,
       libRegion: region.libRegion,
       pays: region.pays,
+      typeRegion: region.typeRegion,
     });
   }
 
@@ -67,6 +77,7 @@ export class RegionUpdateComponent implements OnInit {
       id: this.editForm.get(['id'])!.value,
       libRegion: this.editForm.get(['libRegion'])!.value,
       pays: this.editForm.get(['pays'])!.value,
+      typeRegion: this.editForm.get(['typeRegion'])!.value,
     };
   }
 
@@ -86,7 +97,7 @@ export class RegionUpdateComponent implements OnInit {
     this.isSaving = false;
   }
 
-  trackById(index: number, item: IPays): any {
+  trackById(index: number, item: SelectableEntity): any {
     return item.id;
   }
 }

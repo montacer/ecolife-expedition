@@ -1,0 +1,28 @@
+{
+  "name": "TypeHebergement",
+  "fields": [
+    {
+      "fieldName": "libTypeHebergement",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "hebergement",
+      "otherEntityRelationshipName": "typeHebergement",
+      "relationshipName": "hebergement"
+    }
+  ],
+  "changelogDate": "20220119015338",
+  "entityTableName": "type_hebergement",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

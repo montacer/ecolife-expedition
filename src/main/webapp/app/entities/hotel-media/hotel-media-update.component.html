@@ -1,0 +1,69 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-hotel-media-heading" jhiTranslate="ecoLifeExpeditionApp.hotelMedia.home.createOrEditLabel">Create or edit a Hotel Media</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ecoLifeExpeditionApp.hotelMedia.mediaUrl" for="field_mediaUrl">Media Url</label>
+                    <input type="text" class="form-control" name="mediaUrl" id="field_mediaUrl"
+                           formControlName="mediaUrl"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ecoLifeExpeditionApp.hotelMedia.mediaType" for="field_mediaType">Media Type</label>
+                    <select class="form-control" name="mediaType" formControlName="mediaType" id="field_mediaType">
+                        <option value="TEXT">{{ 'ecoLifeExpeditionApp.MediaType.TEXT' | translate }}</option>
+                        <option value="AUDIO">{{ 'ecoLifeExpeditionApp.MediaType.AUDIO' | translate }}</option>
+                        <option value="VIDEO">{{ 'ecoLifeExpeditionApp.MediaType.VIDEO' | translate }}</option>
+                        <option value="IMAGE">{{ 'ecoLifeExpeditionApp.MediaType.IMAGE' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ecoLifeExpeditionApp.hotelMedia.mediacontent" for="field_mediacontent">Mediacontent</label>
+                    <div>
+                        <div *ngIf="editForm.get('mediacontent')!.value" class="form-text text-danger clearfix">
+                            <a class="pull-left" (click)="openFile(editForm.get('mediacontentContentType')!.value, editForm.get('mediacontent')!.value)" jhiTranslate="entity.action.open">open</a><br>
+                            <span class="pull-left">{{ editForm.get('mediacontentContentType')!.value }}, {{ byteSize(editForm.get('mediacontent')!.value) }}</span>
+                            <button type="button" (click)="editForm.patchValue({mediacontent: null});editForm.patchValue({mediacontentContentType: null});"
+                                    class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon icon="times"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_mediacontent" (change)="setFileData($event, 'mediacontent', false)" jhiTranslate="entity.action.addblob"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="mediacontent" id="field_mediacontent"
+                           formControlName="mediacontent"/>
+                    <input type="hidden" class="form-control" name="mediacontentContentType" id="field_mediacontentContentType"
+                           formControlName="mediacontentContentType" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ecoLifeExpeditionApp.hotelMedia.hotel" for="field_hotel">Hotel</label>
+                    <select class="form-control" id="field_hotel" name="hotel" formControlName="hotel">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="hotelOption.id === editForm.get('hotel')!.value?.id ? editForm.get('hotel')!.value : hotelOption" *ngFor="let hotelOption of hotels; trackBy: trackById">{{ hotelOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

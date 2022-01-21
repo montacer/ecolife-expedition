@@ -9,15 +9,22 @@
   "relationships": [
     {
       "relationshipType": "one-to-many",
-      "otherEntityName": "tour",
+      "otherEntityName": "pays",
       "otherEntityRelationshipName": "region",
-      "relationshipName": "tour"
+      "relationshipName": "listPays"
     },
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "pays",
       "otherEntityRelationshipName": "region",
       "relationshipName": "pays",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "typeRegion",
+      "otherEntityRelationshipName": "region",
+      "relationshipName": "typeRegion",
       "otherEntityField": "id"
     }
   ],

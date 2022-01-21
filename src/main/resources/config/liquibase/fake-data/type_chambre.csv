@@ -1,11 +1,7 @@
 id;libelle_type_chambre
-1;Haven hard drive
-2;Tasty distributed Home Loan Account
-3;Regional Executive Flats
-4;parsing multi-byte
-5;e-commerce Direct Group
-6;models
-7;Home Loan Account
-8;deposit
-9;Pike 1080p Credit Card Account
-10;Program experiences JBOD
+1;Chambre régulière
+2;Chambre familiale
+3;Suite
+4;Chambres communicantes
+5;Chambres voisines
+6;Chambres adjacentes

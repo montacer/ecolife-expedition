@@ -20,7 +20,7 @@ describe('Service Tests', () => {
       service = injector.get(HotelService);
       httpMock = injector.get(HttpTestingController);
 
-      elemDefault = new Hotel(0, 'AAAAAAA', 0);
+      elemDefault = new Hotel(0, 'AAAAAAA', 0, 'AAAAAAA', 0, 0);
     });
 
     describe('Service methods', () => {
@@ -56,6 +56,9 @@ describe('Service Tests', () => {
           {
             libelleHotel: 'BBBBBB',
             classeHotel: 1,
+            adresse: 'BBBBBB',
+            lattitude: 1,
+            longitude: 1,
           },
           elemDefault
         );
@@ -74,6 +77,9 @@ describe('Service Tests', () => {
           {
             libelleHotel: 'BBBBBB',
             classeHotel: 1,
+            adresse: 'BBBBBB',
+            lattitude: 1,
+            longitude: 1,
           },
           elemDefault
         );

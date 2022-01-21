@@ -1,0 +1,67 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="ecoLifeExpeditionApp.transfert.home.title">Transferts</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-transfert" [routerLink]="['/transfert/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="ecoLifeExpeditionApp.transfert.home.createLabel">
+            Create a new Transfert
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="transferts?.length === 0">
+        <span jhiTranslate="ecoLifeExpeditionApp.transfert.home.notFound">No transferts found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="transferts && transferts.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="ecoLifeExpeditionApp.transfert.montantTTC">Montant TTC</span></th>
+                    <th scope="col" ><span jhiTranslate="ecoLifeExpeditionApp.transfert.typeTransfert">Type Transfert</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let transfert of transferts ;trackBy: trackId">
+                    <td><a [routerLink]="['/transfert', transfert.id, 'view']">{{ transfert.id }}</a></td>
+                    <td>{{ transfert.montantTTC }}</td>
+                    <td>
+                        <div *ngIf="transfert.typeTransfert">
+                            <a [routerLink]="['/type-transfert', transfert.typeTransfert?.id, 'view']" >{{ transfert.typeTransfert?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/transfert', transfert.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/transfert', transfert.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(transfert)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

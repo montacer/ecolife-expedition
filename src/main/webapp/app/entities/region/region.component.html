@@ -25,6 +25,7 @@
                     <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
                     <th scope="col" ><span jhiTranslate="ecoLifeExpeditionApp.region.libRegion">Lib Region</span></th>
                     <th scope="col" ><span jhiTranslate="ecoLifeExpeditionApp.region.pays">Pays</span></th>
+                    <th scope="col" ><span jhiTranslate="ecoLifeExpeditionApp.region.typeRegion">Type Region</span></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -35,6 +36,11 @@
                     <td>
                         <div *ngIf="region.pays">
                             <a [routerLink]="['/pays', region.pays?.id, 'view']" >{{ region.pays?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="region.typeRegion">
+                            <a [routerLink]="['/type-region', region.typeRegion?.id, 'view']" >{{ region.typeRegion?.id }}</a>
                         </div>
                     </td>
                     <td class="text-right">

@@ -24,7 +24,7 @@ entity TypeTarif {
 	libTypeTarif String
 }
 enum MediaType {
-	AUDIO, VIDEO, IMAGE
+	TEXT, AUDIO, VIDEO, IMAGE
 }
 enum Stars {
 	ONE ("1"), TWO ("2"), THREE ("3"), FOUR ("4") , FIVE ("5")
@@ -74,6 +74,7 @@ entity TarifTour {
 	montantTTC Float
 }
 entity TarifServiceSupplementaire {
+	
 	montantTTC Float
 }
 relationship OneToMany{

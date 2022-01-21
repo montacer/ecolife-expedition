@@ -7,7 +7,7 @@ import { HomeComponent } from './home.component';
 import { TourShowComponent } from './tour-show/tour-show.component';
 
 @NgModule({
-  imports: [EcoLifeExpeditionSharedModule, RouterModule.forChild([...HOME_ROUTE])],
+  imports: [EcoLifeExpeditionSharedModule, RouterModule.forChild([HOME_ROUTE])],
   declarations: [HomeComponent, TourShowComponent],
 })
 export class EcoLifeExpeditionHomeModule {}

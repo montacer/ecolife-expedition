@@ -1,0 +1,25 @@
+{
+  "ecoLifeExpeditionApp": {
+    "avisTransfert": {
+      "home": {
+        "title": "AvisTransferts",
+        "createLabel": "Créer un nouveau Avis Transfert",
+        "createOrEditLabel": "Créer ou éditer un Avis Transfert",
+        "notFound": "Aucun Avis Transfert trouvé"
+      },
+      "created": "Un nouveau Avis Transfert a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Avis Transfert avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Avis Transfert avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Avis Transfert {{ id }} ?"
+      },
+      "detail": {
+        "title": "Avis Transfert"
+      },
+      "author": "Author",
+      "nbreEtoile": "Nbre Etoile",
+      "commentaire": "Commentaire",
+      "transfert": "Transfert"
+    }
+  }
+}

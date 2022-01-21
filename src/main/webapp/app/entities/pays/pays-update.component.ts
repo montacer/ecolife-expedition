@@ -7,6 +7,8 @@ import { Observable } from 'rxjs';
 
 import { IPays, Pays } from 'app/shared/model/pays.model';
 import { PaysService } from './pays.service';
+import { IRegion } from 'app/shared/model/region.model';
+import { RegionService } from 'app/entities/region/region.service';
 
 @Component({
   selector: 'jhi-pays-update',
@@ -14,19 +16,28 @@ import { PaysService } from './pays.service';
 })
 export class PaysUpdateComponent implements OnInit {
   isSaving = false;
+  regions: IRegion[] = [];
 
   editForm = this.fb.group({
     id: [],
     codIsoPays: [],
     libPays: [],
     codeDevisePays: [],
+    regionOrigine: [],
   });
 
-  constructor(protected paysService: PaysService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}
+  constructor(
+    protected paysService: PaysService,
+    protected regionService: RegionService,
+    protected activatedRoute: ActivatedRoute,
+    private fb: FormBuilder
+  ) {}
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ pays }) => {
       this.updateForm(pays);
+
+      this.regionService.query().subscribe((res: HttpResponse<IRegion[]>) => (this.regions = res.body || []));
     });
   }
 
@@ -36,6 +47,7 @@ export class PaysUpdateComponent implements OnInit {
       codIsoPays: pays.codIsoPays,
       libPays: pays.libPays,
       codeDevisePays: pays.codeDevisePays,
+      regionOrigine: pays.regionOrigine,
     });
   }
 
@@ -60,6 +72,7 @@ export class PaysUpdateComponent implements OnInit {
       codIsoPays: this.editForm.get(['codIsoPays'])!.value,
       libPays: this.editForm.get(['libPays'])!.value,
       codeDevisePays: this.editForm.get(['codeDevisePays'])!.value,
+      regionOrigine: this.editForm.get(['regionOrigine'])!.value,
     };
   }
 
@@ -77,5 +90,9 @@ export class PaysUpdateComponent implements OnInit {
 
   protected onSaveError(): void {
     this.isSaving = false;
+  }
+
+  trackById(index: number, item: IRegion): any {
+    return item.id;
   }
 }

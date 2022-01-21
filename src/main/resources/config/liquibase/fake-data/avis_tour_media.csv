@@ -1,0 +1,11 @@
+id;media_type;media_url;mediacontent;mediacontent_content_type;score
+1;VIDEO;Bolivar Fuerte;../fake-data/blob/hipster.png;image/png;FOUR
+2;AUDIO;Generic Borders;../fake-data/blob/hipster.png;image/png;FOUR
+3;TEXT;Fantastic software generating;../fake-data/blob/hipster.png;image/png;FIVE
+4;IMAGE;Enterprise-wide 1080p;../fake-data/blob/hipster.png;image/png;FIVE
+5;AUDIO;Garden;../fake-data/blob/hipster.png;image/png;THREE
+6;AUDIO;program Netherlands Antillian Guilder non-volatile;../fake-data/blob/hipster.png;image/png;FOUR
+7;AUDIO;Web;../fake-data/blob/hipster.png;image/png;FOUR
+8;AUDIO;vortals Unbranded Plastic Chair Rhode Island;../fake-data/blob/hipster.png;image/png;TWO
+9;VIDEO;Texas Borders;../fake-data/blob/hipster.png;image/png;FIVE
+10;VIDEO;generate implement networks;../fake-data/blob/hipster.png;image/png;TWO

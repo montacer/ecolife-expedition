@@ -28,6 +28,14 @@
                     <input type="text" class="form-control" name="codeDevisePays" id="field_codeDevisePays"
                            formControlName="codeDevisePays"/>
                 </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ecoLifeExpeditionApp.pays.regionOrigine" for="field_regionOrigine">Region Origine</label>
+                    <select class="form-control" id="field_regionOrigine" name="regionOrigine" formControlName="regionOrigine">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="regionOption.id === editForm.get('regionOrigine')!.value?.id ? editForm.get('regionOrigine')!.value : regionOption" *ngFor="let regionOption of regions; trackBy: trackById">{{ regionOption.id }}</option>
+                    </select>
+                </div>
             </div>
 
             <div>

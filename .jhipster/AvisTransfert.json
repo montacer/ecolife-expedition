@@ -1,0 +1,38 @@
+{
+  "name": "AvisTransfert",
+  "fields": [
+    {
+      "fieldName": "author",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nbreEtoile",
+      "fieldType": "Stars",
+      "fieldValues": "ONE (1),TWO (2),THREE (3),FOUR (4),FIVE (5)"
+    },
+    {
+      "fieldName": "commentaire",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "transfert",
+      "otherEntityRelationshipName": "avisTransfert",
+      "relationshipName": "transfert",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20220119003443",
+  "entityTableName": "avis_transfert",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

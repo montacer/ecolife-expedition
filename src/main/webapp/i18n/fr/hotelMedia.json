@@ -1,0 +1,25 @@
+{
+  "ecoLifeExpeditionApp": {
+    "hotelMedia": {
+      "home": {
+        "title": "HotelMedias",
+        "createLabel": "Créer un nouveau Hotel Media",
+        "createOrEditLabel": "Créer ou éditer un Hotel Media",
+        "notFound": "Aucun Hotel Media trouvé"
+      },
+      "created": "Un nouveau Hotel Media a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Hotel Media avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Hotel Media avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Hotel Media {{ id }} ?"
+      },
+      "detail": {
+        "title": "Hotel Media"
+      },
+      "mediaUrl": "Media Url",
+      "mediaType": "Media Type",
+      "mediacontent": "Mediacontent",
+      "hotel": "Hotel"
+    }
+  }
+}

@@ -50,15 +50,39 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="ecoLifeExpeditionApp.reservation.montantTTC" for="field_montantTTC">Montant TTC</label>
-                    <input type="number" class="form-control" name="montantTTC" id="field_montantTTC"
-                           formControlName="montantTTC"/>
+                    <label class="form-control-label" jhiTranslate="ecoLifeExpeditionApp.reservation.montantTotalTTC" for="field_montantTotalTTC">Montant Total TTC</label>
+                    <input type="number" class="form-control" name="montantTotalTTC" id="field_montantTotalTTC"
+                           formControlName="montantTotalTTC"/>
                 </div>
 
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="ecoLifeExpeditionApp.reservation.libDevise" for="field_libDevise">Lib Devise</label>
                     <input type="text" class="form-control" name="libDevise" id="field_libDevise"
                            formControlName="libDevise"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ecoLifeExpeditionApp.reservation.reservationTour" for="field_reservationTour">Reservation Tour</label>
+                    <select class="form-control" id="field_reservationTour" name="reservationTour" formControlName="reservationTour">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="reservationTourOption.id === editForm.get('reservationTour')!.value?.id ? editForm.get('reservationTour')!.value : reservationTourOption" *ngFor="let reservationTourOption of reservationtours; trackBy: trackById">{{ reservationTourOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ecoLifeExpeditionApp.reservation.reservationHebergement" for="field_reservationHebergement">Reservation Hebergement</label>
+                    <select class="form-control" id="field_reservationHebergement" name="reservationHebergement" formControlName="reservationHebergement">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="reservationHebergementOption.id === editForm.get('reservationHebergement')!.value?.id ? editForm.get('reservationHebergement')!.value : reservationHebergementOption" *ngFor="let reservationHebergementOption of reservationhebergements; trackBy: trackById">{{ reservationHebergementOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ecoLifeExpeditionApp.reservation.reservationTransfert" for="field_reservationTransfert">Reservation Transfert</label>
+                    <select class="form-control" id="field_reservationTransfert" name="reservationTransfert" formControlName="reservationTransfert">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="reservationTransfertOption.id === editForm.get('reservationTransfert')!.value?.id ? editForm.get('reservationTransfert')!.value : reservationTransfertOption" *ngFor="let reservationTransfertOption of reservationtransferts; trackBy: trackById">{{ reservationTransfertOption.id }}</option>
+                    </select>
                 </div>
 
                 <div class="form-group">

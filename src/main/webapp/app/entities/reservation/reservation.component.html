@@ -28,8 +28,11 @@
                     <th scope="col" ><span jhiTranslate="ecoLifeExpeditionApp.reservation.nombreAdulte">Nombre Adulte</span></th>
                     <th scope="col" ><span jhiTranslate="ecoLifeExpeditionApp.reservation.nombreJeune">Nombre Jeune</span></th>
                     <th scope="col" ><span jhiTranslate="ecoLifeExpeditionApp.reservation.nombreEnfant">Nombre Enfant</span></th>
-                    <th scope="col" ><span jhiTranslate="ecoLifeExpeditionApp.reservation.montantTTC">Montant TTC</span></th>
+                    <th scope="col" ><span jhiTranslate="ecoLifeExpeditionApp.reservation.montantTotalTTC">Montant Total TTC</span></th>
                     <th scope="col" ><span jhiTranslate="ecoLifeExpeditionApp.reservation.libDevise">Lib Devise</span></th>
+                    <th scope="col" ><span jhiTranslate="ecoLifeExpeditionApp.reservation.reservationTour">Reservation Tour</span></th>
+                    <th scope="col" ><span jhiTranslate="ecoLifeExpeditionApp.reservation.reservationHebergement">Reservation Hebergement</span></th>
+                    <th scope="col" ><span jhiTranslate="ecoLifeExpeditionApp.reservation.reservationTransfert">Reservation Transfert</span></th>
                     <th scope="col" ><span jhiTranslate="ecoLifeExpeditionApp.reservation.donneurOrdre">Donneur Ordre</span></th>
                     <th scope="col"></th>
                 </tr>
@@ -42,8 +45,23 @@
                     <td>{{ reservation.nombreAdulte }}</td>
                     <td>{{ reservation.nombreJeune }}</td>
                     <td>{{ reservation.nombreEnfant }}</td>
-                    <td>{{ reservation.montantTTC }}</td>
+                    <td>{{ reservation.montantTotalTTC }}</td>
                     <td>{{ reservation.libDevise }}</td>
+                    <td>
+                        <div *ngIf="reservation.reservationTour">
+                            <a [routerLink]="['/reservation-tour', reservation.reservationTour?.id, 'view']" >{{ reservation.reservationTour?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="reservation.reservationHebergement">
+                            <a [routerLink]="['/reservation-hebergement', reservation.reservationHebergement?.id, 'view']" >{{ reservation.reservationHebergement?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="reservation.reservationTransfert">
+                            <a [routerLink]="['/reservation-transfert', reservation.reservationTransfert?.id, 'view']" >{{ reservation.reservationTransfert?.id }}</a>
+                        </div>
+                    </td>
                     <td>
                         <div *ngIf="reservation.donneurOrdre">
                             <a [routerLink]="['/donneur-ordre', reservation.donneurOrdre?.id, 'view']" >{{ reservation.donneurOrdre?.id }}</a>

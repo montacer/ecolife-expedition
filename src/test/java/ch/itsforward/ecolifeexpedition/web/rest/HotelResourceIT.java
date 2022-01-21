@@ -35,6 +35,15 @@ public class HotelResourceIT {
     private static final Integer DEFAULT_CLASSE_HOTEL = 1;
     private static final Integer UPDATED_CLASSE_HOTEL = 2;
 
+    private static final String DEFAULT_ADRESSE = "AAAAAAAAAA";
+    private static final String UPDATED_ADRESSE = "BBBBBBBBBB";
+
+    private static final Float DEFAULT_LATTITUDE = 1F;
+    private static final Float UPDATED_LATTITUDE = 2F;
+
+    private static final Float DEFAULT_LONGITUDE = 1F;
+    private static final Float UPDATED_LONGITUDE = 2F;
+
     @Autowired
     private HotelRepository hotelRepository;
 
@@ -55,7 +64,10 @@ public class HotelResourceIT {
     public static Hotel createEntity(EntityManager em) {
         Hotel hotel = new Hotel()
             .libelleHotel(DEFAULT_LIBELLE_HOTEL)
-            .classeHotel(DEFAULT_CLASSE_HOTEL);
+            .classeHotel(DEFAULT_CLASSE_HOTEL)
+            .adresse(DEFAULT_ADRESSE)
+            .lattitude(DEFAULT_LATTITUDE)
+            .longitude(DEFAULT_LONGITUDE);
         return hotel;
     }
     /**
@@ -67,7 +79,10 @@ public class HotelResourceIT {
     public static Hotel createUpdatedEntity(EntityManager em) {
         Hotel hotel = new Hotel()
             .libelleHotel(UPDATED_LIBELLE_HOTEL)
-            .classeHotel(UPDATED_CLASSE_HOTEL);
+            .classeHotel(UPDATED_CLASSE_HOTEL)
+            .adresse(UPDATED_ADRESSE)
+            .lattitude(UPDATED_LATTITUDE)
+            .longitude(UPDATED_LONGITUDE);
         return hotel;
     }
 
@@ -92,6 +107,9 @@ public class HotelResourceIT {
         Hotel testHotel = hotelList.get(hotelList.size() - 1);
         assertThat(testHotel.getLibelleHotel()).isEqualTo(DEFAULT_LIBELLE_HOTEL);
         assertThat(testHotel.getClasseHotel()).isEqualTo(DEFAULT_CLASSE_HOTEL);
+        assertThat(testHotel.getAdresse()).isEqualTo(DEFAULT_ADRESSE);
+        assertThat(testHotel.getLattitude()).isEqualTo(DEFAULT_LATTITUDE);
+        assertThat(testHotel.getLongitude()).isEqualTo(DEFAULT_LONGITUDE);
     }
 
     @Test
@@ -126,7 +144,10 @@ public class HotelResourceIT {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(hotel.getId().intValue())))
             .andExpect(jsonPath("$.[*].libelleHotel").value(hasItem(DEFAULT_LIBELLE_HOTEL)))
-            .andExpect(jsonPath("$.[*].classeHotel").value(hasItem(DEFAULT_CLASSE_HOTEL)));
+            .andExpect(jsonPath("$.[*].classeHotel").value(hasItem(DEFAULT_CLASSE_HOTEL)))
+            .andExpect(jsonPath("$.[*].adresse").value(hasItem(DEFAULT_ADRESSE)))
+            .andExpect(jsonPath("$.[*].lattitude").value(hasItem(DEFAULT_LATTITUDE.doubleValue())))
+            .andExpect(jsonPath("$.[*].longitude").value(hasItem(DEFAULT_LONGITUDE.doubleValue())));
     }
     
     @Test
@@ -141,7 +162,10 @@ public class HotelResourceIT {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(hotel.getId().intValue()))
             .andExpect(jsonPath("$.libelleHotel").value(DEFAULT_LIBELLE_HOTEL))
-            .andExpect(jsonPath("$.classeHotel").value(DEFAULT_CLASSE_HOTEL));
+            .andExpect(jsonPath("$.classeHotel").value(DEFAULT_CLASSE_HOTEL))
+            .andExpect(jsonPath("$.adresse").value(DEFAULT_ADRESSE))
+            .andExpect(jsonPath("$.lattitude").value(DEFAULT_LATTITUDE.doubleValue()))
+            .andExpect(jsonPath("$.longitude").value(DEFAULT_LONGITUDE.doubleValue()));
     }
     @Test
     @Transactional
@@ -165,7 +189,10 @@ public class HotelResourceIT {
         em.detach(updatedHotel);
         updatedHotel
             .libelleHotel(UPDATED_LIBELLE_HOTEL)
-            .classeHotel(UPDATED_CLASSE_HOTEL);
+            .classeHotel(UPDATED_CLASSE_HOTEL)
+            .adresse(UPDATED_ADRESSE)
+            .lattitude(UPDATED_LATTITUDE)
+            .longitude(UPDATED_LONGITUDE);
 
         restHotelMockMvc.perform(put("/api/hotels")
             .contentType(MediaType.APPLICATION_JSON)
@@ -178,6 +205,9 @@ public class HotelResourceIT {
         Hotel testHotel = hotelList.get(hotelList.size() - 1);
         assertThat(testHotel.getLibelleHotel()).isEqualTo(UPDATED_LIBELLE_HOTEL);
         assertThat(testHotel.getClasseHotel()).isEqualTo(UPDATED_CLASSE_HOTEL);
+        assertThat(testHotel.getAdresse()).isEqualTo(UPDATED_ADRESSE);
+        assertThat(testHotel.getLattitude()).isEqualTo(UPDATED_LATTITUDE);
+        assertThat(testHotel.getLongitude()).isEqualTo(UPDATED_LONGITUDE);
     }
 
     @Test

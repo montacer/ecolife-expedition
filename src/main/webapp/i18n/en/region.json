@@ -17,8 +17,9 @@
         "title": "Region"
       },
       "libRegion": "Lib Region",
-      "tour": "Tour",
-      "pays": "Pays"
+      "listPays": "List Pays",
+      "pays": "Pays",
+      "typeRegion": "Type Region"
     }
   }
 }

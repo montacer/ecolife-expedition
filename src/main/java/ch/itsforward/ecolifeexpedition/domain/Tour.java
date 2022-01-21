@@ -3,6 +3,7 @@ package ch.itsforward.ecolifeexpedition.domain;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 
@@ -38,14 +39,15 @@ public class Tour implements Serializable {
     @Column(name = "video_url")
     private String videoUrl;
 
-    @Lob
+//    @Lob
+//    @Type(type = "org.hibernate.type.BinaryType")
     @Column(name = "image_content")
     private byte[] imageContent;
 
     @Column(name = "image_content_content_type")
     private String imageContentContentType;
 
-    @Lob
+
     @Column(name = "video_content")
     private byte[] videoContent;
 

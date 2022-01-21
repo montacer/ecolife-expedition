@@ -1,0 +1,28 @@
+entity Pays(PAYS) {
+	
+	codIsoPays String
+	libPays String
+	codeDevisePays String
+}
+
+entity Region(REGION){
+	libRegion String
+}
+
+entity TypeRegion(TYPE_REGION){ // Continent, Zone, Département,...
+	libTypeRegion String
+}
+
+relationship OneToMany{
+	Pays to Region
+}
+
+relationship OneToMany{
+	TypeRegion to Region
+}
+
+relationship OneToMany{
+	Region to Pays 
+}
+
+

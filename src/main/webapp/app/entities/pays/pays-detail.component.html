@@ -20,6 +20,12 @@
                 <dd>
                     <span>{{ pays.codeDevisePays }}</span>
                 </dd>
+                <dt><span jhiTranslate="ecoLifeExpeditionApp.pays.regionOrigine">Region Origine</span></dt>
+                <dd>
+                    <div *ngIf="pays.regionOrigine">
+                        <a [routerLink]="['/region', pays.regionOrigine?.id, 'view']">{{ pays.regionOrigine?.id }}</a>
+                    </div>
+                </dd>
             </dl>
 
             <button type="submit"

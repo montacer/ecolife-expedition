@@ -22,6 +22,9 @@ export class HotelUpdateComponent implements OnInit {
     id: [],
     libelleHotel: [],
     classeHotel: [],
+    adresse: [],
+    lattitude: [],
+    longitude: [],
     agence: [],
   });
 
@@ -45,6 +48,9 @@ export class HotelUpdateComponent implements OnInit {
       id: hotel.id,
       libelleHotel: hotel.libelleHotel,
       classeHotel: hotel.classeHotel,
+      adresse: hotel.adresse,
+      lattitude: hotel.lattitude,
+      longitude: hotel.longitude,
       agence: hotel.agence,
     });
   }
@@ -69,6 +75,9 @@ export class HotelUpdateComponent implements OnInit {
       id: this.editForm.get(['id'])!.value,
       libelleHotel: this.editForm.get(['libelleHotel'])!.value,
       classeHotel: this.editForm.get(['classeHotel'])!.value,
+      adresse: this.editForm.get(['adresse'])!.value,
+      lattitude: this.editForm.get(['lattitude'])!.value,
+      longitude: this.editForm.get(['longitude'])!.value,
       agence: this.editForm.get(['agence'])!.value,
     };
   }

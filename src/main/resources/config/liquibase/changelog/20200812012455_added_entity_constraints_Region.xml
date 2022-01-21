@@ -14,5 +14,11 @@
                                  referencedColumnNames="id"
                                  referencedTableName="pays"/>
 
+        <addForeignKeyConstraint baseColumnNames="type_region_id"
+                                 baseTableName="region"
+                                 constraintName="fk_region_type_region_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="region"/>
+
     </changeSet>
 </databaseChangeLog>

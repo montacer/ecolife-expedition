@@ -18,7 +18,11 @@
       },
       "libelleHotel": "Libelle Hotel",
       "classeHotel": "Classe Hotel",
+      "adresse": "Adresse",
+      "lattitude": "Lattitude",
+      "longitude": "Longitude",
       "chambre": "Chambre",
+      "hotelMedia": "Hotel Media",
       "agence": "Agence"
     }
   }

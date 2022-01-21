@@ -1,0 +1,28 @@
+{
+  "name": "TypeRegion",
+  "fields": [
+    {
+      "fieldName": "libTypeRegion",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "region",
+      "otherEntityRelationshipName": "typeRegion",
+      "relationshipName": "region"
+    }
+  ],
+  "changelogDate": "20220120135136",
+  "entityTableName": "type_region",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

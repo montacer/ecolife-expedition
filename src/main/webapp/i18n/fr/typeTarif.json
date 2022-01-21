@@ -17,8 +17,8 @@
         "title": "Type Tarif"
       },
       "libTypeTarif": "Lib Type Tarif",
-      "tarifTour": "Tarif Tour",
-      "tarifServiceSupplementaire": "Tarif Service Supplementaire"
+      "tarifTransfert": "Tarif Transfert",
+      "tarifHebergement": "Tarif Hebergement"
     }
   }
 }

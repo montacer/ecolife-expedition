@@ -1,7 +1,9 @@
 import { Moment } from 'moment';
+import { IReservationTour } from 'app/shared/model/reservation-tour.model';
+import { IReservationHebergement } from 'app/shared/model/reservation-hebergement.model';
+import { IReservationTransfert } from 'app/shared/model/reservation-transfert.model';
 import { IChambre } from 'app/shared/model/chambre.model';
 import { IClient } from 'app/shared/model/client.model';
-import { ITour } from 'app/shared/model/tour.model';
 import { IDonneurOrdre } from 'app/shared/model/donneur-ordre.model';
 
 export interface IReservation {
@@ -11,11 +13,13 @@ export interface IReservation {
   nombreAdulte?: number;
   nombreJeune?: number;
   nombreEnfant?: number;
-  montantTTC?: number;
+  montantTotalTTC?: number;
   libDevise?: string;
+  reservationTour?: IReservationTour;
+  reservationHebergement?: IReservationHebergement;
+  reservationTransfert?: IReservationTransfert;
   chambres?: IChambre[];
   clients?: IClient[];
-  tour?: ITour;
   donneurOrdre?: IDonneurOrdre;
 }
 
@@ -27,11 +31,13 @@ export class Reservation implements IReservation {
     public nombreAdulte?: number,
     public nombreJeune?: number,
     public nombreEnfant?: number,
-    public montantTTC?: number,
+    public montantTotalTTC?: number,
     public libDevise?: string,
+    public reservationTour?: IReservationTour,
+    public reservationHebergement?: IReservationHebergement,
+    public reservationTransfert?: IReservationTransfert,
     public chambres?: IChambre[],
     public clients?: IClient[],
-    public tour?: ITour,
     public donneurOrdre?: IDonneurOrdre
   ) {}
 }

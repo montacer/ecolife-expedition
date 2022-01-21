@@ -46,8 +46,8 @@ public class ReservationResourceIT {
     private static final Integer DEFAULT_NOMBRE_ENFANT = 1;
     private static final Integer UPDATED_NOMBRE_ENFANT = 2;
 
-    private static final Float DEFAULT_MONTANT_TTC = 1F;
-    private static final Float UPDATED_MONTANT_TTC = 2F;
+    private static final Float DEFAULT_MONTANT_TOTAL_TTC = 1F;
+    private static final Float UPDATED_MONTANT_TOTAL_TTC = 2F;
 
     private static final String DEFAULT_LIB_DEVISE = "AAAAAAAAAA";
     private static final String UPDATED_LIB_DEVISE = "BBBBBBBBBB";
@@ -76,7 +76,7 @@ public class ReservationResourceIT {
             .nombreAdulte(DEFAULT_NOMBRE_ADULTE)
             .nombreJeune(DEFAULT_NOMBRE_JEUNE)
             .nombreEnfant(DEFAULT_NOMBRE_ENFANT)
-            .montantTTC(DEFAULT_MONTANT_TTC)
+            .montantTotalTTC(DEFAULT_MONTANT_TOTAL_TTC)
             .libDevise(DEFAULT_LIB_DEVISE);
         return reservation;
     }
@@ -93,7 +93,7 @@ public class ReservationResourceIT {
             .nombreAdulte(UPDATED_NOMBRE_ADULTE)
             .nombreJeune(UPDATED_NOMBRE_JEUNE)
             .nombreEnfant(UPDATED_NOMBRE_ENFANT)
-            .montantTTC(UPDATED_MONTANT_TTC)
+            .montantTotalTTC(UPDATED_MONTANT_TOTAL_TTC)
             .libDevise(UPDATED_LIB_DEVISE);
         return reservation;
     }
@@ -122,7 +122,7 @@ public class ReservationResourceIT {
         assertThat(testReservation.getNombreAdulte()).isEqualTo(DEFAULT_NOMBRE_ADULTE);
         assertThat(testReservation.getNombreJeune()).isEqualTo(DEFAULT_NOMBRE_JEUNE);
         assertThat(testReservation.getNombreEnfant()).isEqualTo(DEFAULT_NOMBRE_ENFANT);
-        assertThat(testReservation.getMontantTTC()).isEqualTo(DEFAULT_MONTANT_TTC);
+        assertThat(testReservation.getMontantTotalTTC()).isEqualTo(DEFAULT_MONTANT_TOTAL_TTC);
         assertThat(testReservation.getLibDevise()).isEqualTo(DEFAULT_LIB_DEVISE);
     }
 
@@ -162,7 +162,7 @@ public class ReservationResourceIT {
             .andExpect(jsonPath("$.[*].nombreAdulte").value(hasItem(DEFAULT_NOMBRE_ADULTE)))
             .andExpect(jsonPath("$.[*].nombreJeune").value(hasItem(DEFAULT_NOMBRE_JEUNE)))
             .andExpect(jsonPath("$.[*].nombreEnfant").value(hasItem(DEFAULT_NOMBRE_ENFANT)))
-            .andExpect(jsonPath("$.[*].montantTTC").value(hasItem(DEFAULT_MONTANT_TTC.doubleValue())))
+            .andExpect(jsonPath("$.[*].montantTotalTTC").value(hasItem(DEFAULT_MONTANT_TOTAL_TTC.doubleValue())))
             .andExpect(jsonPath("$.[*].libDevise").value(hasItem(DEFAULT_LIB_DEVISE)));
     }
     
@@ -182,7 +182,7 @@ public class ReservationResourceIT {
             .andExpect(jsonPath("$.nombreAdulte").value(DEFAULT_NOMBRE_ADULTE))
             .andExpect(jsonPath("$.nombreJeune").value(DEFAULT_NOMBRE_JEUNE))
             .andExpect(jsonPath("$.nombreEnfant").value(DEFAULT_NOMBRE_ENFANT))
-            .andExpect(jsonPath("$.montantTTC").value(DEFAULT_MONTANT_TTC.doubleValue()))
+            .andExpect(jsonPath("$.montantTotalTTC").value(DEFAULT_MONTANT_TOTAL_TTC.doubleValue()))
             .andExpect(jsonPath("$.libDevise").value(DEFAULT_LIB_DEVISE));
     }
     @Test
@@ -211,7 +211,7 @@ public class ReservationResourceIT {
             .nombreAdulte(UPDATED_NOMBRE_ADULTE)
             .nombreJeune(UPDATED_NOMBRE_JEUNE)
             .nombreEnfant(UPDATED_NOMBRE_ENFANT)
-            .montantTTC(UPDATED_MONTANT_TTC)
+            .montantTotalTTC(UPDATED_MONTANT_TOTAL_TTC)
             .libDevise(UPDATED_LIB_DEVISE);
 
         restReservationMockMvc.perform(put("/api/reservations")
@@ -228,7 +228,7 @@ public class ReservationResourceIT {
         assertThat(testReservation.getNombreAdulte()).isEqualTo(UPDATED_NOMBRE_ADULTE);
         assertThat(testReservation.getNombreJeune()).isEqualTo(UPDATED_NOMBRE_JEUNE);
         assertThat(testReservation.getNombreEnfant()).isEqualTo(UPDATED_NOMBRE_ENFANT);
-        assertThat(testReservation.getMontantTTC()).isEqualTo(UPDATED_MONTANT_TTC);
+        assertThat(testReservation.getMontantTotalTTC()).isEqualTo(UPDATED_MONTANT_TOTAL_TTC);
         assertThat(testReservation.getLibDevise()).isEqualTo(UPDATED_LIB_DEVISE);
     }
 

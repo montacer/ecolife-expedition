@@ -1,0 +1,26 @@
+{
+  "ecoLifeExpeditionApp": {
+    "avisTourMedia": {
+      "home": {
+        "title": "AvisTourMedias",
+        "createLabel": "Créer un nouveau Avis Tour Media",
+        "createOrEditLabel": "Créer ou éditer un Avis Tour Media",
+        "notFound": "Aucun Avis Tour Media trouvé"
+      },
+      "created": "Un nouveau Avis Tour Media a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Avis Tour Media avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Avis Tour Media avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Avis Tour Media {{ id }} ?"
+      },
+      "detail": {
+        "title": "Avis Tour Media"
+      },
+      "mediaType": "Media Type",
+      "mediaUrl": "Media Url",
+      "mediacontent": "Mediacontent",
+      "score": "Score",
+      "avisTour": "Avis Tour"
+    }
+  }
+}

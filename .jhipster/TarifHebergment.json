@@ -1,0 +1,22 @@
+{
+  "name": "TarifHebergment",
+  "fields": [
+    {
+      "fieldName": "libTarifHergement",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20220119015238",
+  "javadoc": "MODULE HEBERGEMENT",
+  "entityTableName": "tarif_hebergment",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

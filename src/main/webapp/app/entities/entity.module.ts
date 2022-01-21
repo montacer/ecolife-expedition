@@ -72,6 +72,77 @@ import { RouterModule } from '@angular/router';
             m => m.EcoLifeExpeditionTarifServiceSupplementaireModule
           ),
       },
+      {
+        path: 'tarif-transfert',
+        loadChildren: () => import('./tarif-transfert/tarif-transfert.module').then(m => m.EcoLifeExpeditionTarifTransfertModule),
+      },
+      {
+        path: 'type-transfert',
+        loadChildren: () => import('./type-transfert/type-transfert.module').then(m => m.EcoLifeExpeditionTypeTransfertModule),
+      },
+      {
+        path: 'transfert',
+        loadChildren: () => import('./transfert/transfert.module').then(m => m.EcoLifeExpeditionTransfertModule),
+      },
+      {
+        path: 'avis-transfert',
+        loadChildren: () => import('./avis-transfert/avis-transfert.module').then(m => m.EcoLifeExpeditionAvisTransfertModule),
+      },
+      {
+        path: 'reservation-tour',
+        loadChildren: () => import('./reservation-tour/reservation-tour.module').then(m => m.EcoLifeExpeditionReservationTourModule),
+      },
+      {
+        path: 'reservation-hebergement',
+        loadChildren: () =>
+          import('./reservation-hebergement/reservation-hebergement.module').then(m => m.EcoLifeExpeditionReservationHebergementModule),
+      },
+      {
+        path: 'reservation-transfert',
+        loadChildren: () =>
+          import('./reservation-transfert/reservation-transfert.module').then(m => m.EcoLifeExpeditionReservationTransfertModule),
+      },
+      {
+        path: 'tarif-hebergment',
+        loadChildren: () => import('./tarif-hebergment/tarif-hebergment.module').then(m => m.EcoLifeExpeditionTarifHebergmentModule),
+      },
+      {
+        path: 'type-hebergement',
+        loadChildren: () => import('./type-hebergement/type-hebergement.module').then(m => m.EcoLifeExpeditionTypeHebergementModule),
+      },
+      {
+        path: 'hebergement',
+        loadChildren: () => import('./hebergement/hebergement.module').then(m => m.EcoLifeExpeditionHebergementModule),
+      },
+      {
+        path: 'hotel-media',
+        loadChildren: () => import('./hotel-media/hotel-media.module').then(m => m.EcoLifeExpeditionHotelMediaModule),
+      },
+      {
+        path: 'tarif-hebergement',
+        loadChildren: () => import('./tarif-hebergement/tarif-hebergement.module').then(m => m.EcoLifeExpeditionTarifHebergementModule),
+      },
+      {
+        path: 'avis-tour',
+        loadChildren: () => import('./avis-tour/avis-tour.module').then(m => m.EcoLifeExpeditionAvisTourModule),
+      },
+      {
+        path: 'avis-tour-media',
+        loadChildren: () => import('./avis-tour-media/avis-tour-media.module').then(m => m.EcoLifeExpeditionAvisTourMediaModule),
+      },
+      {
+        path: 'avis-hebergement',
+        loadChildren: () => import('./avis-hebergement/avis-hebergement.module').then(m => m.EcoLifeExpeditionAvisHebergementModule),
+      },
+      {
+        path: 'avis-hebergement-media',
+        loadChildren: () =>
+          import('./avis-hebergement-media/avis-hebergement-media.module').then(m => m.EcoLifeExpeditionAvisHebergementMediaModule),
+      },
+      {
+        path: 'type-region',
+        loadChildren: () => import('./type-region/type-region.module').then(m => m.EcoLifeExpeditionTypeRegionModule),
+      },
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ]),
   ],

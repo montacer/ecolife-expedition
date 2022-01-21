@@ -25,6 +25,9 @@
                     <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
                     <th scope="col" ><span jhiTranslate="ecoLifeExpeditionApp.hotel.libelleHotel">Libelle Hotel</span></th>
                     <th scope="col" ><span jhiTranslate="ecoLifeExpeditionApp.hotel.classeHotel">Classe Hotel</span></th>
+                    <th scope="col" ><span jhiTranslate="ecoLifeExpeditionApp.hotel.adresse">Adresse</span></th>
+                    <th scope="col" ><span jhiTranslate="ecoLifeExpeditionApp.hotel.lattitude">Lattitude</span></th>
+                    <th scope="col" ><span jhiTranslate="ecoLifeExpeditionApp.hotel.longitude">Longitude</span></th>
                     <th scope="col" ><span jhiTranslate="ecoLifeExpeditionApp.hotel.agence">Agence</span></th>
                     <th scope="col"></th>
                 </tr>
@@ -34,6 +37,9 @@
                     <td><a [routerLink]="['/hotel', hotel.id, 'view']">{{ hotel.id }}</a></td>
                     <td>{{ hotel.libelleHotel }}</td>
                     <td>{{ hotel.classeHotel }}</td>
+                    <td>{{ hotel.adresse }}</td>
+                    <td>{{ hotel.lattitude }}</td>
+                    <td>{{ hotel.longitude }}</td>
                     <td>
                         <div *ngIf="hotel.agence">
                             <a [routerLink]="['/agence', hotel.agence?.id, 'view']" >{{ hotel.agence?.id }}</a>

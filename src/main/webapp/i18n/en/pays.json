@@ -19,7 +19,8 @@
       "codIsoPays": "Cod Iso Pays",
       "libPays": "Lib Pays",
       "codeDevisePays": "Code Devise Pays",
-      "region": "Region"
+      "listRegions": "List Regions",
+      "regionOrigine": "Region Origine"
     }
   }
 }

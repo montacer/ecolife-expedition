@@ -1,0 +1,25 @@
+{
+  "ecoLifeExpeditionApp": {
+    "reservationHebergement": {
+      "home": {
+        "title": "ReservationHebergements",
+        "createLabel": "Créer un nouveau Reservation Hebergement",
+        "createOrEditLabel": "Créer ou éditer un Reservation Hebergement",
+        "notFound": "Aucun Reservation Hebergement trouvé"
+      },
+      "created": "Un nouveau Reservation Hebergement a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Reservation Hebergement avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Reservation Hebergement avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Reservation Hebergement {{ id }} ?"
+      },
+      "detail": {
+        "title": "Reservation Hebergement"
+      },
+      "montantTotalTTC": "Montant Total TTC",
+      "reservation": "Reservation",
+      "reservation": "Reservation",
+      "hebergement": "Hebergement"
+    }
+  }
+}

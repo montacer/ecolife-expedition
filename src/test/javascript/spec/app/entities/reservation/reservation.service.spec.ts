@@ -77,7 +77,7 @@ describe('Service Tests', () => {
             nombreAdulte: 1,
             nombreJeune: 1,
             nombreEnfant: 1,
-            montantTTC: 1,
+            montantTotalTTC: 1,
             libDevise: 'BBBBBB',
           },
           elemDefault
@@ -106,7 +106,7 @@ describe('Service Tests', () => {
             nombreAdulte: 1,
             nombreJeune: 1,
             nombreEnfant: 1,
-            montantTTC: 1,
+            montantTotalTTC: 1,
             libDevise: 'BBBBBB',
           },
           elemDefault

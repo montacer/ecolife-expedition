@@ -1,0 +1,73 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="ecoLifeExpeditionApp.tarifTransfert.home.title">Tarif Transferts</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-tarif-transfert" [routerLink]="['/tarif-transfert/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="ecoLifeExpeditionApp.tarifTransfert.home.createLabel">
+            Create a new Tarif Transfert
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="tarifTransferts?.length === 0">
+        <span jhiTranslate="ecoLifeExpeditionApp.tarifTransfert.home.notFound">No tarifTransferts found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="tarifTransferts && tarifTransferts.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="ecoLifeExpeditionApp.tarifTransfert.montantTTC">Montant TTC</span></th>
+                    <th scope="col" ><span jhiTranslate="ecoLifeExpeditionApp.tarifTransfert.typeTransfert">Type Transfert</span></th>
+                    <th scope="col" ><span jhiTranslate="ecoLifeExpeditionApp.tarifTransfert.typeTarif">Type Tarif</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let tarifTransfert of tarifTransferts ;trackBy: trackId">
+                    <td><a [routerLink]="['/tarif-transfert', tarifTransfert.id, 'view']">{{ tarifTransfert.id }}</a></td>
+                    <td>{{ tarifTransfert.montantTTC }}</td>
+                    <td>
+                        <div *ngIf="tarifTransfert.typeTransfert">
+                            <a [routerLink]="['/type-transfert', tarifTransfert.typeTransfert?.id, 'view']" >{{ tarifTransfert.typeTransfert?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="tarifTransfert.typeTarif">
+                            <a [routerLink]="['/type-tarif', tarifTransfert.typeTarif?.id, 'view']" >{{ tarifTransfert.typeTarif?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/tarif-transfert', tarifTransfert.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/tarif-transfert', tarifTransfert.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(tarifTransfert)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

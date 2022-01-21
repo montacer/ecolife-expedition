@@ -1,0 +1,23 @@
+{
+  "ecoLifeExpeditionApp": {
+    "tarifHebergement": {
+      "home": {
+        "title": "Tarif Hebergements",
+        "createLabel": "Create a new Tarif Hebergement",
+        "createOrEditLabel": "Create or edit a Tarif Hebergement",
+        "notFound": "No Tarif Hebergements found"
+      },
+      "created": "A new Tarif Hebergement is created with identifier {{ param }}",
+      "updated": "A Tarif Hebergement is updated with identifier {{ param }}",
+      "deleted": "A Tarif Hebergement is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Tarif Hebergement {{ id }}?"
+      },
+      "detail": {
+        "title": "Tarif Hebergement"
+      },
+      "montantTTC": "Montant TTC",
+      "typeTarif": "Type Tarif"
+    }
+  }
+}

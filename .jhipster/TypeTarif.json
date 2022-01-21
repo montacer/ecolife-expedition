@@ -9,15 +9,15 @@
   "relationships": [
     {
       "relationshipType": "one-to-many",
-      "otherEntityName": "tarifTour",
+      "otherEntityName": "tarifTransfert",
       "otherEntityRelationshipName": "typeTarif",
-      "relationshipName": "tarifTour"
+      "relationshipName": "tarifTransfert"
     },
     {
       "relationshipType": "one-to-many",
-      "otherEntityName": "tarifServiceSupplementaire",
+      "otherEntityName": "tarifHebergement",
       "otherEntityRelationshipName": "typeTarif",
-      "relationshipName": "tarifServiceSupplementaire"
+      "relationshipName": "tarifHebergement"
     }
   ],
   "changelogDate": "20220112021318",
@@ -30,5 +30,5 @@
   "readOnly": false,
   "embedded": false,
   "clientRootFolder": "",
-  "applications": ["ecoLifeExpedition"]
+  "applications": "*"
 }

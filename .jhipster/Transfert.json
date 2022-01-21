@@ -1,0 +1,41 @@
+{
+  "name": "Transfert",
+  "fields": [
+    {
+      "fieldName": "montantTTC",
+      "fieldType": "Float"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "avisTransfert",
+      "otherEntityRelationshipName": "transfert",
+      "relationshipName": "avisTransfert"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "reservationTransfert",
+      "otherEntityRelationshipName": "transfert",
+      "relationshipName": "reservationTransfert"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "typeTransfert",
+      "otherEntityRelationshipName": "transfert",
+      "relationshipName": "typeTransfert",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20220119003343",
+  "entityTableName": "transfert",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

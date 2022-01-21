@@ -8,6 +8,24 @@
     -->
     <changeSet id="20200812014449-2" author="jhipster">
         
+        <addForeignKeyConstraint baseColumnNames="reservation_tour_id"
+                                 baseTableName="reservation"
+                                 constraintName="fk_reservation_reservation_tour_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="reservation_tour"/>
+
+        <addForeignKeyConstraint baseColumnNames="reservation_hebergement_id"
+                                 baseTableName="reservation"
+                                 constraintName="fk_reservation_reservation_hebergement_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="reservation_hebergement"/>
+
+        <addForeignKeyConstraint baseColumnNames="reservation_transfert_id"
+                                 baseTableName="reservation"
+                                 constraintName="fk_reservation_reservation_transfert_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="reservation_transfert"/>
+
         <addForeignKeyConstraint baseColumnNames="donneur_ordre_id"
                                  baseTableName="reservation"
                                  constraintName="fk_reservation_donneur_ordre_id"

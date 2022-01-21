@@ -1,0 +1,52 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="hebergement">
+            <h2><span jhiTranslate="ecoLifeExpeditionApp.hebergement.detail.title">Hebergement</span> {{ hebergement.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ecoLifeExpeditionApp.hebergement.description">Description</span></dt>
+                <dd>
+                    <span>{{ hebergement.description }}</span>
+                </dd>
+                <dt><span jhiTranslate="ecoLifeExpeditionApp.hebergement.adresse">Adresse</span></dt>
+                <dd>
+                    <span>{{ hebergement.adresse }}</span>
+                </dd>
+                <dt><span jhiTranslate="ecoLifeExpeditionApp.hebergement.lattitude">Lattitude</span></dt>
+                <dd>
+                    <span>{{ hebergement.lattitude }}</span>
+                </dd>
+                <dt><span jhiTranslate="ecoLifeExpeditionApp.hebergement.longitude">Longitude</span></dt>
+                <dd>
+                    <span>{{ hebergement.longitude }}</span>
+                </dd>
+                <dt><span jhiTranslate="ecoLifeExpeditionApp.hebergement.montantTTc">Montant T Tc</span></dt>
+                <dd>
+                    <span>{{ hebergement.montantTTc }}</span>
+                </dd>
+                <dt><span jhiTranslate="ecoLifeExpeditionApp.hebergement.typeHebergement">Type Hebergement</span></dt>
+                <dd>
+                    <div *ngIf="hebergement.typeHebergement">
+                        <a [routerLink]="['/type-hebergement', hebergement.typeHebergement?.id, 'view']">{{ hebergement.typeHebergement?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/hebergement', hebergement.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

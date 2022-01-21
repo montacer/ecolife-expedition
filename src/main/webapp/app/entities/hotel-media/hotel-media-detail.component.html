@@ -1,0 +1,47 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="hotelMedia">
+            <h2><span jhiTranslate="ecoLifeExpeditionApp.hotelMedia.detail.title">Hotel Media</span> {{ hotelMedia.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ecoLifeExpeditionApp.hotelMedia.mediaUrl">Media Url</span></dt>
+                <dd>
+                    <span>{{ hotelMedia.mediaUrl }}</span>
+                </dd>
+                <dt><span jhiTranslate="ecoLifeExpeditionApp.hotelMedia.mediaType">Media Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'ecoLifeExpeditionApp.MediaType.' + hotelMedia.mediaType }}">{{ hotelMedia.mediaType }}</span>
+                </dd>
+                <dt><span jhiTranslate="ecoLifeExpeditionApp.hotelMedia.mediacontent">Mediacontent</span></dt>
+                <dd>
+                    <div *ngIf="hotelMedia.mediacontent">
+                        <a (click)="openFile(hotelMedia.mediacontentContentType, hotelMedia.mediacontent)" jhiTranslate="entity.action.open">open</a>
+                        {{ hotelMedia.mediacontentContentType }}, {{ byteSize(hotelMedia.mediacontent) }}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ecoLifeExpeditionApp.hotelMedia.hotel">Hotel</span></dt>
+                <dd>
+                    <div *ngIf="hotelMedia.hotel">
+                        <a [routerLink]="['/hotel', hotelMedia.hotel?.id, 'view']">{{ hotelMedia.hotel?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/hotel-media', hotelMedia.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

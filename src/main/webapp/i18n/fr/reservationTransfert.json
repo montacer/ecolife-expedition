@@ -1,0 +1,25 @@
+{
+  "ecoLifeExpeditionApp": {
+    "reservationTransfert": {
+      "home": {
+        "title": "ReservationTransferts",
+        "createLabel": "Créer un nouveau Reservation Transfert",
+        "createOrEditLabel": "Créer ou éditer un Reservation Transfert",
+        "notFound": "Aucun Reservation Transfert trouvé"
+      },
+      "created": "Un nouveau Reservation Transfert a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Reservation Transfert avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Reservation Transfert avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Reservation Transfert {{ id }} ?"
+      },
+      "detail": {
+        "title": "Reservation Transfert"
+      },
+      "montantTotalTTC": "Montant Total TTC",
+      "reservation": "Reservation",
+      "reservation": "Reservation",
+      "transfert": "Transfert"
+    }
+  }
+}

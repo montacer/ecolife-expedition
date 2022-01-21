@@ -8,6 +8,18 @@
     {
       "fieldName": "classeHotel",
       "fieldType": "Integer"
+    },
+    {
+      "fieldName": "adresse",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lattitude",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "longitude",
+      "fieldType": "Float"
     }
   ],
   "relationships": [
@@ -16,6 +28,12 @@
       "otherEntityName": "chambre",
       "otherEntityRelationshipName": "hotel",
       "relationshipName": "chambre"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "hotelMedia",
+      "otherEntityRelationshipName": "hotel",
+      "relationshipName": "hotelMedia"
     },
     {
       "relationshipType": "many-to-one",

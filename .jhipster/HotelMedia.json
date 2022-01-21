@@ -1,0 +1,39 @@
+{
+  "name": "HotelMedia",
+  "fields": [
+    {
+      "fieldName": "mediaUrl",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "mediaType",
+      "fieldType": "MediaType",
+      "fieldValues": "TEXT,AUDIO,VIDEO,IMAGE"
+    },
+    {
+      "fieldName": "mediacontent",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "any"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "hotel",
+      "otherEntityRelationshipName": "hotelMedia",
+      "relationshipName": "hotel",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20220119015638",
+  "entityTableName": "hotel_media",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

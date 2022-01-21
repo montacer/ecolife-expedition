@@ -1,0 +1,23 @@
+{
+  "ecoLifeExpeditionApp": {
+    "tarifHebergement": {
+      "home": {
+        "title": "TarifHebergements",
+        "createLabel": "Créer un nouveau Tarif Hebergement",
+        "createOrEditLabel": "Créer ou éditer un Tarif Hebergement",
+        "notFound": "Aucun Tarif Hebergement trouvé"
+      },
+      "created": "Un nouveau Tarif Hebergement a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Tarif Hebergement avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Tarif Hebergement avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Tarif Hebergement {{ id }} ?"
+      },
+      "detail": {
+        "title": "Tarif Hebergement"
+      },
+      "montantTTC": "Montant TTC",
+      "typeTarif": "Type Tarif"
+    }
+  }
+}

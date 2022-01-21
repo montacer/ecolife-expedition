@@ -1,4 +1,4 @@
-id;date_debut;date_fin;nombre_adulte;nombre_jeune;nombre_enfant;montant_ttc;lib_devise
+id;date_debut;date_fin;nombre_adulte;nombre_jeune;nombre_enfant;montant_total_ttc;lib_devise
 1;2020-08-11;2020-08-11;75709;33400;76242;35209;Architect Yuan Renminbi
 2;2020-08-11;2020-08-11;47616;85374;30407;98201;Kenya
 3;2020-08-11;2020-08-11;83240;77348;76583;92347;parsing Sleek

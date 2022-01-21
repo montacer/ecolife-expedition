@@ -1,0 +1,71 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="ecoLifeExpeditionApp.avisHebergement.home.title">Avis Hebergements</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-avis-hebergement" [routerLink]="['/avis-hebergement/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="ecoLifeExpeditionApp.avisHebergement.home.createLabel">
+            Create a new Avis Hebergement
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="avisHebergements?.length === 0">
+        <span jhiTranslate="ecoLifeExpeditionApp.avisHebergement.home.notFound">No avisHebergements found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="avisHebergements && avisHebergements.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="ecoLifeExpeditionApp.avisHebergement.author">Author</span></th>
+                    <th scope="col" ><span jhiTranslate="ecoLifeExpeditionApp.avisHebergement.nbreEtoile">Nbre Etoile</span></th>
+                    <th scope="col" ><span jhiTranslate="ecoLifeExpeditionApp.avisHebergement.commentaire">Commentaire</span></th>
+                    <th scope="col" ><span jhiTranslate="ecoLifeExpeditionApp.avisHebergement.hebergement">Hebergement</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let avisHebergement of avisHebergements ;trackBy: trackId">
+                    <td><a [routerLink]="['/avis-hebergement', avisHebergement.id, 'view']">{{ avisHebergement.id }}</a></td>
+                    <td>{{ avisHebergement.author }}</td>
+                    <td jhiTranslate="{{ 'ecoLifeExpeditionApp.Stars.' + avisHebergement.nbreEtoile }}">{{ avisHebergement.nbreEtoile }}</td>
+                    <td>{{ avisHebergement.commentaire }}</td>
+                    <td>
+                        <div *ngIf="avisHebergement.hebergement">
+                            <a [routerLink]="['/hebergement', avisHebergement.hebergement?.id, 'view']" >{{ avisHebergement.hebergement?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/avis-hebergement', avisHebergement.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/avis-hebergement', avisHebergement.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(avisHebergement)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

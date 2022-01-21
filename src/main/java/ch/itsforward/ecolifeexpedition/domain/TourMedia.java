@@ -31,7 +31,6 @@ public class TourMedia implements Serializable {
     @Column(name = "media_type")
     private MediaType mediaType;
 
-    @Lob
     @Column(name = "mediacontent")
     private byte[] mediacontent;
 
@@ -42,7 +41,6 @@ public class TourMedia implements Serializable {
     @JsonIgnoreProperties(value = "tourMedias", allowSetters = true)
     private Tour tour;
 
-    // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
         return id;
     }

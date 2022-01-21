@@ -1,0 +1,38 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="avisTour">
+            <h2><span jhiTranslate="ecoLifeExpeditionApp.avisTour.detail.title">Avis Tour</span> {{ avisTour.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ecoLifeExpeditionApp.avisTour.author">Author</span></dt>
+                <dd>
+                    <span>{{ avisTour.author }}</span>
+                </dd>
+                <dt><span jhiTranslate="ecoLifeExpeditionApp.avisTour.nbreEtoile">Nbre Etoile</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'ecoLifeExpeditionApp.Stars.' + avisTour.nbreEtoile }}">{{ avisTour.nbreEtoile }}</span>
+                </dd>
+                <dt><span jhiTranslate="ecoLifeExpeditionApp.avisTour.commentaire">Commentaire</span></dt>
+                <dd>
+                    <span>{{ avisTour.commentaire }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/avis-tour', avisTour.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

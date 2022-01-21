@@ -28,13 +28,31 @@
                 <dd>
                     <span>{{ reservation.nombreEnfant }}</span>
                 </dd>
-                <dt><span jhiTranslate="ecoLifeExpeditionApp.reservation.montantTTC">Montant TTC</span></dt>
+                <dt><span jhiTranslate="ecoLifeExpeditionApp.reservation.montantTotalTTC">Montant Total TTC</span></dt>
                 <dd>
-                    <span>{{ reservation.montantTTC }}</span>
+                    <span>{{ reservation.montantTotalTTC }}</span>
                 </dd>
                 <dt><span jhiTranslate="ecoLifeExpeditionApp.reservation.libDevise">Lib Devise</span></dt>
                 <dd>
                     <span>{{ reservation.libDevise }}</span>
+                </dd>
+                <dt><span jhiTranslate="ecoLifeExpeditionApp.reservation.reservationTour">Reservation Tour</span></dt>
+                <dd>
+                    <div *ngIf="reservation.reservationTour">
+                        <a [routerLink]="['/reservation-tour', reservation.reservationTour?.id, 'view']">{{ reservation.reservationTour?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ecoLifeExpeditionApp.reservation.reservationHebergement">Reservation Hebergement</span></dt>
+                <dd>
+                    <div *ngIf="reservation.reservationHebergement">
+                        <a [routerLink]="['/reservation-hebergement', reservation.reservationHebergement?.id, 'view']">{{ reservation.reservationHebergement?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ecoLifeExpeditionApp.reservation.reservationTransfert">Reservation Transfert</span></dt>
+                <dd>
+                    <div *ngIf="reservation.reservationTransfert">
+                        <a [routerLink]="['/reservation-transfert', reservation.reservationTransfert?.id, 'view']">{{ reservation.reservationTransfert?.id }}</a>
+                    </div>
                 </dd>
                 <dt><span jhiTranslate="ecoLifeExpeditionApp.reservation.donneurOrdre">Donneur Ordre</span></dt>
                 <dd>

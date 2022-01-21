@@ -1,0 +1,22 @@
+{
+  "ecoLifeExpeditionApp": {
+    "tarifHebergment": {
+      "home": {
+        "title": "Tarif Hebergments",
+        "createLabel": "Create a new Tarif Hebergment",
+        "createOrEditLabel": "Create or edit a Tarif Hebergment",
+        "notFound": "No Tarif Hebergments found"
+      },
+      "created": "A new Tarif Hebergment is created with identifier {{ param }}",
+      "updated": "A Tarif Hebergment is updated with identifier {{ param }}",
+      "deleted": "A Tarif Hebergment is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Tarif Hebergment {{ id }}?"
+      },
+      "detail": {
+        "title": "Tarif Hebergment"
+      },
+      "libTarifHergement": "Lib Tarif Hergement"
+    }
+  }
+}

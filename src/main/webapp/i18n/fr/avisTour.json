@@ -1,0 +1,25 @@
+{
+  "ecoLifeExpeditionApp": {
+    "avisTour": {
+      "home": {
+        "title": "AvisTours",
+        "createLabel": "Créer un nouveau Avis Tour",
+        "createOrEditLabel": "Créer ou éditer un Avis Tour",
+        "notFound": "Aucun Avis Tour trouvé"
+      },
+      "created": "Un nouveau Avis Tour a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Avis Tour avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Avis Tour avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Avis Tour {{ id }} ?"
+      },
+      "detail": {
+        "title": "Avis Tour"
+      },
+      "author": "Author",
+      "nbreEtoile": "Nbre Etoile",
+      "commentaire": "Commentaire",
+      "avisTourMedia": "Avis Tour Media"
+    }
+  }
+}

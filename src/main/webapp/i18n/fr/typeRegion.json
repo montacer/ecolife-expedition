@@ -1,0 +1,23 @@
+{
+  "ecoLifeExpeditionApp": {
+    "typeRegion": {
+      "home": {
+        "title": "TypeRegions",
+        "createLabel": "Créer un nouveau Type Region",
+        "createOrEditLabel": "Créer ou éditer un Type Region",
+        "notFound": "Aucun Type Region trouvé"
+      },
+      "created": "Un nouveau Type Region a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Type Region avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Type Region avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Type Region {{ id }} ?"
+      },
+      "detail": {
+        "title": "Type Region"
+      },
+      "libTypeRegion": "Lib Type Region",
+      "region": "Region"
+    }
+  }
+}

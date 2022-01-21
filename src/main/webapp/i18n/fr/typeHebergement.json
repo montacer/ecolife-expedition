@@ -1,0 +1,23 @@
+{
+  "ecoLifeExpeditionApp": {
+    "typeHebergement": {
+      "home": {
+        "title": "TypeHebergements",
+        "createLabel": "Créer un nouveau Type Hebergement",
+        "createOrEditLabel": "Créer ou éditer un Type Hebergement",
+        "notFound": "Aucun Type Hebergement trouvé"
+      },
+      "created": "Un nouveau Type Hebergement a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Type Hebergement avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Type Hebergement avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Type Hebergement {{ id }} ?"
+      },
+      "detail": {
+        "title": "Type Hebergement"
+      },
+      "libTypeHebergement": "Lib Type Hebergement",
+      "hebergement": "Hebergement"
+    }
+  }
+}

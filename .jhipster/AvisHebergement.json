@@ -1,0 +1,44 @@
+{
+  "name": "AvisHebergement",
+  "fields": [
+    {
+      "fieldName": "author",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nbreEtoile",
+      "fieldType": "Stars",
+      "fieldValues": "ONE (1),TWO (2),THREE (3),FOUR (4),FIVE (5)"
+    },
+    {
+      "fieldName": "commentaire",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "avisHebergementMedia",
+      "otherEntityRelationshipName": "avisHebergement",
+      "relationshipName": "avisHebergementMedia"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "hebergement",
+      "otherEntityRelationshipName": "avisHebergement",
+      "relationshipName": "hebergement",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20220119020238",
+  "entityTableName": "avis_hebergement",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

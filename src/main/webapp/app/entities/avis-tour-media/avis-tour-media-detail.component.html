@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="avisTourMedia">
+            <h2><span jhiTranslate="ecoLifeExpeditionApp.avisTourMedia.detail.title">Avis Tour Media</span> {{ avisTourMedia.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ecoLifeExpeditionApp.avisTourMedia.mediaType">Media Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'ecoLifeExpeditionApp.MediaType.' + avisTourMedia.mediaType }}">{{ avisTourMedia.mediaType }}</span>
+                </dd>
+                <dt><span jhiTranslate="ecoLifeExpeditionApp.avisTourMedia.mediaUrl">Media Url</span></dt>
+                <dd>
+                    <span>{{ avisTourMedia.mediaUrl }}</span>
+                </dd>
+                <dt><span jhiTranslate="ecoLifeExpeditionApp.avisTourMedia.mediacontent">Mediacontent</span></dt>
+                <dd>
+                    <div *ngIf="avisTourMedia.mediacontent">
+                        <a (click)="openFile(avisTourMedia.mediacontentContentType, avisTourMedia.mediacontent)" jhiTranslate="entity.action.open">open</a>
+                        {{ avisTourMedia.mediacontentContentType }}, {{ byteSize(avisTourMedia.mediacontent) }}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ecoLifeExpeditionApp.avisTourMedia.score">Score</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'ecoLifeExpeditionApp.Stars.' + avisTourMedia.score }}">{{ avisTourMedia.score }}</span>
+                </dd>
+                <dt><span jhiTranslate="ecoLifeExpeditionApp.avisTourMedia.avisTour">Avis Tour</span></dt>
+                <dd>
+                    <div *ngIf="avisTourMedia.avisTour">
+                        <a [routerLink]="['/avis-tour', avisTourMedia.avisTour?.id, 'view']">{{ avisTourMedia.avisTour?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/avis-tour-media', avisTourMedia.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

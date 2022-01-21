@@ -1,0 +1,24 @@
+{
+  "ecoLifeExpeditionApp": {
+    "tarifTransfert": {
+      "home": {
+        "title": "Tarif Transferts",
+        "createLabel": "Create a new Tarif Transfert",
+        "createOrEditLabel": "Create or edit a Tarif Transfert",
+        "notFound": "No Tarif Transferts found"
+      },
+      "created": "A new Tarif Transfert is created with identifier {{ param }}",
+      "updated": "A Tarif Transfert is updated with identifier {{ param }}",
+      "deleted": "A Tarif Transfert is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Tarif Transfert {{ id }}?"
+      },
+      "detail": {
+        "title": "Tarif Transfert"
+      },
+      "montantTTC": "Montant TTC",
+      "typeTransfert": "Type Transfert",
+      "typeTarif": "Type Tarif"
+    }
+  }
+}

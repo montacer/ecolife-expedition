@@ -89,11 +89,25 @@ public class ReservationResource {
      */
     @GetMapping("/reservations")
     public List<Reservation> getAllReservations(@RequestParam(required = false) String filter) {
-        if ("tour-is-null".equals(filter)) {
-            log.debug("REST request to get all Reservations where tour is null");
+        if ("reservationtour-is-null".equals(filter)) {
+            log.debug("REST request to get all Reservations where reservationTour is null");
             return StreamSupport
                 .stream(reservationRepository.findAll().spliterator(), false)
-                .filter(reservation -> reservation.getTour() == null)
+                .filter(reservation -> reservation.getReservationTour() == null)
+                .collect(Collectors.toList());
+        }
+        if ("reservationhebergement-is-null".equals(filter)) {
+            log.debug("REST request to get all Reservations where reservationHebergement is null");
+            return StreamSupport
+                .stream(reservationRepository.findAll().spliterator(), false)
+                .filter(reservation -> reservation.getReservationHebergement() == null)
+                .collect(Collectors.toList());
+        }
+        if ("reservationtransfert-is-null".equals(filter)) {
+            log.debug("REST request to get all Reservations where reservationTransfert is null");
+            return StreamSupport
+                .stream(reservationRepository.findAll().spliterator(), false)
+                .filter(reservation -> reservation.getReservationTransfert() == null)
                 .collect(Collectors.toList());
         }
         log.debug("REST request to get all Reservations");

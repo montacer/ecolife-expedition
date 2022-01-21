@@ -12,7 +12,7 @@
         Added the entity Agence.
     -->
     <changeSet id="20200812014149-1" author="jhipster">
-        <createTable tableName="agence">
+        <createTable tableName="agence" remarks="MODULE RESERVATION\n">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>

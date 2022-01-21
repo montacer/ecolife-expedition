@@ -19,7 +19,14 @@
       "relationshipType": "one-to-many",
       "otherEntityName": "region",
       "otherEntityRelationshipName": "pays",
-      "relationshipName": "region"
+      "relationshipName": "listRegions"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "region",
+      "otherEntityRelationshipName": "pays",
+      "relationshipName": "regionOrigine",
+      "otherEntityField": "id"
     }
   ],
   "changelogDate": "20200812012355",

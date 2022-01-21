@@ -1,0 +1,44 @@
+{
+  "name": "ReservationHebergement",
+  "fields": [
+    {
+      "fieldName": "montantTotalTTC",
+      "fieldType": "Float"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "reservation",
+      "otherEntityRelationshipName": "reservationHebergement",
+      "relationshipName": "reservation",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "reservation",
+      "otherEntityRelationshipName": "reservationHebergement",
+      "relationshipName": "reservation",
+      "ownerSide": false
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "hebergement",
+      "otherEntityRelationshipName": "reservationHebergement",
+      "relationshipName": "hebergement",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20220119015038",
+  "entityTableName": "reservation_hebergement",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

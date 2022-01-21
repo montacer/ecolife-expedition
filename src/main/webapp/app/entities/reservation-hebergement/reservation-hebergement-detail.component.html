@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="reservationHebergement">
+            <h2><span jhiTranslate="ecoLifeExpeditionApp.reservationHebergement.detail.title">Reservation Hebergement</span> {{ reservationHebergement.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ecoLifeExpeditionApp.reservationHebergement.montantTotalTTC">Montant Total TTC</span></dt>
+                <dd>
+                    <span>{{ reservationHebergement.montantTotalTTC }}</span>
+                </dd>
+                <dt><span jhiTranslate="ecoLifeExpeditionApp.reservationHebergement.reservation">Reservation</span></dt>
+                <dd>
+                    <div *ngIf="reservationHebergement.reservation">
+                        <a [routerLink]="['/reservation', reservationHebergement.reservation?.id, 'view']">{{ reservationHebergement.reservation?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ecoLifeExpeditionApp.reservationHebergement.hebergement">Hebergement</span></dt>
+                <dd>
+                    <div *ngIf="reservationHebergement.hebergement">
+                        <a [routerLink]="['/hebergement', reservationHebergement.hebergement?.id, 'view']">{{ reservationHebergement.hebergement?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/reservation-hebergement', reservationHebergement.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

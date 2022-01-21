@@ -21,11 +21,16 @@
       "nombreAdulte": "Nombre Adulte",
       "nombreJeune": "Nombre Jeune",
       "nombreEnfant": "Nombre Enfant",
-      "montantTTC": "Montant TTC",
+      "montantTotalTTC": "Montant Total TTC",
       "libDevise": "Lib Devise",
+      "reservationTour": "Reservation Tour",
+      "reservationHebergement": "Reservation Hebergement",
+      "reservationTransfert": "Reservation Transfert",
       "chambre": "Chambre",
       "client": "Client",
-      "tour": "Tour",
+      "reservationTour": "Reservation Tour",
+      "reservationHebergement": "Reservation Hebergement",
+      "reservationTransfert": "Reservation Transfert",
       "donneurOrdre": "Donneur Ordre"
     }
   }

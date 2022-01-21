@@ -26,6 +26,7 @@
                     <th scope="col" ><span jhiTranslate="ecoLifeExpeditionApp.pays.codIsoPays">Cod Iso Pays</span></th>
                     <th scope="col" ><span jhiTranslate="ecoLifeExpeditionApp.pays.libPays">Lib Pays</span></th>
                     <th scope="col" ><span jhiTranslate="ecoLifeExpeditionApp.pays.codeDevisePays">Code Devise Pays</span></th>
+                    <th scope="col" ><span jhiTranslate="ecoLifeExpeditionApp.pays.regionOrigine">Region Origine</span></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -35,6 +36,11 @@
                     <td>{{ pays.codIsoPays }}</td>
                     <td>{{ pays.libPays }}</td>
                     <td>{{ pays.codeDevisePays }}</td>
+                    <td>
+                        <div *ngIf="pays.regionOrigine">
+                            <a [routerLink]="['/region', pays.regionOrigine?.id, 'view']" >{{ pays.regionOrigine?.id }}</a>
+                        </div>
+                    </td>
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit"

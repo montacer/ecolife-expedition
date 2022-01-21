@@ -27,15 +27,19 @@ public class Region implements Serializable {
     @Column(name = "lib_region")
     private String libRegion;
 
-    @OneToMany(mappedBy = "region")
+    @OneToMany(mappedBy = "regionOrigine")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<Tour> tours = new HashSet<>();
+    private Set<Pays> listPays = new HashSet<>();
+
+    @ManyToOne
+    @JsonIgnoreProperties(value = "listRegions", allowSetters = true)
+    private Pays pays;
 
     @ManyToOne
     @JsonIgnoreProperties(value = "regions", allowSetters = true)
-    private Pays pays;
+    private TypeRegion typeRegion;
 
-    
+    // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
         return id;
     }
@@ -57,29 +61,29 @@ public class Region implements Serializable {
         this.libRegion = libRegion;
     }
 
-    public Set<Tour> getTours() {
-        return tours;
+    public Set<Pays> getListPays() {
+        return listPays;
     }
 
-    public Region tours(Set<Tour> tours) {
-        this.tours = tours;
+    public Region listPays(Set<Pays> pays) {
+        this.listPays = pays;
         return this;
     }
 
-    public Region addTour(Tour tour) {
-        this.tours.add(tour);
-        tour.setRegion(this);
+    public Region addListPays(Pays pays) {
+        this.listPays.add(pays);
+        pays.setRegionOrigine(this);
         return this;
     }
 
-    public Region removeTour(Tour tour) {
-        this.tours.remove(tour);
-        tour.setRegion(null);
+    public Region removeListPays(Pays pays) {
+        this.listPays.remove(pays);
+        pays.setRegionOrigine(null);
         return this;
     }
 
-    public void setTours(Set<Tour> tours) {
-        this.tours = tours;
+    public void setListPays(Set<Pays> pays) {
+        this.listPays = pays;
     }
 
     public Pays getPays() {
@@ -95,6 +99,19 @@ public class Region implements Serializable {
         this.pays = pays;
     }
 
+    public TypeRegion getTypeRegion() {
+        return typeRegion;
+    }
+
+    public Region typeRegion(TypeRegion typeRegion) {
+        this.typeRegion = typeRegion;
+        return this;
+    }
+
+    public void setTypeRegion(TypeRegion typeRegion) {
+        this.typeRegion = typeRegion;
+    }
+    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
     @Override
     public boolean equals(Object o) {

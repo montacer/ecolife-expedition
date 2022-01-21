@@ -5,7 +5,8 @@ export interface IPays {
   codIsoPays?: string;
   libPays?: string;
   codeDevisePays?: string;
-  regions?: IRegion[];
+  listRegions?: IRegion[];
+  regionOrigine?: IRegion;
 }
 
 export class Pays implements IPays {
@@ -14,6 +15,7 @@ export class Pays implements IPays {
     public codIsoPays?: string,
     public libPays?: string,
     public codeDevisePays?: string,
-    public regions?: IRegion[]
+    public listRegions?: IRegion[],
+    public regionOrigine?: IRegion
   ) {}
 }

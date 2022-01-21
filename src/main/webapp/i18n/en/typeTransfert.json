@@ -1,0 +1,24 @@
+{
+  "ecoLifeExpeditionApp": {
+    "typeTransfert": {
+      "home": {
+        "title": "Type Transferts",
+        "createLabel": "Create a new Type Transfert",
+        "createOrEditLabel": "Create or edit a Type Transfert",
+        "notFound": "No Type Transferts found"
+      },
+      "created": "A new Type Transfert is created with identifier {{ param }}",
+      "updated": "A Type Transfert is updated with identifier {{ param }}",
+      "deleted": "A Type Transfert is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Type Transfert {{ id }}?"
+      },
+      "detail": {
+        "title": "Type Transfert"
+      },
+      "libTypeTransfert": "Lib Type Transfert",
+      "transfert": "Transfert",
+      "tarifTransfert": "Tarif Transfert"
+    }
+  }
+}

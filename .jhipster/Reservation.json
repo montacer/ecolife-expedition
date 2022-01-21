@@ -22,7 +22,7 @@
       "fieldType": "Integer"
     },
     {
-      "fieldName": "montantTTC",
+      "fieldName": "montantTotalTTC",
       "fieldType": "Float"
     },
     {
@@ -32,11 +32,30 @@
   ],
   "relationships": [
     {
-      "relationshipType": "one-to-many",
-      "otherEntityName": "chambre",
+      "relationshipType": "one-to-one",
+      "otherEntityName": "reservationTour",
       "otherEntityRelationshipName": "reservation",
-      "relationshipName": "chambre"
+      "relationshipName": "reservationTour",
+      "otherEntityField": "id",
+      "ownerSide": true
     },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "reservationHebergement",
+      "otherEntityRelationshipName": "reservation",
+      "relationshipName": "reservationHebergement",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "reservationTransfert",
+      "otherEntityRelationshipName": "reservation",
+      "relationshipName": "reservationTransfert",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    
     {
       "relationshipType": "one-to-many",
       "otherEntityName": "client",
@@ -45,9 +64,23 @@
     },
     {
       "relationshipType": "one-to-one",
-      "otherEntityName": "tour",
+      "otherEntityName": "reservationTour",
       "otherEntityRelationshipName": "reservation",
-      "relationshipName": "tour",
+      "relationshipName": "reservationTour",
+      "ownerSide": false
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "reservationHebergement",
+      "otherEntityRelationshipName": "reservation",
+      "relationshipName": "reservationHebergement",
+      "ownerSide": false
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "reservationTransfert",
+      "otherEntityRelationshipName": "reservation",
+      "relationshipName": "reservationTransfert",
       "ownerSide": false
     },
     {

@@ -1,0 +1,36 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="transfert">
+            <h2><span jhiTranslate="ecoLifeExpeditionApp.transfert.detail.title">Transfert</span> {{ transfert.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ecoLifeExpeditionApp.transfert.montantTTC">Montant TTC</span></dt>
+                <dd>
+                    <span>{{ transfert.montantTTC }}</span>
+                </dd>
+                <dt><span jhiTranslate="ecoLifeExpeditionApp.transfert.typeTransfert">Type Transfert</span></dt>
+                <dd>
+                    <div *ngIf="transfert.typeTransfert">
+                        <a [routerLink]="['/type-transfert', transfert.typeTransfert?.id, 'view']">{{ transfert.typeTransfert?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/transfert', transfert.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

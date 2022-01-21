@@ -1,18 +1,18 @@
-import { ITarifTour } from 'app/shared/model/tarif-tour.model';
-import { ITarifServiceSupplementaire } from 'app/shared/model/tarif-service-supplementaire.model';
+import { ITarifTransfert } from 'app/shared/model/tarif-transfert.model';
+import { ITarifHebergement } from 'app/shared/model/tarif-hebergement.model';
 
 export interface ITypeTarif {
   id?: number;
   libTypeTarif?: string;
-  tarifTours?: ITarifTour[];
-  tarifServiceSupplementaires?: ITarifServiceSupplementaire[];
+  tarifTransferts?: ITarifTransfert[];
+  tarifHebergements?: ITarifHebergement[];
 }
 
 export class TypeTarif implements ITypeTarif {
   constructor(
     public id?: number,
     public libTypeTarif?: string,
-    public tarifTours?: ITarifTour[],
-    public tarifServiceSupplementaires?: ITarifServiceSupplementaire[]
+    public tarifTransferts?: ITarifTransfert[],
+    public tarifHebergements?: ITarifHebergement[]
   ) {}
 }

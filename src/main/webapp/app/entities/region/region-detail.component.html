@@ -18,6 +18,12 @@
                         <a [routerLink]="['/pays', region.pays?.id, 'view']">{{ region.pays?.id }}</a>
                     </div>
                 </dd>
+                <dt><span jhiTranslate="ecoLifeExpeditionApp.region.typeRegion">Type Region</span></dt>
+                <dd>
+                    <div *ngIf="region.typeRegion">
+                        <a [routerLink]="['/type-region', region.typeRegion?.id, 'view']">{{ region.typeRegion?.id }}</a>
+                    </div>
+                </dd>
             </dl>
 
             <button type="submit"

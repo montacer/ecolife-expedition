@@ -1,0 +1,39 @@
+{
+  "name": "AvisHebergementMedia",
+  "fields": [
+    {
+      "fieldName": "mediaType",
+      "fieldType": "MediaType",
+      "fieldValues": "TEXT,AUDIO,VIDEO,IMAGE"
+    },
+    {
+      "fieldName": "mediaUrl",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "mediacontent",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "any"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "avisHebergement",
+      "otherEntityRelationshipName": "avisHebergementMedia",
+      "relationshipName": "avisHebergement",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20220119020338",
+  "entityTableName": "avis_hebergement_media",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}
